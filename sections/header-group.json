@@ -205,9 +205,10 @@
           "type": "item",
           "settings": {
             "icon": "chat_bubble",
-            "heading": "Chat facility",
-            "text": "<p>Talk to a real person</p>",
-            "link": ""
+            "custom_icon": "shopify://shop_images/swatch.png",
+            "heading": "Order Fabric Samples",
+            "text": "<p>Click Here to Order</p>",
+            "link": "shopify://pages/request-fabric-samples"
           }
         }
       },
