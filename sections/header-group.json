@@ -84,6 +84,7 @@
         "text-1",
         "discount-2"
       ],
+      "disabled": true,
       "settings": {
         "section_height": "xsmall",
         "color_scheme": "1",
@@ -94,6 +95,50 @@
     },
     "header": {
       "type": "header",
+      "blocks": {
+        "columns_FPearL": {
+          "type": "columns",
+          "settings": {
+            "title": "",
+            "collection_images": "none",
+            "collection_use_product_image": false,
+            "collection_circle_image": false,
+            "show_underline": true,
+            "promo_position": "bottom",
+            "promo_min_height": 200,
+            "promo_text_color": "#ffffff",
+            "promo_tint_color": "#000000",
+            "promo_tint_opacity": 20,
+            "promo1_content": "",
+            "promo1_link_url": "",
+            "promo1_text_size": 16,
+            "promo1_text_width": 100,
+            "promo1_text_alignment": "justify-center items-center text-center",
+            "promo2_content": "",
+            "promo2_link_url": "",
+            "promo2_text_size": 16,
+            "promo2_text_width": 100,
+            "promo2_text_alignment": "justify-center items-center text-center",
+            "promo3_content": "",
+            "promo3_link_url": "",
+            "promo3_text_size": 16,
+            "promo3_text_width": 100,
+            "promo3_text_alignment": "justify-center items-center text-center",
+            "badge1_color": "#000000",
+            "badge1_link": "",
+            "badge1_text": "",
+            "badge2_color": "#000000",
+            "badge2_link": "",
+            "badge2_text": "",
+            "badge3_color": "#000000",
+            "badge3_link": "",
+            "badge3_text": ""
+          }
+        }
+      },
+      "block_order": [
+        "columns_FPearL"
+      ],
       "settings": {
         "enable_sticky": true,
         "mobile_menu_position": "burger-left",
@@ -122,11 +167,77 @@
         "text_color": "#070707",
         "accent_color": "#777777"
       }
+    },
+    "icons_with_text_4UPnyf": {
+      "type": "icons-with-text",
+      "blocks": {
+        "item_dW98CG": {
+          "type": "item",
+          "settings": {
+            "icon": "truck",
+            "custom_icon": "shopify://shop_images/delivery.png",
+            "heading": "Delivery Timescales",
+            "text": "<p>Beds 7-10 Working Days<br/>Sofas 4-5 Weeks</p>",
+            "link": ""
+          }
+        },
+        "item_DcpcPM": {
+          "type": "item",
+          "settings": {
+            "icon": "price_tag",
+            "custom_icon": "shopify://shop_images/guarantee.png",
+            "heading": "Our Guarantee",
+            "text": "<p>2 Years On All Items</p>",
+            "link": ""
+          }
+        },
+        "item_mY3ARw": {
+          "type": "item",
+          "settings": {
+            "icon": "return",
+            "custom_icon": "shopify://shop_images/star.png",
+            "heading": "Customer Reviews",
+            "text": "<p>100s Of Happy Customers</p>",
+            "link": ""
+          }
+        },
+        "item_7d6Lqp": {
+          "type": "item",
+          "settings": {
+            "icon": "chat_bubble",
+            "heading": "Chat facility",
+            "text": "<p>Talk to a real person</p>",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "item_dW98CG",
+        "item_DcpcPM",
+        "item_mY3ARw",
+        "item_7d6Lqp"
+      ],
+      "name": "Icons with text",
+      "settings": {
+        "heading": "",
+        "heading_align": "text-start",
+        "icon_size": 48,
+        "title_type_scale": "medium",
+        "text_type_scale": "medium",
+        "icon_position": "beside",
+        "mobile_stack": false,
+        "section_height": "medium",
+        "color_scheme": "1",
+        "full_width": true,
+        "dividers": "none",
+        "prevent_animation": false
+      }
     }
   },
   "order": [
     "announcement",
     "promo-strip",
-    "header"
+    "header",
+    "icons_with_text_4UPnyf"
   ]
 }
