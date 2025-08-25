@@ -176,6 +176,10 @@
     },
     "featured_collection_xrD4mD": {
       "type": "featured-collection",
+      "custom_css": [
+        ".money {color: red;}",
+        ".card--product-contained {--text-color: var(--card-text-color); padding: calc(5 * var(--space-unit)); border: 1px solid #000; background-color: var(--card-bg-color); color: rgb(var(--card-text-color));}"
+      ],
       "name": "Featured collection",
       "settings": {
         "title": "Affordable Slumber",
@@ -227,6 +231,9 @@
     },
     "featured_collection_7Kmk3G": {
       "type": "featured-collection",
+      "custom_css": [
+        ".card--product-contained {--text-color: var(--card-text-color); padding: calc(5 * var(--space-unit)); border: 1px solid #000; background-color: var(--card-bg-color); color: rgb(var(--card-text-color));}"
+      ],
       "name": "Featured collection",
       "settings": {
         "title": "Bed with Storage",
@@ -247,6 +254,34 @@
         "button_label": "",
         "color_scheme": "2",
         "button_style": "btn btn--primary"
+      }
+    },
+    "featured_collection_nYzJK6": {
+      "type": "featured-collection",
+      "custom_css": [
+        ".card:not(.card--related) .price {padding-top: 12px; color: red;}",
+        ".card--product-contained {--text-color: var(--card-text-color); padding: calc(5 * var(--space-unit)); border: 1px solid #000; background-color: var(--card-bg-color); color: rgb(var(--card-text-color));}"
+      ],
+      "name": "Featured collection",
+      "settings": {
+        "title": "Best Sellers",
+        "heading_align": "text-start",
+        "show_view_all": true,
+        "collection": "best-sellers",
+        "layout": "grid",
+        "card_size_mobile": "small",
+        "card_size": "medium",
+        "products_to_show": 8,
+        "show_highlight_products": false,
+        "show_promo_info": false,
+        "image": "shopify://shop_images/Affordable_Elegance.jpg",
+        "image_ratio": "natural",
+        "promo_title": "",
+        "content": "",
+        "link_url": "shopify://collections/affordable-slumber",
+        "button_label": "",
+        "color_scheme": "none",
+        "button_style": "btn btn--secondary"
       }
     },
     "collection-list": {
@@ -1089,6 +1124,7 @@
     "featured_collection_xrD4mD",
     "featured_collection_ThRPFX",
     "featured_collection_7Kmk3G",
+    "featured_collection_nYzJK6",
     "collection-list",
     "scrolling-banner",
     "promo-grid",
