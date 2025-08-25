@@ -351,6 +351,33 @@
         "button_style": "btn--primary"
       }
     },
+    "featured_collection_gJC6d9": {
+      "type": "featured-collection",
+      "custom_css": [
+        ".card--product-contained {--text-color: var(--card-text-color); padding: calc(5 * var(--space-unit)); border: 1px solid #000; background-color: var(--card-bg-color); color: rgb(var(--card-text-color));}"
+      ],
+      "name": "Featured collection",
+      "settings": {
+        "title": "Divan Collection",
+        "heading_align": "text-start",
+        "show_view_all": true,
+        "collection": "divan-bed-sets",
+        "layout": "grid",
+        "card_size_mobile": "small",
+        "card_size": "small",
+        "products_to_show": 8,
+        "show_highlight_products": false,
+        "show_promo_info": false,
+        "image": "shopify://shop_images/Affordable_Elegance.jpg",
+        "image_ratio": "natural",
+        "promo_title": "",
+        "content": "",
+        "link_url": "shopify://collections/affordable-slumber",
+        "button_label": "",
+        "color_scheme": "2",
+        "button_style": "btn btn--primary"
+      }
+    },
     "collection-list": {
       "type": "collection-list",
       "blocks": {
@@ -1114,6 +1141,7 @@
     "featured_collection_7Kmk3G",
     "featured_collection_nYzJK6",
     "link-lists",
+    "featured_collection_gJC6d9",
     "collection-list",
     "scrolling-banner",
     "promo-grid",
