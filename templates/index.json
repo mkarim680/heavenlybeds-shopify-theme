@@ -225,6 +225,30 @@
         "button_style": "btn btn--primary"
       }
     },
+    "featured_collection_7Kmk3G": {
+      "type": "featured-collection",
+      "name": "Featured collection",
+      "settings": {
+        "title": "Bed with Storage",
+        "heading_align": "text-start",
+        "show_view_all": true,
+        "collection": "",
+        "layout": "carousel",
+        "card_size_mobile": "small",
+        "card_size": "medium",
+        "products_to_show": 8,
+        "show_highlight_products": true,
+        "show_promo_info": false,
+        "image": "shopify://shop_images/Affordable_Elegance.jpg",
+        "image_ratio": "natural",
+        "promo_title": "",
+        "content": "",
+        "link_url": "shopify://collections/affordable-slumber",
+        "button_label": "",
+        "color_scheme": "2",
+        "button_style": "btn btn--primary"
+      }
+    },
     "collection-list": {
       "type": "collection-list",
       "blocks": {
@@ -1064,6 +1088,7 @@
     "countdown-timer",
     "featured_collection_xrD4mD",
     "featured_collection_ThRPFX",
+    "featured_collection_7Kmk3G",
     "collection-list",
     "scrolling-banner",
     "promo-grid",
