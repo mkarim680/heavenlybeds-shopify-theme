@@ -232,7 +232,7 @@
         "title": "Bed with Storage",
         "heading_align": "text-start",
         "show_view_all": true,
-        "collection": "",
+        "collection": "beds-with-storage-new",
         "layout": "carousel",
         "card_size_mobile": "small",
         "card_size": "medium",
