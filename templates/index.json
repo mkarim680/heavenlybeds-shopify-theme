@@ -284,6 +284,73 @@
         "button_style": "btn btn--secondary"
       }
     },
+    "link-lists": {
+      "type": "link-lists",
+      "blocks": {
+        "links-column-0": {
+          "type": "column",
+          "settings": {
+            "heading": "Bed Size",
+            "heading_bg_color": "#e98c57",
+            "heading_text_color": "#ffffff",
+            "menu": "bed-size",
+            "button_label": "View All",
+            "button_link": "shopify://collections/bedframes-full-collection"
+          }
+        },
+        "links-column-1": {
+          "type": "column",
+          "settings": {
+            "heading": "Popular Colour",
+            "heading_bg_color": "#e98c57",
+            "heading_text_color": "#ffffff",
+            "menu": "popular-colour",
+            "button_label": "View All",
+            "button_link": "shopify://collections/bedframes-full-collection"
+          }
+        },
+        "links-column-2": {
+          "type": "column",
+          "settings": {
+            "heading": "Bed Material",
+            "heading_bg_color": "#e98c57",
+            "heading_text_color": "#ffffff",
+            "menu": "bed-material",
+            "button_label": "View All",
+            "button_link": "shopify://collections/bedframes-full-collection"
+          }
+        },
+        "links-column-3": {
+          "type": "column",
+          "settings": {
+            "heading": "Bed Type",
+            "heading_bg_color": "#e98c57",
+            "heading_text_color": "#ffffff",
+            "menu": "bed-type",
+            "button_label": "View All",
+            "button_link": "shopify://collections/bedframes-full-collection"
+          }
+        }
+      },
+      "block_order": [
+        "links-column-0",
+        "links-column-1",
+        "links-column-2",
+        "links-column-3"
+      ],
+      "settings": {
+        "title": "Shop By",
+        "heading_align": "text-start",
+        "button_label": "",
+        "button_link": "",
+        "layout": "carousel",
+        "column_size": "small",
+        "column_align": "left",
+        "color_scheme": "none",
+        "image_ratio": "1.77",
+        "button_style": "btn--primary"
+      }
+    },
     "collection-list": {
       "type": "collection-list",
       "blocks": {
@@ -697,85 +764,6 @@
         "button_style": "btn btn--primary"
       }
     },
-    "link-lists": {
-      "type": "link-lists",
-      "blocks": {
-        "links-column-0": {
-          "type": "column",
-          "settings": {
-            "heading": "Column 1",
-            "heading_bg_color": "#2e2e2e",
-            "heading_text_color": "#ffffff",
-            "menu": "",
-            "button_label": "Optional button",
-            "button_link": "/"
-          }
-        },
-        "links-column-1": {
-          "type": "column",
-          "settings": {
-            "heading": "Column 2",
-            "heading_bg_color": "#484848",
-            "heading_text_color": "#ffffff",
-            "menu": "",
-            "button_label": "Optional button",
-            "button_link": "/"
-          }
-        },
-        "links-column-2": {
-          "type": "column",
-          "settings": {
-            "heading": "Column 3",
-            "heading_bg_color": "#6e6e6e",
-            "heading_text_color": "#ffffff",
-            "menu": "",
-            "button_label": "Optional button",
-            "button_link": "/"
-          }
-        },
-        "links-column-3": {
-          "type": "column",
-          "settings": {
-            "heading": "Column 4",
-            "heading_bg_color": "#7c7c7c",
-            "heading_text_color": "#ffffff",
-            "menu": "",
-            "button_label": "Optional button",
-            "button_link": "/"
-          }
-        },
-        "links-column-4": {
-          "type": "column",
-          "settings": {
-            "heading": "Column 5",
-            "heading_bg_color": "#9f9f9f",
-            "heading_text_color": "#ffffff",
-            "menu": "",
-            "button_label": "Optional button",
-            "button_link": "/"
-          }
-        }
-      },
-      "block_order": [
-        "links-column-0",
-        "links-column-1",
-        "links-column-2",
-        "links-column-3",
-        "links-column-4"
-      ],
-      "settings": {
-        "title": "Link lists",
-        "heading_align": "text-start",
-        "button_label": "",
-        "button_link": "",
-        "layout": "carousel",
-        "column_size": "small",
-        "column_align": "left",
-        "color_scheme": "1",
-        "image_ratio": "1.77",
-        "button_style": "btn--primary"
-      }
-    },
     "featured-product": {
       "type": "featured-product",
       "blocks": {
@@ -1125,6 +1113,7 @@
     "featured_collection_ThRPFX",
     "featured_collection_7Kmk3G",
     "featured_collection_nYzJK6",
+    "link-lists",
     "collection-list",
     "scrolling-banner",
     "promo-grid",
@@ -1132,7 +1121,6 @@
     "product-features",
     "media-with-text",
     "shoppable-image",
-    "link-lists",
     "featured-product",
     "product-comparison-grid",
     "multi-column",
