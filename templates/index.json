@@ -83,6 +83,7 @@
         "slide-1",
         "slide-2"
       ],
+      "disabled": true,
       "settings": {
         "height_mode": "auto",
         "fixed_height_desktop": 600,
@@ -101,6 +102,76 @@
         "tint_opacity": 40,
         "accessibility_info": "",
         "prevent_animation": true
+      }
+    },
+    "image-banner": {
+      "type": "image-banner",
+      "settings": {
+        "image_desktop": "shopify://shop_images/HB_Discount_Sales_Banner_9_3fc47874-9b27-4a6b-9dff-19fe7ed1b203.png",
+        "image_mobile": "shopify://shop_images/HB_Discount_Sales_Banner_Mob_5.png",
+        "url": "",
+        "height_mode": "auto",
+        "fixed_height_desktop": 400,
+        "fixed_height_mobile": 250,
+        "overlay_position": "justify-center items-center",
+        "overlay_text_align": "text-center",
+        "mob_center_text": false,
+        "mobile_stacked": false,
+        "color_scheme": "white",
+        "full_width": true,
+        "transparent_content_color": "#ffffff",
+        "tint_color": "#000000",
+        "tint_opacity": 0,
+        "prevent_animation": true
+      }
+    },
+    "countdown-timer": {
+      "type": "countdown-timer",
+      "blocks": {
+        "countdown-text-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Sale Ends in</p>",
+            "enlarge_text": true
+          }
+        },
+        "countdown-countdown-2": {
+          "type": "countdown",
+          "settings": {
+            "end_date": "",
+            "end_time": "",
+            "end_text": "",
+            "enlarge_end_text": false,
+            "hide_on_end": false
+          }
+        },
+        "subheading_9YfJEC": {
+          "type": "subheading",
+          "settings": {
+            "text": "Use Code at Checkout*"
+          }
+        }
+      },
+      "block_order": [
+        "countdown-text-1",
+        "countdown-countdown-2",
+        "subheading_9YfJEC"
+      ],
+      "settings": {
+        "height_mode": "fixed",
+        "fixed_height_desktop": 400,
+        "fixed_height_mobile": 270,
+        "overlay_position": "justify-center",
+        "text_align": "text-center",
+        "mob_center_text": true,
+        "countdown_size": "18",
+        "use_custom_colors": true,
+        "count_color": "#e98c57",
+        "bg_color": "#000000",
+        "color_scheme": "2",
+        "full_width": true,
+        "tint_color": "#000000",
+        "tint_opacity": 20
       }
     },
     "collection-list": {
@@ -226,57 +297,6 @@
         "prevent_animation": false
       }
     },
-    "countdown-timer": {
-      "type": "countdown-timer",
-      "blocks": {
-        "countdown-heading-0": {
-          "type": "heading",
-          "settings": {
-            "heading": "Countdown timer",
-            "heading_size": "h2",
-            "heading_h1": false
-          }
-        },
-        "countdown-text-1": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Create urgency around an offer or event!</p>",
-            "enlarge_text": true
-          }
-        },
-        "countdown-countdown-2": {
-          "type": "countdown",
-          "settings": {
-            "end_date": "",
-            "end_time": "",
-            "end_text": "",
-            "enlarge_end_text": false,
-            "hide_on_end": false
-          }
-        }
-      },
-      "block_order": [
-        "countdown-heading-0",
-        "countdown-text-1",
-        "countdown-countdown-2"
-      ],
-      "settings": {
-        "height_mode": "fixed",
-        "fixed_height_desktop": 600,
-        "fixed_height_mobile": 350,
-        "overlay_position": "justify-center",
-        "text_align": "text-center",
-        "mob_center_text": false,
-        "countdown_size": "24",
-        "use_custom_colors": false,
-        "count_color": "#ffffff",
-        "bg_color": "#070707",
-        "color_scheme": "2",
-        "full_width": true,
-        "tint_color": "#000000",
-        "tint_opacity": 20
-      }
-    },
     "promo-grid": {
       "type": "promo-grid",
       "blocks": {
@@ -395,58 +415,6 @@
         "fixed_height_mobile": 280,
         "text_overlay_font": "body",
         "color_scheme": "default"
-      }
-    },
-    "image-banner": {
-      "type": "image-banner",
-      "blocks": {
-        "banner-heading": {
-          "type": "heading",
-          "settings": {
-            "heading": "Image banner",
-            "heading_size": "h1",
-            "heading_h1": false
-          }
-        },
-        "banner-text": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.</p>",
-            "enlarge_text": true
-          }
-        },
-        "banner-button": {
-          "type": "button",
-          "settings": {
-            "button_1_label": "Optional Button",
-            "button_1_link": "/",
-            "button_1_style": "btn btn--primary",
-            "button_2_label": "Optional Button",
-            "button_2_link": "/",
-            "button_2_style": "btn btn--primary"
-          }
-        }
-      },
-      "block_order": [
-        "banner-heading",
-        "banner-text",
-        "banner-button"
-      ],
-      "settings": {
-        "url": "",
-        "height_mode": "auto",
-        "fixed_height_desktop": 600,
-        "fixed_height_mobile": 350,
-        "overlay_position": "justify-center items-center",
-        "overlay_text_align": "text-center",
-        "mob_center_text": false,
-        "mobile_stacked": false,
-        "color_scheme": "white",
-        "full_width": true,
-        "transparent_content_color": "#ffffff",
-        "tint_color": "#000000",
-        "tint_opacity": 40,
-        "prevent_animation": false
       }
     },
     "featured-collection": {
@@ -1041,11 +1009,11 @@
   },
   "order": [
     "slideshow",
+    "image-banner",
+    "countdown-timer",
     "collection-list",
     "scrolling-banner",
-    "countdown-timer",
     "promo-grid",
-    "image-banner",
     "featured-collection",
     "product-features",
     "media-with-text",
