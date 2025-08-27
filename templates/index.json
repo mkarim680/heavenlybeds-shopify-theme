@@ -384,39 +384,29 @@
         "collection-0": {
           "type": "collection",
           "settings": {
-            "collection": ""
+            "collection": "nick-drewe",
+            "image": "shopify://shop_images/we_thrive.png"
           }
         },
         "collection-1": {
           "type": "collection",
           "settings": {
-            "collection": ""
+            "collection": "gabby-george",
+            "image": "shopify://shop_images/gabby_new.png"
           }
         },
         "collection-2": {
           "type": "collection",
           "settings": {
-            "collection": ""
+            "collection": "lucyledgeway",
+            "image": "shopify://shop_images/lucy_ring.png"
           }
         },
         "collection-3": {
           "type": "collection",
           "settings": {
-            "collection": ""
-          }
-        },
-        "collection-4": {
-          "type": "collection",
-          "disabled": true,
-          "settings": {
-            "collection": ""
-          }
-        },
-        "collection-5": {
-          "type": "collection",
-          "disabled": true,
-          "settings": {
-            "collection": ""
+            "collection": "molly-marsh",
+            "image": "shopify://shop_images/molly_ig.png"
           }
         }
       },
@@ -424,9 +414,7 @@
         "collection-0",
         "collection-1",
         "collection-2",
-        "collection-3",
-        "collection-4",
-        "collection-5"
+        "collection-3"
       ],
       "settings": {
         "title": "Trusted by Influencers",
@@ -438,6 +426,68 @@
         "use_product_image": false,
         "circle_image": false,
         "show_border": false,
+        "color_scheme": "none",
+        "full_width": true
+      }
+    },
+    "collection_list_CQxL7J": {
+      "type": "collection-list",
+      "blocks": {
+        "collection_ccBEj8": {
+          "type": "collection",
+          "settings": {
+            "collection": "ambassador-chesterfield-bed-frames"
+          }
+        },
+        "collection_MFbPeV": {
+          "type": "collection",
+          "settings": {
+            "collection": "sleigh-bed-frames"
+          }
+        },
+        "collection_cVgtF4": {
+          "type": "collection",
+          "settings": {
+            "collection": "upholstered-bed-frame"
+          }
+        },
+        "collection_aDMBth": {
+          "type": "collection",
+          "settings": {
+            "collection": "wingback-bed-frames"
+          }
+        },
+        "collection_zWtAPH": {
+          "type": "collection",
+          "settings": {
+            "collection": "tv-beds"
+          }
+        },
+        "collection_4gHXMm": {
+          "type": "collection",
+          "settings": {
+            "collection": "beds-with-storage-new"
+          }
+        }
+      },
+      "block_order": [
+        "collection_ccBEj8",
+        "collection_MFbPeV",
+        "collection_cVgtF4",
+        "collection_aDMBth",
+        "collection_zWtAPH",
+        "collection_4gHXMm"
+      ],
+      "settings": {
+        "title": "Browse by Category",
+        "heading_align": "text-start",
+        "button_label": "",
+        "button_link": "",
+        "layout": "carousel",
+        "card_size": "medium",
+        "use_product_image": false,
+        "circle_image": false,
+        "show_border": true,
         "color_scheme": "none",
         "full_width": true
       }
@@ -1138,6 +1188,7 @@
     "link-lists",
     "featured_collection_gJC6d9",
     "collection-list",
+    "collection_list_CQxL7J",
     "scrolling-banner",
     "promo-grid",
     "featured-collection",
