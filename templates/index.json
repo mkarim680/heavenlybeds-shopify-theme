@@ -581,6 +581,111 @@
         "color_scheme": "none",
         "only_content_color_scheme": false
       }
+    },
+    "featured_blog_PGbCQM": {
+      "type": "featured-blog",
+      "name": "Blog posts",
+      "settings": {
+        "title": "Featured blog",
+        "heading_align": "text-start",
+        "show_view_all": true,
+        "blog": "news",
+        "layout": "carousel",
+        "posts_to_show": 8,
+        "show_featured_image": true,
+        "show_tags": false,
+        "show_excerpt": true,
+        "show_author": false,
+        "show_date": true,
+        "show_button": false,
+        "color_scheme": "none",
+        "image_ratio": "1.77",
+        "button_style": "btn btn--primary"
+      }
+    },
+    "1756293128452127ec": {
+      "type": "apps",
+      "blocks": {
+        "instafeed_app_block_FDtfA4": {
+          "type": "shopify://apps/instafeed/blocks/app-block/c447db20-095d-4a10-9725-b5977662c9d5",
+          "settings": {
+            "title": "",
+            "title_color": "",
+            "title_size_v2": 0,
+            "alignment": "center",
+            "instafeed_margin_top": 0,
+            "instafeed_margin_bottom": 0,
+            "instafeed_margin_sides": 0,
+            "show_instagram_link": false,
+            "link_alignment": "left",
+            "link_color": "#000000",
+            "background_color": "",
+            "feed_id": "",
+            "html_area": ""
+          }
+        }
+      },
+      "block_order": [
+        "instafeed_app_block_FDtfA4"
+      ],
+      "settings": {
+        "full_width": false
+      }
+    },
+    "testimonials_LTME46": {
+      "type": "testimonials",
+      "blocks": {
+        "testimonial_fYrVWp": {
+          "type": "testimonial",
+          "settings": {
+            "testimonial": "<p>I would highly recommend Heavenly Beds, the service was great , delivery prompt and delivery men were nice, polite and helpful.<br/>Great kingsize bed , material velvet, lovely and true to colour. Assembly easy , and the matress , 3000 spring very comfy. I wanted a raised bed and got that. Satisfied customer.</p>",
+            "author": "Tina roe",
+            "author_info": "3 reviews",
+            "show_star_rating": true,
+            "star_rating": 5
+          }
+        },
+        "testimonial_CHVK9W": {
+          "type": "testimonial",
+          "settings": {
+            "testimonial": "<p>We are absolutely in love with this new bed! Our bedroom was the storage room of the house and definitely our least favourite as we just haven’t done much with it since moving in. It has now become my favourite room in the house! This bed frame makes our room look so much brighter and cosier and I just can’t stop looking at it! <br/><br/>Not only is it dreamy but it was so easy to put together it was up on minutes. The <br/>quality is absolutely beautiful, so much so that we even went for the matching blanket box.</p>",
+            "author": "Megan Warren's music",
+            "author_info": "Megan Warren's music 2 reviews",
+            "show_star_rating": true,
+            "star_rating": 5
+          }
+        },
+        "testimonial_GNFRM8": {
+          "type": "testimonial",
+          "settings": {
+            "testimonial": "<p>Impeccable service. Super King Bed ordered and delivered within 11 days.<br/> Nowadays it is very difficult to be complimentary when it comes to <br/>services provided by any local or online companies but I have nothing <br/>but compliments when it comes to Heavenly Beds. Regularly updated <br/>regarding order status and expected delivery. Delivery driver IFY was <br/>nothing short of a gentleman. A very well rared human being with <br/>incredible manners and ability. Anyone who comes across IFY will be <br/>blown away by his professionalism and kindness. <br/><br/>Absolutely delighted 🌟🌟🌟🌟🌟</p>",
+            "author": "Kieran Connor",
+            "author_info": "1 review",
+            "show_star_rating": true,
+            "star_rating": 5
+          }
+        }
+      },
+      "block_order": [
+        "testimonial_fYrVWp",
+        "testimonial_CHVK9W",
+        "testimonial_GNFRM8"
+      ],
+      "name": "Testimonials",
+      "settings": {
+        "heading": "Trustpilot Reviews",
+        "show_quotes": true,
+        "testimonial_size": "h6",
+        "text_position": "justify-center",
+        "text_align": "text-start justify-start",
+        "nav_style": "arrows",
+        "transition": "slide-fade",
+        "autoplay": true,
+        "slider_pause": true,
+        "autoplay_speed": 5,
+        "color_scheme": "2",
+        "full_width": true
+      }
     }
   },
   "order": [
@@ -596,6 +701,9 @@
     "collection-list",
     "collection_list_CQxL7J",
     "promo_strip_mnj4nx",
-    "media-with-text"
+    "media-with-text",
+    "featured_blog_PGbCQM",
+    "1756293128452127ec",
+    "testimonials_LTME46"
   ]
 }
