@@ -492,6 +492,50 @@
         "full_width": true
       }
     },
+    "promo_strip_mnj4nx": {
+      "type": "promo-strip",
+      "blocks": {
+        "heading_pETHDK": {
+          "type": "heading",
+          "settings": {
+            "heading": "Bed Material Swatches",
+            "heading_size": "h4",
+            "show_on_mobile": true,
+            "show_on_desktop": true
+          }
+        },
+        "text_cpzzPB": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Order Free Swatches sent via Royal Mail 2nd Class</p>",
+            "enlarge_text": false,
+            "show_on_mobile": true,
+            "show_on_desktop": true
+          }
+        },
+        "button_jHDiHe": {
+          "type": "button",
+          "settings": {
+            "button_label": "Request Free Swatches",
+            "button_link": "shopify://pages/request-fabric-samples",
+            "button_style": "btn btn--secondary"
+          }
+        }
+      },
+      "block_order": [
+        "heading_pETHDK",
+        "text_cpzzPB",
+        "button_jHDiHe"
+      ],
+      "name": "Promo strip",
+      "settings": {
+        "section_height": "default",
+        "color_scheme": "2",
+        "full_width": true,
+        "dividers": "border-top",
+        "prevent_animation": false
+      }
+    },
     "scrolling-banner": {
       "type": "scrolling-banner",
       "blocks": {
@@ -544,126 +588,6 @@
         "color_scheme": "1",
         "dividers": "none",
         "prevent_animation": false
-      }
-    },
-    "promo-grid": {
-      "type": "promo-grid",
-      "blocks": {
-        "promo-media-0": {
-          "type": "media",
-          "settings": {
-            "link_url": "",
-            "columns": 2,
-            "rows": 2,
-            "line1_text": "Save up to",
-            "line1_text_type_scale": "text-h6",
-            "line2_text": "50%",
-            "line2_text_type_scale": "text-h0",
-            "line3_text": "",
-            "line3_text_type_scale": "text-h6",
-            "overlay_position": "justify-start items-start",
-            "text_alignment": "text-center",
-            "promo_circle": true,
-            "background_color": "#e32b2b",
-            "text_color": "#ffffff",
-            "subheading": "Subheading with more info",
-            "link_text": "Add link text here",
-            "text_type_scale": "h6",
-            "tint_color": "#000000",
-            "tint_opacity": 30
-          }
-        },
-        "promo-media-1": {
-          "type": "media",
-          "settings": {
-            "link_url": "",
-            "columns": 1,
-            "rows": 1,
-            "line1_text": "Save",
-            "line1_text_type_scale": "text-h6",
-            "line2_text": "50%",
-            "line2_text_type_scale": "text-h2",
-            "line3_text": "",
-            "line3_text_type_scale": "text-h6",
-            "overlay_position": "justify-start items-start",
-            "text_alignment": "text-center",
-            "promo_circle": false,
-            "background_color": "#e32b2b",
-            "text_color": "#ffffff",
-            "subheading": "Subheading",
-            "link_text": "Add link text here",
-            "text_type_scale": "h6",
-            "tint_color": "#000000",
-            "tint_opacity": 30
-          }
-        },
-        "promo-media-2": {
-          "type": "media",
-          "settings": {
-            "link_url": "",
-            "columns": 1,
-            "rows": 1,
-            "line1_text": "Now",
-            "line1_text_type_scale": "text-h6",
-            "line2_text": "$50",
-            "line2_text_type_scale": "text-h2",
-            "line3_text": "",
-            "line3_text_type_scale": "text-h6",
-            "overlay_position": "justify-start items-start",
-            "text_alignment": "text-center",
-            "promo_circle": false,
-            "background_color": "#e32b2b",
-            "text_color": "#ffffff",
-            "subheading": "Subheading",
-            "link_text": "Add link text here",
-            "text_type_scale": "h6",
-            "tint_color": "#000000",
-            "tint_opacity": 30
-          }
-        },
-        "promo-media-3": {
-          "type": "media",
-          "settings": {
-            "link_url": "",
-            "columns": 2,
-            "rows": 1,
-            "line1_text": "Save",
-            "line1_text_type_scale": "text-h6",
-            "line2_text": "1/3",
-            "line2_text_type_scale": "text-h1",
-            "line3_text": "",
-            "line3_text_type_scale": "text-h6",
-            "overlay_position": "justify-start items-start",
-            "text_alignment": "text-center",
-            "promo_circle": false,
-            "background_color": "#e32b2b",
-            "text_color": "#ffffff",
-            "subheading": "Subheading with more info",
-            "link_text": "Add link text here",
-            "text_type_scale": "h6",
-            "tint_color": "#000000",
-            "tint_opacity": 30
-          }
-        }
-      },
-      "block_order": [
-        "promo-media-0",
-        "promo-media-1",
-        "promo-media-2",
-        "promo-media-3"
-      ],
-      "settings": {
-        "title": "Promo grid",
-        "heading_align": "text-start",
-        "button_label": "View All",
-        "button_link": "",
-        "gallery_cols_max": 4,
-        "mobile_carousel": false,
-        "gallery_cols_min": "1",
-        "fixed_height_desktop": 200,
-        "fixed_height_mobile": 280,
-        "text_overlay_font": "body",
-        "color_scheme": "default"
       }
     },
     "featured-collection": {
@@ -1189,8 +1113,8 @@
     "featured_collection_gJC6d9",
     "collection-list",
     "collection_list_CQxL7J",
+    "promo_strip_mnj4nx",
     "scrolling-banner",
-    "promo-grid",
     "featured-collection",
     "product-features",
     "media-with-text",
