@@ -80,35 +80,34 @@
           "type": "text",
           "settings": {
             "image_width": 150,
-            "heading": "Talk about your store",
-            "text": "<p>Share store details, promotions, or brand content with your customers.</p>",
-            "button_label": "",
-            "button_link": "",
-            "enable_follow_on_shop": false,
-            "show_social": false,
+            "heading": "GET IN TOUCH",
+            "text": "<p>Park House<br/>920 Bradford Road<br/>Birstall<br/>WF17 9PH</p><p>VAT: <strong>GB463853859</strong><br/><br/><a href=\"mailto:support@heavenlybeds.co.uk\" target=\"_blank\" title=\"mailto:support@heavenlybeds.co.uk\">support@heavenlybeds.co.uk</a><br/><br/>Call: <a href=\"tel:01924982964\" title=\"tel:01924982964\">01924982964</a></p>",
+            "button_label": "Contact Us",
+            "button_link": "shopify://pages/contact-us",
+            "enable_follow_on_shop": true,
+            "show_social": true,
             "text_align": "text-start"
           }
         },
         "link-list-1": {
           "type": "link_list",
           "settings": {
-            "heading": "Footer links",
-            "menu": "footer"
+            "heading": "CATEGORIES",
+            "menu": "main-menu"
           }
         },
         "link-list-2": {
           "type": "link_list",
           "settings": {
-            "heading": "Footer links",
+            "heading": "INFORMATION",
             "menu": "footer"
           }
         },
-        "newsletter": {
-          "type": "newsletter",
+        "link_list_bgnHhX": {
+          "type": "link_list",
           "settings": {
-            "heading": "Newsletter",
-            "text": "<p>Sign up for exclusive offers, original stories, events and more.</p>",
-            "collapse_mobile": true
+            "heading": "USEFUL LINKS",
+            "menu": "useful-links"
           }
         }
       },
@@ -116,22 +115,34 @@
         "text",
         "link-list-1",
         "link-list-2",
-        "newsletter"
+        "link_list_bgnHhX"
       ],
       "settings": {
         "show_back_to_top": true,
         "show_payment_icons": true,
-        "show_powered_by": true,
+        "show_powered_by": false,
         "enable_country_selector": true,
         "enable_language_selector": true,
         "secondary_menu": "",
         "bg_color": "#f4f4f4",
         "text_color": "#070707"
       }
+    },
+    "custom_liquid_Eewmdj": {
+      "type": "custom-liquid",
+      "name": "Custom HTML/Liquid",
+      "settings": {
+        "custom_liquid": "Interest free credit agreements provided by Zopa Bank Limited trading as DivideBuy are not regulated by the Financial Conduct Authority and do not fall under the jurisdiction of the Financial Ombudsman Service.\n\nZopa Bank Limited trading as DivideBuy is authorised by the Prudential Regulation Authority and regulated by the Financial Conduct Authority and the Prudential Regulation Authority, and entered on the Financial Services Register (800542).\n\nZopa Bank Limited (10627575) is incorporated in England & Wales and has its registered office at: 1st Floor, Cottons Centre, Tooley Street, London, SE1 2QG. VAT Number 281765280. DivideBuy's trading address is First Floor, Brunswick Court, Brunswick Street, Newcastle-under-Lyme, ST5 1HH.\n\n© Zopa Bank Limited 2024. All rights reserved.",
+        "section_height": "small",
+        "full_width": false,
+        "dividers": "none",
+        "prevent_animation": false
+      }
     }
   },
   "order": [
     "icons-with-text",
-    "footer"
+    "footer",
+    "custom_liquid_Eewmdj"
   ]
 }
