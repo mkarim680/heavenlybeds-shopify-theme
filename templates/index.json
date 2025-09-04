@@ -104,27 +104,6 @@
         "prevent_animation": true
       }
     },
-    "image-banner": {
-      "type": "image-banner",
-      "settings": {
-        "image_desktop": "shopify://shop_images/HB_Discount_Sales_Banner_9_3fc47874-9b27-4a6b-9dff-19fe7ed1b203.png",
-        "image_mobile": "shopify://shop_images/HB_Discount_Sales_Banner_Mob_5.png",
-        "url": "",
-        "height_mode": "auto",
-        "fixed_height_desktop": 400,
-        "fixed_height_mobile": 250,
-        "overlay_position": "justify-center items-center",
-        "overlay_text_align": "text-center",
-        "mob_center_text": false,
-        "mobile_stacked": false,
-        "color_scheme": "white",
-        "full_width": true,
-        "transparent_content_color": "#ffffff",
-        "tint_color": "#000000",
-        "tint_opacity": 0,
-        "prevent_animation": true
-      }
-    },
     "countdown-timer": {
       "type": "countdown-timer",
       "blocks": {
@@ -157,8 +136,11 @@
         "countdown-countdown-2",
         "subheading_9YfJEC"
       ],
+      "custom_css": [
+        ".section--padded,.section--padded-default {padding: 0;}"
+      ],
       "settings": {
-        "height_mode": "fixed",
+        "height_mode": "auto",
         "fixed_height_desktop": 400,
         "fixed_height_mobile": 270,
         "overlay_position": "justify-center",
@@ -172,6 +154,27 @@
         "full_width": true,
         "tint_color": "#000000",
         "tint_opacity": 20
+      }
+    },
+    "image-banner": {
+      "type": "image-banner",
+      "settings": {
+        "image_desktop": "shopify://shop_images/HB_Discount_Sales_Banner_9_3fc47874-9b27-4a6b-9dff-19fe7ed1b203.png",
+        "image_mobile": "shopify://shop_images/HB_Discount_Sales_Banner_Mob_5.png",
+        "url": "",
+        "height_mode": "auto",
+        "fixed_height_desktop": 400,
+        "fixed_height_mobile": 250,
+        "overlay_position": "justify-center items-center",
+        "overlay_text_align": "text-center",
+        "mob_center_text": false,
+        "mobile_stacked": false,
+        "color_scheme": "white",
+        "full_width": true,
+        "transparent_content_color": "#ffffff",
+        "tint_color": "#000000",
+        "tint_opacity": 0,
+        "prevent_animation": true
       }
     },
     "featured_collection_xrD4mD": {
@@ -690,8 +693,8 @@
   },
   "order": [
     "slideshow",
-    "image-banner",
     "countdown-timer",
+    "image-banner",
     "featured_collection_xrD4mD",
     "featured_collection_ThRPFX",
     "featured_collection_7Kmk3G",
