@@ -4,13 +4,9 @@
       <h1 class="h2">{{ 'customer.login.title' | t }}</h1>
     </div>
 
-    {%- if section.settings.enable_shop_login_button -%}
-      <div class="text-center">
-        {{- shop | login_button -}}
-
-        <p class="mt-4 mb-4">
-          {{ 'customer.login.alternate_provider_separator' | t }}
-        </p>
+    {%- if recover_success == true -%}
+      <div class="alert reading-width mb-8 mx-auto bg-success-bg text-success-text" tabindex="-1" autofocus>
+        {{ 'customer.recover_password.success' | t }}
       </div>
     {%- endif -%}
 
@@ -72,15 +68,8 @@
       <p>{{ 'customer.recover_password.subtext' | t }}</p>
     </div>
 
-    {%- assign return_url = routes.account_login_url | append: '#recover' -%}
-    {%- form 'recover_customer_password', class: 'form form-width mx-auto', return_to: return_url -%}
+    {%- form 'recover_customer_password', class: 'form form-width mx-auto' -%}
       {%- assign recover_success = form.posted_successfully? -%}
-
-      {%- if recover_success == true -%}
-        <div class="alert reading-width mb-8 mx-auto bg-success-bg text-success-text" tabindex="-1" autofocus>
-          {{ 'customer.recover_password.success' | t }}
-        </div>
-      {%- endif -%}
 
       <div class="form__field required">
         <label class="label" for="recover-email">{{ 'customer.login.email' | t }}</label>
@@ -145,25 +134,12 @@
     });
 
     if (window.location.hash === '#recover') toggleContent(true);
-    {% if recover_success %}toggleContent(true);{% endif %}
   });
 </script>
 
 {% schema %}
 {
   "name": "Login",
-  "class": "cc-main-login section section--template",
-  "settings": [
-    {
-      "type": "header",
-      "content": "Sign in with Shop settings"
-    },
-    {
-      "type": "checkbox",
-      "id": "enable_shop_login_button",
-      "label": "Enable Sign in with Shop",
-      "default": false
-    }
-  ]
+  "class": "cc-main-login section section--template"
 }
 {% endschema %}

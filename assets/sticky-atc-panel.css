@@ -32,12 +32,7 @@
   flex: 1 1 50%;
 }
 .card--sticky-atc .card__info p {
-  display: -webkit-box;
   margin-bottom: 0.1em;
-  overflow: hidden;
-  -webkit-line-clamp: 3;
-  line-clamp: 3;
-  -webkit-box-orient: vertical;
 }
 .card--sticky-atc .card__buttons {
   padding-inline-start: calc(6 * var(--space-unit));
@@ -47,13 +42,7 @@
   margin-bottom: 0;
 }
 .card--sticky-atc .price__current {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
   white-space: break-spaces;
-}
-.card--sticky-atc .price__from {
-  margin-inline-end: 5px;
 }
 
 .sticky-atc-panel__heading {
@@ -85,7 +74,7 @@
     transform: translateX(-50%);
   }
   .scrolled-to-bottom .sticky-atc-panel.sticky-atc-panel--center,
-  .sticky-atc-panel--out.sticky-atc-panel--center {
+.sticky-atc-panel--out.sticky-atc-panel--center {
     transform: translateX(-50%) translateY(100%);
   }
 }

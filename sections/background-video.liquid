@@ -1,20 +1,20 @@
 {%- unless section.settings.video_external == blank and section.settings.video_shopify == blank -%}
 
   {%- if section.index > 2 -%}
-    <link rel="stylesheet" href="{{ 'video.css' | asset_url }}" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="{{ 'video.aio.min.css' | asset_url }}" media="print" onload="this.media='all'">
 
     {%- if section.blocks.size > 0 -%}
-      <link rel="stylesheet" href="{{ 'text-overlay.css' | asset_url }}" media="print" onload="this.media='all'">
+      <link rel="stylesheet" href="{{ 'text-overlay.aio.min.css' | asset_url }}" media="print" onload="this.media='all'">
     {%- endif -%}
   {%- else -%}
-    {{ 'video.css' | asset_url | stylesheet_tag }}
+    {{ 'video.aio.min.css' | asset_url | stylesheet_tag }}
 
     {%- if section.blocks.size > 0 -%}
-      {{ 'text-overlay.css' | asset_url | stylesheet_tag }}
+      {{ 'text-overlay.aio.min.css' | asset_url | stylesheet_tag }}
     {%- endif -%}
   {%- endif -%}
 
-  <script src="{{ 'video.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'video.aio.min.js' | asset_url }}" defer="defer"></script>
 
   {%- liquid
     assign using_video_tag = false
@@ -32,11 +32,8 @@
       assign bg_color = settings.color_scheme_3_bg_grad | default: settings.color_scheme_3_bg
     endif
 
-    if bg_color
-      assign bg_alpha = bg_color | color_extract: 'alpha'
-      if bg_alpha == 0
-        assign bg_color = false
-      endif
+    if bg_color == 'rgba(0,0,0,0)'
+      assign bg_color = false
     endif
 
     if section.settings.video_shopify != blank
@@ -112,7 +109,7 @@
   {%- endstyle -%}
 
   {%- capture video_component -%}
-    <video-component class="{% if using_video_tag %}has-video{% else %}has-iframe{% endif %} block w-full h-full"
+    <video preload="none"-component class="{% if using_video_tag %}has-video{% else %}has-iframe{% endif %} block w-full h-full"
       {%- unless using_video_tag %}data-video-url="{{ section.settings.video_external | escape }}" {% endunless -%}
                      data-video-id="{{ section.id }}"
                      data-autoplay="true"
@@ -196,6 +193,7 @@
               image: poster_image,
               widths: '750, 856, 1440, 1680, 1920, 2560',
               src_width: 1680,
+              src_placeholder: true,
               sizes: sizes,
               lazy_load: lazy_load_images,
               class: class

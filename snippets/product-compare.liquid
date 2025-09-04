@@ -1,13 +1,12 @@
 {%- assign max_compare = settings.compare_max -%}
 
-<link rel="stylesheet" href="{{ 'product-compare.css' | asset_url }}">
-
 <script type="application/json" id="compare-resources">
   [
-    {"type": "css", "path": "{{ 'modal.css' | asset_url }}"},
-    {"type": "js", "path": "{{ 'details-modal.js' | asset_url }}"},
-    {"type": "js", "path": "{{ 'compare-drawer.js' | asset_url }}"},
-    {"type": "js", "path": "{{ 'compare-modal.js' | asset_url }}"}
+    {"type": "css", "path": "{{ 'product-compare.aio.min.css' | asset_url }}"},
+    {"type": "css", "path": "{{ 'modal.aio.min.css' | asset_url }}"},
+    {"type": "js", "path": "{{ 'details-modal.aio.min.js' | asset_url }}"},
+    {"type": "js", "path": "{{ 'compare-drawer.aio.min.js' | asset_url }}"},
+    {"type": "js", "path": "{{ 'compare-modal.aio.min.js' | asset_url }}"}
   ]
 </script>
 

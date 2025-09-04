@@ -7,8 +7,8 @@
 -%}
 
 {%- if section.settings.link1 or section.settings.link2 or show_localization or section.blocks.size > 0 -%}
-  {{ 'announcement.css' | asset_url | stylesheet_tag }}
-  <script src="{{ 'announcement.js' | asset_url }}" defer="defer"></script>
+  {{ 'announcement.aio.min.css' | asset_url | stylesheet_tag }}
+  <script src="{{ 'announcement.aio.min.js' | asset_url }}" defer="defer"></script>
 
   {%- style -%}
     .announcement {
@@ -18,7 +18,7 @@
   {%- endstyle -%}
 
   {%- if show_localization -%}
-    <script src="{{ 'custom-select.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'custom-select.aio.min.js' | asset_url }}" defer="defer"></script>
   {%- endif -%}
 
   <announcement-bar class="announcement block text-body-{{ section.settings.text_type_scale }}" data-slide-delay="{{- section.settings.read_time | times: 1000 -}}">

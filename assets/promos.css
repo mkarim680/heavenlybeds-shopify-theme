@@ -89,7 +89,7 @@
     font-size: calc(var(--font-size) * 0.9);
   }
   .card--promo-small,
-  .main-products-grid[data-layout=list] .card--promo__info {
+.main-products-grid[data-layout=list] .card--promo__info {
     padding: 0;
   }
 }
@@ -104,6 +104,7 @@
     padding: calc(4 * var(--space-unit));
   }
   .main-products-grid[data-layout=list] .card--promo .btn {
+    width: -webkit-max-content;
     width: max-content;
   }
   .promo__content {

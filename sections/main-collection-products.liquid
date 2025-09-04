@@ -1,30 +1,26 @@
-{{ 'products-grid.css' | asset_url | stylesheet_tag }}
-{{ 'product.css' | asset_url | stylesheet_tag }}
-<script src="{{ 'products-toolbar.js' | asset_url }}" defer="defer"></script>
-
-{%- if settings.card_hover_action == 'slideshow' -%}
-  <script src="{{ 'product-card-image-slider.js' | asset_url }}" defer="defer"></script>
-{%- endif -%}
+{{ 'products-grid.aio.min.css' | asset_url | stylesheet_tag }}
+{{ 'product.aio.min.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'products-toolbar.aio.min.js' | asset_url }}" defer="defer"></script>
 
 {%- if settings.enable_quick_add -%}
-  <link rel="stylesheet" href="{{ 'quick-add.css' | asset_url }}" media="print" onload="this.media='all'">
-  <script src="{{ 'quick-add.js' | asset_url }}" defer="defer"></script>
-  <script src="{{ 'variant-picker.js' | asset_url }}" defer="defer"></script>
-  <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
-  <script src="{{ 'custom-select.js' | asset_url }}" defer="defer"></script>
+  <link rel="stylesheet" href="{{ 'quick-add.aio.min.css' | asset_url }}" media="print" onload="this.media='all'">
+  <script src="{{ 'quick-add.aio.min.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'variant-picker.aio.min.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'product-form.aio.min.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'custom-select.aio.min.js' | asset_url }}" defer="defer"></script>
 {%- endif -%}
 
 {%- if settings.pagination_style == "modern" or settings.pagination_infinite -%}
-  <script src="{{ 'custom-pagination.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'custom-pagination.aio.min.js' | asset_url }}" defer="defer"></script>
 {%- endif -%}
 
 {%- if section.blocks.size > 0 -%}
-  {{ 'promos.css' | asset_url | stylesheet_tag }}
+  {{ 'promos.aio.min.css' | asset_url | stylesheet_tag }}
 
   {%- for block in section.blocks -%}
     {%- if block.settings.video_shopify != blank -%}
-      {{ 'video.css' | asset_url | stylesheet_tag }}
-      <script src="{{ 'video.js' | asset_url }}" defer="defer"></script>
+      {{ 'video.aio.min.css' | asset_url | stylesheet_tag }}
+      <script src="{{ 'video.aio.min.js' | asset_url }}" defer="defer"></script>
       {%- break -%}
     {%- endif -%}
   {%- endfor -%}
@@ -83,6 +79,7 @@
 
 <div class="container" data-num-results="{{ collection.products_count }}">
   {%- if section.settings.enable_filtering or section.settings.show_layout_toggle or section.settings.enable_sorting or compare_visible -%}
+    <script src="{{ 'products-toolbar.aio.min.js' | asset_url }}" defer="defer"></script>
     {% render 'products-toolbar', results: collection %}
   {%- endif -%}
 
@@ -116,9 +113,9 @@
             endif
           -%}
 
-          <ul class="grid mb-8 md:mb-12 {% if section.settings.filters_open_lg %}{{ grid_classes_filters_open }}{% else %}{{ grid_classes_filters_closed }}{% endif %} gap-x-theme {% if settings.card_contain %}gap-y-5 md:gap-y-8{% else %}gap-y-16{% endif %}"
-              data-filters-open-classes="grid mb-8 md:mb-12 {{ grid_classes_filters_open }} gap-x-theme {% if settings.card_contain %}gap-y-5 md:gap-y-8{% else %}gap-y-16{% endif %}"
-              data-filters-closed-classes="grid mb-8 md:mb-12 {{ grid_classes_filters_closed }} gap-x-theme {% if settings.card_contain %}gap-y-5 md:gap-y-8{% else %}gap-y-16{% endif %}{% unless paginate.pages > 1 %} mb-8 md:mb-12{% endunless %}" role="list">
+          <ul class="grid mb-8 md:mb-12 {% if section.settings.filters_open_lg %}{{ grid_classes_filters_open }}{% else %}{{ grid_classes_filters_closed }}{% endif %} gap-x-theme {% if settings.card_contain %}gap-y-8{% else %}gap-y-16{% endif %}"
+              data-filters-open-classes="grid mb-8 md:mb-12 {{ grid_classes_filters_open }} gap-x-theme {% if settings.card_contain %}gap-y-8{% else %}gap-y-16{% endif %}"
+              data-filters-closed-classes="grid mb-8 md:mb-12 {{ grid_classes_filters_closed }} gap-x-theme {% if settings.card_contain %}gap-y-8{% else %}gap-y-16{% endif %}{% unless paginate.pages > 1 %} mb-8 md:mb-12{% endunless %}" role="list">
             {%- comment -%}Process wide promos aligned top{%- endcomment -%}
             {%- for block in section.blocks -%}
               {%- liquid
@@ -159,14 +156,14 @@
                   assign show_promo = false
                   unless block.settings.position == "top" or block.settings.position == "bottom"
                     assign is_last_position = false
+                    if product_index == collection.products.size and block.settings.position > product_index
+                      assign is_last_position = true
+                    endif
 
                     if product_index == block.settings.position or is_last_position
                       if paginate.pages == 0 or paginate.current_page == 1
                         if active_filters_count == 0 or block.settings.hide_on_filter == false
                           assign show_promo = true
-                          if product_index == collection.products.size and block.settings.position > product_index
-                            assign is_last_position = true
-                          endif
                         endif
                       endif
                     endif
@@ -340,7 +337,7 @@
       "type": "checkbox",
       "id": "enable_filtering",
       "label": "Enable filtering",
-      "info": "[Customize filters](https://help.shopify.com/manual/online-store/search-and-discovery/filters)",
+      "info": "[Customize filters](/admin/menus)",
       "default": true
     },
     {
@@ -368,6 +365,12 @@
       "default": true
     },
     {
+      "type": "checkbox",
+      "id": "show_filter_deadends",
+      "label": "Show filters with zero results",
+      "default": true
+    },
+    {
       "type": "range",
       "id": "max_filter_options",
       "label": "Visible options per filter",
@@ -389,38 +392,10 @@
     },
     {
       "type": "checkbox",
-      "id": "sort_show_featured",
-      "label": "Enable order: Featured",
+      "id": "show_feat_sort_opt",
+      "label": "Show 'Featured' option",
       "info": "Add your manually sorted order to the sort options.",
-      "default": false
-    },
-    {
-      "type": "checkbox",
-      "id": "sort_show_best",
-      "label": "Enable order: Best selling",
       "default": true
-    },
-    {
-      "type": "checkbox",
-      "id": "sort_show_alpha",
-      "label": "Enable order: Alphabetical",
-      "default": true
-    },
-    {
-      "type": "checkbox",
-      "id": "sort_show_price",
-      "label": "Enable order: Price",
-      "default": true
-    },
-    {
-      "type": "checkbox",
-      "id": "sort_show_date",
-      "label": "Enable order: Date added",
-      "default": true
-    },
-    {
-      "type": "paragraph",
-      "content": "The collection's default sort order will always show."
     },
     {
       "type": "checkbox",
@@ -1041,178 +1016,6 @@
           "id": "button_bottom_align",
           "label": "Bottom align button",
           "default": true
-        }
-      ]
-    },
-    {
-      "type": "facet-image-promotion",
-      "limit": 1,
-      "name": "Filter promotion",
-      "settings": [
-        {
-          "type": "paragraph",
-          "content": "Shows on large screens only."
-        },
-        {
-          "type": "image_picker",
-          "id": "image",
-          "label": "Image"
-        },
-        {
-          "type": "video",
-          "id": "video_shopify",
-          "label": "Video upload",
-          "info": "Hosted by Shopify. Video will autoplay and be muted. [Read more](https://cleancanvas.co.uk/support/enterprise/using-videos)"
-        },
-        {
-          "type": "url",
-          "id": "link_url",
-          "label": "Link URL"
-        },
-        {
-          "type": "richtext",
-          "id": "content",
-          "default": "<p>Promotion text</p>",
-          "label": "Text"
-        },
-        {
-          "type": "select",
-          "id": "text_type_scale",
-          "label": "Text size",
-          "info": "This is calculated from the Heading font size.",
-          "options": [
-            {
-              "value": "1em",
-              "label": "Body font size"
-            },
-            {
-              "value": "--h6-font-size",
-              "label": "Extra small"
-            },
-            {
-              "value": "--h5-font-size",
-              "label": "Small"
-            },
-            {
-              "value": "--h4-font-size",
-              "label": "Medium"
-            },
-            {
-              "value": "--h3-font-size",
-              "label": "Large"
-            }
-          ],
-          "default": "1em"
-        },
-        {
-          "type": "range",
-          "id": "min_height",
-          "min": 50,
-          "max": 500,
-          "step": 10,
-          "unit": "px",
-          "label": "Minimum height",
-          "default": 300
-        },
-        {
-          "type": "select",
-          "id": "text_alignment",
-          "label": "Text alignment",
-          "default": "justify-center items-center text-center",
-          "options": [
-            {
-              "value": "justify-start items-start",
-              "label": "Top left"
-            },
-            {
-              "value": "justify-center items-start text-center",
-              "label": "Top center"
-            },
-            {
-              "value": "justify-end items-start text-right",
-              "label": "Top right"
-            },
-            {
-              "value": "justify-start items-center",
-              "label": "Middle left"
-            },
-            {
-              "value": "justify-center items-center text-center",
-              "label": "Middle center"
-            },
-            {
-              "value": "justify-end items-center text-right",
-              "label": "Middle right"
-            },
-            {
-              "value": "justify-start items-end",
-              "label": "Bottom left"
-            },
-            {
-              "value": "justify-center items-end text-center",
-              "label": "Bottom center"
-            },
-            {
-              "value": "justify-end items-end text-right",
-              "label": "Bottom right"
-            }
-          ]
-        },
-        {
-          "type": "header",
-          "content": "Button"
-        },
-        {
-          "type": "text",
-          "id": "button_label",
-          "label": "Button label",
-          "info": "Links to the URL specified in the \"Link URL\" setting."
-        },
-        {
-          "type": "select",
-          "id": "button_style",
-          "label": "Button style",
-          "options": [
-            {
-              "value": "link",
-              "label": "Link"
-            },
-            {
-              "value": "btn btn--primary",
-              "label": "Primary button"
-            },
-            {
-              "value": "btn btn--secondary",
-              "label": "Secondary button"
-            }
-          ],
-          "default": "btn btn--secondary"
-        },
-        {
-          "type": "header",
-          "content": "Style"
-        },
-        {
-          "type": "color",
-          "id": "text_color",
-          "label": "Text color",
-          "default": "#ffffff"
-        },
-        {
-          "type": "color",
-          "id": "tint_color",
-          "label": "Tint color",
-          "default": "#000000"
-        },
-        {
-          "type": "range",
-          "id": "tint_opacity",
-          "min": 0,
-          "max": 80,
-          "step": 5,
-          "unit": "%",
-          "label": "Tint opacity",
-          "default": 20
         }
       ]
     }

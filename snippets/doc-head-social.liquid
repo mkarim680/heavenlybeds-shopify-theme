@@ -34,16 +34,7 @@
 {%- endif -%}
 
 {%- unless settings.social_twitter_url == blank -%}
-  {%- liquid
-    assign split_twitter_url = settings.social_twitter_url | split: '/'
-    for part in split_twitter_url reversed
-      if part != blank
-        assign twitter_handle = part
-        break
-      endif
-    endfor
-  -%}
-  <meta name="twitter:site" content="@{{ twitter_handle }}">
+  <meta name="twitter:site" content="{{ settings.social_twitter_url | split: 'twitter.com/' | last | prepend: '@' }}">
 {%- endunless -%}
 
 <meta name="twitter:card" content="summary_large_image">

@@ -27,10 +27,10 @@
   endif
 -%}
 
-<link rel="stylesheet" href="{{ 'cart-items.css' | asset_url }}" media="print" onload="this.media='all'">
-<script src="{{ 'cart-drawer.js' | asset_url }}" defer="defer"></script>
+<link rel="stylesheet" href="{{ 'cart-items.aio.min.css' | asset_url }}" media="print" onload="this.media='all'">
+<script src="{{ 'cart-drawer.aio.min.js' | asset_url }}" defer="defer"></script>
 {%- if section.settings.show_order_note -%}
-  <script src="{{ 'cart-note.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'cart-note.aio.min.js' | asset_url }}" defer="defer"></script>
 {%- endif -%}
 
 {%- capture cart_summary -%}
@@ -121,7 +121,7 @@
         <ul class="mb-5 font-bold text-center" aria-label="{{ 'customer.order.discount' | t }}" role="list">
           {%- for discount in cart.cart_level_discount_applications -%}
             <li class="mt-2">
-              <div class="discount text-sm inline-flex items-center" dir="auto">
+              <div class="discount text-sm inline-flex items-center">
                 {% render 'icon-tags' %} {{ discount.title | escape_once }} (-{{ discount.total_allocated_amount | money }})
               </div>
             </li>
@@ -150,7 +150,7 @@
         {%- endif -%}
 
         {%- if additional_checkout_buttons and section.settings.show_additional_checkout_buttons and show_terms_and_conditons == false -%}
-          <div class="dynamic-cart-btns mt-4">
+          <div class="dynamic-cart-btns">
             {{ content_for_additional_checkout_buttons }}
           </div>
         {%- endif -%}
@@ -223,7 +223,7 @@
 
     <div id="cart-drawer-media-promotion" class="cart-drawer__media-promotion-container w-full">
       {%- if show_media_promotion -%}
-        <link rel="stylesheet" href="{{ 'promos.css' | asset_url }}" media="print" onload="this.media='all'">
+        <link rel="stylesheet" href="{{ 'promos.aio.min.css' | asset_url }}" media="print" onload="this.media='all'">
         <div class="cart-drawer__media-promotion" style="--promo-text-color: {{- section.settings.text_color -}};--promo-overlay-color: rgba({{ section.settings.tint_color.red }}, {{ section.settings.tint_color.green }}, {{ section.settings.tint_color.blue }}, {{ section.settings.tint_opacity | divided_by: 100.0 }});{% if section.settings.content != blank or section.settings.button_label != blank %}--promo-min-height: {{ section.settings.media_promotion_min_height }}px;{% endif %}">
           {%-
             render 'promo-image',

@@ -32,7 +32,7 @@ if (!customElements.get('slide-show')) {
         this.slideshow.addEventListener('touchmove', debounce(this.handleTouchMove.bind(this), 200), { passive: true });
       }
 
-      this.slideshow.addEventListener('wheel', this.handleWheel.bind(this), { passive: true });
+      this.slideshow.addEventListener('wheel', this.handleWheel.bind(this));
 
       this.slideshow.addEventListener('transitionend', SlideShow.handleTransitionend);
 
@@ -153,12 +153,6 @@ if (!customElements.get('slide-show')) {
     setActiveSlide(slideIndex, slideDirection) {
       if (slideIndex === this.currentIndex) return;
 
-      // Cancel any prior calls to this that have not completed
-      clearTimeout(this.setActiveSlideTimeoutId);
-
-      // Clear autoplay timer
-      clearTimeout(this.autoplayTimer);
-
       // Set data attribute for direction of slide transitions.
       let dir = slideDirection || (slideIndex < this.currentIndex ? 'prev' : 'next');
       if (this.rtl) dir = dir === 'next' ? 'prev' : 'next';
@@ -167,9 +161,9 @@ if (!customElements.get('slide-show')) {
       // Trigger text overlay transition out.
       this.slides[this.currentIndex].classList.add('transition-out');
 
-      this.setActiveSlideTimeoutId = setTimeout(() => {
+      setTimeout(() => {
         // Move new slide into the viewport.
-        this.slideshow.scrollTo({ left: this.slides[slideIndex].offsetLeft, behavior: 'auto' });
+        this.slideshow.scrollTo({ left: this.slides[slideIndex].offsetLeft, behavior: 'instant' });
 
         // Update current slide and trigger transitions.
         this.slides[slideIndex].classList.add('is-active');
@@ -188,12 +182,6 @@ if (!customElements.get('slide-show')) {
         this.currentIndex = slideIndex;
         this.setSlideVisibility();
         this.updatePagination();
-
-        // Autoplay
-        if (this.autoplayEnabled && !this.autoplayPaused) {
-          this.autoplayTimeLeft = this.autoplaySpeed;
-          this.autoplayTimer = setTimeout(this.showNextSlide.bind(this), this.autoplaySpeed);
-        }
       }, 200);
     }
 
@@ -214,14 +202,14 @@ if (!customElements.get('slide-show')) {
 
     stopAutoplay() {
       this.setSlideshowState('paused');
-      clearTimeout(this.autoplayTimer);
+      clearInterval(this.autoplayTimer);
+      clearTimeout(this.resumeTimer);
     }
 
     startAutoplay() {
       this.autoplayTimeLeft = null;
       this.autoplayStartTime = Date.now();
-      clearTimeout(this.autoplayTimer);
-      this.autoplayTimer = setTimeout(this.showNextSlide.bind(this), this.autoplaySpeed);
+      this.autoplayTimer = setInterval(this.showNextSlide.bind(this), this.autoplaySpeed);
       this.setSlideshowState('running');
     }
 
@@ -240,7 +228,10 @@ if (!customElements.get('slide-show')) {
       if (!this.autoplayEnabled || !this.autoplayPaused) return;
 
       this.resumedTime = Date.now();
-      this.autoplayTimer = setTimeout(this.showNextSlide.bind(this), this.autoplayTimeLeft);
+      this.resumeTimer = setTimeout(() => {
+        this.showNextSlide();
+        this.startAutoplay();
+      }, this.autoplayTimeLeft);
 
       this.setSlideshowState('running');
     }

@@ -1,10 +1,10 @@
 {%- if section.index > 2 -%}
-  <link rel="stylesheet" href="{{ 'hotspots-image.css' | asset_url }}" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="{{ 'hotspots-image.aio.min.css' | asset_url }}" media="print" onload="this.media='all'">
 {%- else -%}
-  {{ 'hotspots-image.css' | asset_url | stylesheet_tag }}
+  {{ 'hotspots-image.aio.min.css' | asset_url | stylesheet_tag }}
 {%- endif -%}
 
-<script src="{{ 'hotspots-image.js' | asset_url }}" defer="defer"></script>
+<script src="{{ 'hotspots-image.aio.min.js' | asset_url }}" defer="defer"></script>
 
 {%- liquid
   assign color_scheme = section.settings.color_scheme
@@ -129,7 +129,7 @@
       "type": "product",
       "id": "product",
       "label": "Product",
-      "info": "Product image may be enlarged. You can replace the default product image with the \"Image\" setting."
+      "info": "Product image may be enlarged. You can replace the default product image with the 'Image' setting."
     },
     {
       "type": "header",

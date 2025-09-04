@@ -5,8 +5,6 @@ slide-show {
 
 .slideshow {
   overflow-x: auto;
-  overflow-y: hidden;
-  scroll-behavior: auto;
   scroll-snap-type: x mandatory;
   scrollbar-width: none;
   touch-action: pan-y;
@@ -38,7 +36,7 @@ slide-show {
   opacity: 1;
 }
 .slideshow__slide.is-active.transition-out .text-overlay {
-  transition: opacity 0.3s;
+  transition: opacity 0.4s;
   opacity: 0;
 }
 
@@ -246,22 +244,16 @@ slide-show {
 }
 
 [data-transition=fade] .has-motion {
-  transition: var(--transition-in, opacity 1s);
+  transition: var(--transtion-in, opacity 1s);
   opacity: 0;
 }
 [data-transition=fade] .is-active > .has-motion {
   opacity: 1;
 }
 
-.slideshow__slide--ignore-pagination {
+.slideshow__slide--no-pagination {
   padding-bottom: 0;
 }
-.js .slideshow__slide--ignore-pagination .text-overlay {
-  margin: calc(12 * var(--space-unit)) 0 calc(12 * var(--space-unit) * 2);
-}
-
-@media (max-width: 768.98px) {
-  .mobile-stacked .slideshow__slide--ignore-pagination .text-overlay {
-    margin: 0;
-  }
+.js .slideshow__slide--no-pagination .text-overlay {
+  margin: calc(12 * var(--space-unit)) 0;
 }

@@ -61,7 +61,7 @@
               </div>
               {%- if boxed -%}
                 <div class="media relative quick-nav__img-thumb hidden md:block" style="padding-top: {{ 1 | divided_by: image_ratio | times: 100 }}%;">
-                  <img src="{{ image_object | default: link.object | image_url: width: large_image_size }}" class="img-fit{% if image_fit == "contain" %} img-fit--contain{% endif %}" loading="lazy" width="{{ large_image_size }}" height="auto"/>
+                  <img loading="lazy" src="{{ image_object | default: link.object | image_url: width: large_image_size }}" class="img-fit{% if image_fit == "contain" %} img-fit--contain{% endif %}" loading="lazy" width="{{ large_image_size }}" height="auto"/>
                 </div>
               {%- endif -%}
             {%- endunless -%}
@@ -105,12 +105,12 @@
                 {%- unless image contains "Liquid error" -%}
                   <div{% if boxed %} class="md:hidden"{% endif %}>
                     <div class="media relative quick-nav__img-thumb" style="padding-top: {{ 1 | divided_by: image_ratio | times: 100 }}%;">
-                      <img src="{{ image_object | default: child_link.object | image_url: width: small_image_size }}" class="img-fit{% if image_fit == "contain" %} img-fit--contain{% endif %}" loading="lazy" width="{{ small_image_size }}" height="auto"/>
+                      <img loading="lazy" loading="lazy" src="{{ image_object | default: child_link.object | image_url: width: small_image_size }}" class="img-fit{% if image_fit == "contain" %} img-fit--contain{% endif %}" loading="lazy" width="{{ small_image_size }}" height="auto"/>
                     </div>
                   </div>
                   {%- if boxed -%}
                     <div class="media relative quick-nav__img-thumb hidden md:block" style="padding-top: {{ 1 | divided_by: image_ratio | times: 100 }}%;">
-                      <img src="{{ image_object | default: child_link.object | image_url: width: large_image_size }}" class="img-fit{% if image_fit == "contain" %} img-fit--contain{% endif %}" loading="lazy" width="{{ large_image_size }}" height="auto"/>
+                      <img loading="lazy" src="{{ image_object | default: child_link.object | image_url: width: large_image_size }}" class="img-fit{% if image_fit == "contain" %} img-fit--contain{% endif %}" loading="lazy" width="{{ large_image_size }}" height="auto"/>
                     </div>
                   {%- endif -%}
                 {%- endunless -%}
@@ -158,7 +158,7 @@
                     </div>
                     {%- if boxed -%}
                       <div class="media relative quick-nav__img-thumb hidden md:block" style="padding-top: {{ 1 | divided_by: image_ratio | times: 100 }}%;">
-                        <img src="{{ image_object | default: grandchild_link.object | image_url: width: large_image_size }}" class="img-fit{% if image_fit == "contain" %} img-fit--contain{% endif %}" loading="lazy" width="{{ large_image_size }}" height="auto"/>
+                        <img loading="lazy" src="{{ image_object | default: grandchild_link.object | image_url: width: large_image_size }}" class="img-fit{% if image_fit == "contain" %} img-fit--contain{% endif %}" loading="lazy" width="{{ large_image_size }}" height="auto"/>
                       </div>
                     {%- endif -%}
                   {%- endunless -%}

@@ -18,7 +18,7 @@ if (!customElements.get('custom-select')) {
     init() {
       this.options = this.querySelectorAll('.custom-select__option');
       this.nativeSelect = document.getElementById(`${this.id}-native`);
-      this.swatches = !!Array.from(this.options).find((el) => 'swatch' in el.dataset);
+      this.swatches = 'swatch' in this.options[this.options.length - 1].dataset;
       this.focusedClass = 'is-focused';
       this.searchString = '';
       this.listboxOpen = false;
@@ -41,7 +41,7 @@ if (!customElements.get('custom-select')) {
     static getNextVisibleSibling(elem) {
       let sibling = elem.nextElementSibling;
       while (sibling) {
-        if (sibling.offsetParent) return sibling;
+        if (sibling.style.display !== 'none') return sibling;
         sibling = sibling.nextElementSibling;
       }
       return null;
@@ -55,7 +55,7 @@ if (!customElements.get('custom-select')) {
     static getPreviousVisibleSibling(elem) {
       let sibling = elem.previousElementSibling;
       while (sibling) {
-        if (sibling.offsetParent) return sibling;
+        if (sibling.style.display !== 'none') return sibling;
         sibling = sibling.previousElementSibling;
       }
       return null;
@@ -327,16 +327,6 @@ if (!customElements.get('custom-select')) {
         // Update swatch colour in the button.
         if (this.swatches) {
           this.button.dataset.swatch = option.dataset.swatch || '';
-          const nativeSwatchColor = option.style.getPropertyValue('--native-swatch-color');
-          if (nativeSwatchColor) {
-            this.button.style.setProperty('--native-swatch-color', nativeSwatchColor);
-            this.button.style.setProperty('--native-swatch-image', '');
-          }
-          const nativeSwatchImage = option.style.getPropertyValue('--native-swatch-image');
-          if (nativeSwatchImage) {
-            this.button.style.setProperty('--native-swatch-image', nativeSwatchImage);
-            this.button.style.setProperty('--native-swatch-color', '');
-          }
         }
 
         // Update the button text and set the option as active.
@@ -350,10 +340,7 @@ if (!customElements.get('custom-select')) {
           this.nativeSelect.dispatchEvent(new Event('change', { bubbles: true }));
         } else {
           // Dispatch a 'change' event on the custom select element.
-          const detail = {
-            selectedValue: option.dataset.value,
-            productUrl: option.dataset.productUrl
-          };
+          const detail = { selectedValue: option.dataset.value };
           this.dispatchEvent(new CustomEvent('change', { bubbles: true, detail }));
         }
       }

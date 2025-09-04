@@ -1,5 +1,5 @@
-{{ 'blog.css' | asset_url | stylesheet_tag }}
-{{ 'article.css' | asset_url | stylesheet_tag }}
+{{ 'blog.aio.min.css' | asset_url | stylesheet_tag }}
+{{ 'article.aio.min.css' | asset_url | stylesheet_tag }}
 
 <article class="article js-article">
   <div class="container">
@@ -30,6 +30,7 @@
             image: article.image,
             widths: '800, 1200, 1600',
             src_width: 1600,
+            src_placeholder: true,
             lazy_load: false,
             sizes: sizes
           %}
@@ -49,26 +50,20 @@
     {%- endif -%}
 
     <div class="article__content reading-width rte article-content mt-12 mx-auto">
-      {{ article.content }}
+      {{ article.content | replace: '<img', '<img loading="lazy"' | replace: '<iframe', '<iframe loading="lazy"' | replace: '<video', '<video preload="none"' }}
     </div>
 
     {%- if section.settings.show_share_buttons -%}
       <div class="social-share reading-width article-width mx-auto flex items-center mt-12 lg:blog-mt-16">
         <p class="social-share__heading mb-0 font-bold">{{ 'general.social.share_heading' | t }}:</p>
-        {% render 'social-share',
-            share_twitter: section.settings.show_twitter,
-            share_facebook: section.settings.show_facebook,
-            share_pinterest: section.settings.show_pinterest,
-            share_title: article.title,
-            share_url: article.url,
-            share_image: article.image %}
+        {% render 'social-share', share_title: article.title, share_url: article.url, share_image: article.image %}
       </div>
     {%- endif -%}
 
     {%- if section.settings.pagination != "none" -%}
       {%- if section.settings.pagination != "standard" -%}
-        {{ 'article-pagination.css' | asset_url | stylesheet_tag }}
-        <script src="{{ 'article-pagination.js' | asset_url }}" defer="defer"></script>
+        {{ 'article-pagination.aio.min.css' | asset_url | stylesheet_tag }}
+        <script src="{{ 'article-pagination.aio.min.js' | asset_url }}" defer="defer"></script>
       {%- endif -%}
 
       <article-pagination class="article__pagination pagination__bar flex justify-between font-bold border-top{% if section.settings.pagination == "standard" %} border-bottom reading-width article-width mx-auto mt-12 lg:blog-mt-16{% else %} fixed bottom-0 left-0 w-full pl-4 pr-4{% endif %}">
@@ -99,12 +94,12 @@
 
 {% schema %}
 {
-  "name": "Blog post",
+  "name": "Article",
   "class": "cc-main-article section section--template",
   "settings": [
     {
       "type": "header",
-      "content": "Blog post header"
+      "content": "Article header"
     },
     {
       "type": "checkbox",
@@ -171,30 +166,12 @@
     },
     {
       "type": "header",
-      "content": "Blog post footer"
+      "content": "Article footer"
     },
     {
       "type": "checkbox",
       "id": "show_share_buttons",
       "label": "Show social share links",
-      "default": true
-    },
-    {
-      "type": "checkbox",
-      "id": "show_twitter",
-      "label": "Show X (formerly Twitter)",
-      "default": true
-    },
-    {
-      "type": "checkbox",
-      "id": "show_facebook",
-      "label": "Show Facebook",
-      "default": true
-    },
-    {
-      "type": "checkbox",
-      "id": "show_pinterest",
-      "label": "Show Pinterest",
       "default": true
     },
     {

@@ -11,8 +11,6 @@
   - label_inside {Boolean} - Show label inside the select element (optional, default is false).
   - hide_label {Boolean} - Visually hide the label (optional, default is false).
   - swatches {Boolean} - Select element is a colour selector with swatches enabled (optional, default is false).
-  - native_swatches {Boolean} - Permit native swatches to appear in this selector (optional, default is false).
-  - swatch_size {Integer} - Size of swatch images (optional, default is 40)
   - country_selector {boolean} - Select element is a country selector (optional, default is false).
   - include_native {Boolean} - Include a (hidden) native select element (optional, default is false).
   - native_name {String} - Unique 'name' attribute for the native select element (optional).
@@ -25,8 +23,7 @@
     option_values: values,
     selected_value: 'Red',
     label: 'Colour',
-    swatches: true,
-    native_swatches: false
+    swatches: true
   %}
 {% endcomment %}
 
@@ -40,7 +37,6 @@
       if value == selected_value
         assign selected_id = id | append: '-opt-' | append: forloop.index0
         assign selected_name = option_names[forloop.index0]
-        assign selected_value = value
       endif
     endfor
   else
@@ -52,8 +48,6 @@
       assign default_option = selected_name
     endif
   endif
-
-  assign swatch_size = swatch_size | default: 40
 -%}
 
 {%- if country_selector -%}
@@ -71,13 +65,7 @@
     {%- if label and label_inside -%}{{ label_html }}{%- endif -%}
     <button class="custom-select__btn input items-center" type="button"
             aria-expanded="false" aria-haspopup="listbox" id="{{ id }}-button"
-            {%- if swatches and selected_value %} data-swatch="{{ selected_value | escape | downcase }}"
-              {%- if native_swatches and selected_value.swatch.image %}
-                style="--native-swatch-image: url({{ selected_value.swatch.image | image_url: width: swatch_size, height: swatch_size, crop: 'center' }})"
-              {%- elsif native_swatches and selected_value.swatch.color %}
-                style="--native-swatch-color: rgb({{ selected_value.swatch.color.rgb }})"
-              {%- endif %}
-            {%- endif %}>
+            {% if swatches and selected_value %} data-swatch="{{ selected_value | escape | downcase }}"{% endif %}>
       <span class="text-start">{{- selected_name -}}</span>
       <svg width="20" height="20" viewBox="0 0 24 24" class="icon" role="presentation" focusable="false" aria-hidden="true">
         <path d="M20 8.5 12.5 16 5 8.5" stroke="currentColor" stroke-width="1.5" fill="none"/>
@@ -93,16 +81,8 @@
       {%- for value in option_values -%}
         <li class="custom-select__option flex items-center js-option" id="{{ id }}-opt-{{ forloop.index0 }}" role="option"
             data-value="{{ value | escape }}"
-            data-value-id="{{ value.id }}"
-            {%- if value.product_url != blank %} data-product-url="{{ value.product_url }}"{% endif %}
-            {%- if swatches %} data-swatch="{{ value | escape | downcase }}"
-              {%- if native_swatches and value.swatch.image %}
-                style="--native-swatch-image: url({{ value.swatch.image | image_url: width: swatch_size, height: swatch_size, crop: 'center' }})"
-              {%- elsif native_swatches and value.swatch.color %}
-                style="--native-swatch-color: rgb({{ value.swatch.color.rgb }})"
-              {%- endif %}
-            {% endif %}
-            {%- if value == selected_value %} aria-selected="true"{% endif %}>
+            {% if swatches %} data-swatch="{{ value | escape | downcase }}"{% endif %}
+            {% if value == selected_value %} aria-selected="true"{% endif %}>
           <span class="pointer-events-none">{{- option_names[forloop.index0] -}}</span>
         </li>
       {%- endfor -%}

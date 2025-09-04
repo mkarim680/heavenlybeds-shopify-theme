@@ -75,7 +75,6 @@
   },
   "accessibility": {
     "skip_to_content": "Aller au contenu",
-    "skip_to_product_info": "Passer aux informations produits",
     "close": "Fermer",
     "loading": "Chargement...",
     "main_navigation": "Principal",
@@ -184,8 +183,7 @@
     },
     "variant": {
       "no_stock": "Épuisé",
-      "non_existent": "Indisponible",
-      "not_selected": "Choisissez"
+      "non_existent": "Indisponible"
     },
     "compare": {
       "switch_label": "Comparer",
@@ -227,7 +225,6 @@
     },
     "footer": {
       "payment_methods": "Moyens de paiement acceptés",
-      "copyright_html": "&copy; {{ year }} <a href=\"{{ shop_url }}\">{{ shop_name }}</a>.",
       "back_to_top": "Retour en haut"
     },
     "collection": {
@@ -365,17 +362,15 @@
       "view_cart": "Voir le panier",
       "free_shipping": "Votre commande est éligible à la livraison gratuite !",
       "free_shipping_deficit_html": "Dépensez <strong>{{ amount }}</strong> de plus pour <strong>la livraison gratuite</strong> !",
-      "taxes_and_shipping_at_checkout": "Taxes, réductions et frais d’expédition calculés à l’étape du paiement.",
-      "taxes_and_shipping_at_checkout_html": "Taxes, réductions et <a href=\"{{ link }}\">frais d’expédition</a> calculés à l’étape du paiement.",
-      "taxes_included_shipping_at_checkout": "Taxe incluse, frais d’expédition et réductions calculés à l’étape du paiement.",
-      "taxes_included_shipping_at_checkout_html": "Taxe incluse. <a href=\"{{ link }}\">Frais d’expédition</a> et réductions calculés à l’étape du paiement.",
+      "taxes_and_shipping_at_checkout": "Taxes et frais de livraison calculés lors du paiement.",
+      "taxes_and_shipping_at_checkout_html": "Taxes et <a href=\"{{ link }}\">frais de livraison</a> calculés lors du paiement.",
+      "taxes_included_shipping_at_checkout": "Taxes incluses, frais de livraison calculés lors du paiement.",
+      "taxes_included_shipping_at_checkout_html": "Taxes incluses, <a href=\"{{ link }}\">frais de livraison</a> calculés lors du paiement.",
       "error": "Une erreur s’est produite lors de la mise à jour de votre panier. Veuillez réessayer."
     },
     "items": {
       "product": "Produit",
       "quantity": "Quantité",
-      "increase_quantity": "Augmenter la quantité",
-      "decrease_quantity": "Diminuer la quantité",
       "price": "Prix",
       "remove": "Supprimer",
       "total": "Sous-total",
@@ -458,8 +453,7 @@
       "new_customer": "Nouveau client ?",
       "create_account": "Créer un compte",
       "guest_title": "Continuer en tant qu’invité",
-      "guest_continue": "Continuer",
-      "alternate_provider_separator": "ou"
+      "guest_continue": "Continuer"
     },
     "order": {
       "title": "Commande {{ name }}",
@@ -554,6 +548,51 @@
       "vendor": "Distributeur du produit",
       "sku": "SKU",
       "description": "Une description du produit, comprenant des détails tels que la qualité de construction, les matériaux utilisés et les raisons d’acheter."
+    }
+  },
+  "pagefly": {
+    "products": {
+      "product": {
+        "regular_price": "Regular price",
+        "sold_out": "Sold out",
+        "unavailable": "Unavailable",
+        "on_sale": "Sale",
+        "quantity": "Quantity",
+        "add_to_cart": "Add to cart",
+        "back_to_collection": "Back to {{ title }}",
+        "view_details": "View details"
+      }
+    },
+    "article": {
+      "tags": "Tags:",
+      "all_topics": "All topics",
+      "by_author": "by {{ author }}",
+      "posted_in": "Posted in",
+      "read_more": "Read more",
+      "back_to_blog": "Back to {{ title }}"
+    },
+    "comments": {
+      "title": "Leave a comment",
+      "name": "Name",
+      "email": "Email",
+      "message": "Message",
+      "post": "Post comment",
+      "moderated": "Please note, comments must be approved before they are published",
+      "success_moderated": "Your comment was posted successfully. We will publish it in a little while, as our blog is moderated.",
+      "success": "Your comment was posted successfully! Thank you!",
+      "comments_with_count": {
+        "one": "{{ count }} comment",
+        "other": "{{ count }} comments"
+      }
+    },
+    "password_page": {
+      "login_form_message": "Enter store using password:",
+      "login_form_password_label": "Password",
+      "login_form_password_placeholder": "Your password",
+      "login_form_submit": "Enter",
+      "signup_form_email_label": "Email",
+      "signup_form_success": "We will send you an email right before we open!",
+      "password_link": "Enter using password"
     }
   }
 }

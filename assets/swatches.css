@@ -1,4 +1,6 @@
-@charset "UTF-8";
+[data-swatch]::before {
+  background-color: rgba(var(--text-color) / 0.08);
+}
 
 
 

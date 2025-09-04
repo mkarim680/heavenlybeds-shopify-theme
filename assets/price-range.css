@@ -38,7 +38,8 @@
   height: 100%;
   margin: 0 -8px;
   background: none;
-  appearance: none;
+  -webkit-appearance: none;
+          appearance: none;
   pointer-events: none;
 }
 .price-range__slider-input::-moz-range-thumb {
@@ -70,7 +71,8 @@
   background-clip: padding-box;
   background-color: rgba(var(--bg-color));
   box-shadow: inset 0 0 0 2px rgb(var(--text-color));
-  appearance: none;
+  -webkit-appearance: none;
+          appearance: none;
   pointer-events: all;
 }
 .price-range__slider-input::-webkit-slider-thumb:hover {

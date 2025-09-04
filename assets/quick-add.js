@@ -159,6 +159,7 @@ if (!customElements.get('quick-add-drawer')) {
       // If it's the same product as previously shown, there's no need to re-fetch the details.
       if (this.productUrl && this.productUrl === opener.dataset.productUrl) {
         super.open(opener);
+        if (opener.dataset.selectedColor) this.setActiveVariant(opener);
         opener.removeAttribute('aria-disabled');
         return;
       }
@@ -182,7 +183,7 @@ if (!customElements.get('quick-add-drawer')) {
       if (response.ok) {
         const tmpl = document.createElement('template');
         tmpl.innerHTML = await response.text();
-        this.productEl = tmpl.content.querySelector('.cc-main-product .js-product');
+        this.productEl = tmpl.content.querySelector('.js-product');
         this.renderProduct(opener);
       }
 
@@ -211,10 +212,7 @@ if (!customElements.get('quick-add-drawer')) {
 
       // Prevent variant picker from updating the URL on change.
       const variantPicker = this.productEl.querySelector('variant-picker');
-      if (variantPicker) {
-        variantPicker.dataset.updateUrl = 'false';
-        this.selectFirstVariant = variantPicker.dataset.selectFirstVariant === 'true';
-      }
+      if (variantPicker) variantPicker.dataset.updateUrl = 'false';
 
       // Remove size chart modal and link (if they exist).
       const sizeChartModal = this.productEl.querySelector('[data-modal="size-chart"]');
@@ -229,7 +227,7 @@ if (!customElements.get('quick-add-drawer')) {
       const activeMedia = this.productEl.querySelector('.media-viewer__item.is-current-variant');
       if (activeMedia) this.updateMedia(activeMedia.dataset.mediaId);
 
-      if (opener.dataset.selectedColor && this.selectFirstVariant) {
+      if (opener.dataset.selectedColor) {
         // Timeout to allow the VariantPicker to initialize
         setTimeout(this.setActiveVariant.bind(this, opener), 10);
       }
@@ -308,7 +306,7 @@ if (!customElements.get('quick-add-drawer')) {
           <div class="quick-add-info__details md:hidden"></div>
         </div>
         <div class="product-options">
-          ${this.getElementHtml('.product-options', '.custom-option:not(.quick-add-hidden)')}
+          ${this.getElementHtml('.product-options')}
         </div>
         <div class="product-backorder">
           ${this.getElementHtml('.product-backorder')}
@@ -361,21 +359,13 @@ if (!customElements.get('quick-add-drawer')) {
     }
 
     /**
-     * Gets the innerHTML of elements within the product element.
+     * Gets the innerHTML of an element within the product element.
      * @param {string} selector - CSS selector for the element.
-     * @param {...*} additionalSelectors - Additional CSS selectors for elements.
      * @returns {?string}
      */
-    getElementHtml(selector, ...additionalSelectors) {
-      const selectors = [selector].concat(additionalSelectors);
-      let html = '';
-      selectors.forEach((sel) => {
-        const els = this.productEl.querySelectorAll(sel);
-        Array.from(els).forEach((el) => {
-          html += el.innerHTML;
-        });
-      });
-      return html;
+    getElementHtml(selector) {
+      const el = this.productEl.querySelector(selector);
+      return el ? el.innerHTML : '';
     }
 
     /**

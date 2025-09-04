@@ -30,7 +30,7 @@
 
 {%- style -%}
   .header {
-  --bg-color: {{ section.settings.bg_color.rgb }};
+  --bg-color: {{ section.settings.bg_color.rgba }};
   --text-color: {{ section.settings.text_color.rgb }};
   --nav-bg-color: {{ section.settings.bg_color.rgb }};
   --nav-text-color: {{ section.settings.text_color.rgb }};
@@ -86,10 +86,9 @@
 
     {%- if section.settings.enable_search -%}
       {%- if settings.enable_predictive_search -%}
-        <link rel="stylesheet" href="{{ 'predictive-search.css' | asset_url }}"{% unless show_search_types %} media="print" onload="this.media='all'"{% endunless %}>
-        {%- if show_search_types -%}<script src="{{ 'custom-select.js' | asset_url }}" defer="defer"></script>{%- endif -%}
-        <script src="{{ 'predictive-search.js' | asset_url }}" defer="defer"></script>
-        <script src="{{ 'tabs.js' | asset_url }}" defer="defer"></script>
+        <link rel="stylesheet" href="{{ 'predictive-search.aio.min.css' | asset_url }}"{% unless show_search_types %} media="print" onload="this.media='all'"{% endunless %}>
+        <script src="{{ 'predictive-search.aio.min.js' | asset_url }}" defer="defer"></script>
+        <script src="{{ 'tabs.aio.min.js' | asset_url }}" defer="defer"></script>
       {%- endif -%}
 
       <div class="header__search{% if section.settings.minimise_search_mobile %} header__search--collapsible-mob{% endif %}{% if section.settings.minimise_search_desktop %} header__search--collapsible-desktop{% endif %}{% if search_is_minimised %} js-search-bar{% endif %} relative js-closes-menu"{% if search_is_minimised %} id="search-bar"{% endif %}>
@@ -322,7 +321,7 @@
 
                                 <li{% if flex_auto %} class="flex-auto"{% endif %}>
                                   {%- if child_link.links == blank -%}
-                                    {%- if collection_image -%}<div class="child-nav__item--toggle flex items-center child-nav__collection-image{% if mega_nav and mega_nav_has_columns and mega_nav.settings.show_underline == false %} nav__item--no-underline{% endif %}{% if mega_nav.type == "sidebar" %} js-sidebar-hover{% endif %}">{%- endif -%}
+                                    {%- if collection_image -%}<div class="child-nav__item--toggle flex items-center child-nav__item-collection-image{% if mega_nav and mega_nav_has_columns and mega_nav.settings.show_underline == false %} nav__item--no-underline{% endif %}{% if mega_nav.type == "sidebar" %} js-sidebar-hover{% endif %}">{%- endif -%}
                                       {%- if collection_image -%}
                                         {%- liquid
                                           assign alt_text = child_link.title | escape
@@ -332,7 +331,7 @@
                                             assign collection_image_object = child_link.object
                                           endif
                                         -%}
-                                        <div class="main-nav__collection-image{% if settings.blend_collection_images %} image-blend {% endif %}{% if mega_nav.settings.collection_circle_image and mega_nav.type == "sidebar" or mega_nav.type == "columns" %} main-nav__collection-image-circle{% endif %} media relative main-nav__collection-image--flex main-nav__collection-image--{{ mega_nav.settings.collection_images }}{% if mega_nav.type == "pills" %} md:hidden{% endif %}">
+                                        <div class="main-nav__collection-image media relative main-nav__collection-image--flex main-nav__collection-image--{{ mega_nav.settings.collection_images }}{% if mega_nav.type == "pills" %} md:hidden{% endif %}">
                                           {% render 'image',
                                             image: collection_image_object,
                                             src_width: collection_image_size_large,
@@ -343,7 +342,7 @@
                                         </div>
 
                                         {%- if mega_nav.type == "pills" -%}
-                                          <div class="main-nav__collection-image{% if settings.blend_collection_images %} image-blend {% endif %} media relative main-nav__collection-image--{{ mega_nav.settings.collection_images }} hidden md:block">
+                                          <div class="main-nav__collection-image media relative main-nav__collection-image--{{ mega_nav.settings.collection_images }} hidden md:block">
                                             {% render 'image',
                                               image: collection_image_object,
                                               src_width: collection_image_size_xlarge,
@@ -377,7 +376,7 @@
                                                   assign collection_image_object = child_link.object
                                                 endif
                                               -%}
-                                              <div class="main-nav__collection-image{% if settings.blend_collection_images %} image-blend {% endif %}{% if mega_nav.settings.collection_circle_image %} main-nav__collection-image-circle{% endif %} main-nav__collection-image--flex main-nav__collection-image--{{ mega_nav.settings.collection_images }} media relative{% if mega_nav and mega_nav.type == "pills" %} md:hidden{% endif %}">
+                                              <div class="main-nav__collection-image main-nav__collection-image--flex main-nav__collection-image--{{ mega_nav.settings.collection_images }} media relative{% if mega_nav and mega_nav.type == "pills" %} md:hidden{% endif %}">
                                                 {% render 'image',
                                                   image: collection_image_object,
                                                   src_width: collection_image_size_large,
@@ -403,7 +402,7 @@
                                               endif
                                             -%}
 
-                                            <div class="main-nav__collection-image{% if settings.blend_collection_images %} image-blend {% endif %} shrink-0 main-nav__collection-image--{{ mega_nav.settings.collection_images }} media relative hidden md:block">
+                                            <div class="main-nav__collection-image shrink-0 main-nav__collection-image--{{ mega_nav.settings.collection_images }} media relative hidden md:block">
                                               {% render 'image',
                                                 image: collection_image_object,
                                                 src_width: collection_image_size_xlarge,
@@ -432,13 +431,7 @@
                                             {%- for grandchild_link in child_link.links -%}
                                               <li>
                                                 {%- assign grandchild_link_title_downcase = grandchild_link.title | downcase -%}
-                                                <a class="grandchild-nav__item main-nav__item relative{% if featured_links contains grandchild_link_title_downcase %} main-nav__link--featured{% endif %}" href="{{ grandchild_link.url }}"{% if grandchild_link.current %} aria-current="page"{% endif %}>
-                                                  {%- if mega_nav.type == "sidebar" and mega_nav.settings.show_collection_images and grandchild_link.type == 'collection_link' and collections[grandchild_link.object.handle].metafields.theme.label != blank -%}
-                                                    <div class="badge collection-label"{% if collections[grandchild_link.object.handle].metafields.theme.label_color != blank %} style="--collection-label-color: {{ collections[grandchild_link.object.handle].metafields.theme.label_color.value.rgb }}"{% endif %}>
-                                                      {{ collections[grandchild_link.object.handle].metafields.theme.label }}
-                                                    </div>
-                                                  {%- endif -%}
-
+                                                <a class="grandchild-nav__item main-nav__item{% if featured_links contains grandchild_link_title_downcase %} main-nav__link--featured{% endif %}" href="{{ grandchild_link.url }}"{% if grandchild_link.current %} aria-current="page"{% endif %}>
                                                   {%- liquid
                                                     assign grandchild_image = null
                                                     if mega_nav.type == "sidebar"
@@ -685,20 +678,20 @@
 </store-header>
 
 {%- if has_mega_nav_pills -%}
-  <link rel="stylesheet" href="{{ 'navigation-mega-pills.css' | asset_url }}" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="{{ 'navigation-mega-pills.aio.min.css' | asset_url }}" media="print" onload="this.media='all'">
 {%- endif -%}
 
 {%- if has_mega_nav_columns -%}
-  <link rel="stylesheet" href="{{ 'navigation-mega-columns.css' | asset_url }}" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="{{ 'navigation-mega-columns.aio.min.css' | asset_url }}" media="print" onload="this.media='all'">
 {%- endif -%}
 
 {%- if has_mega_nav_sidebar -%}
-  <link rel="stylesheet" href="{{ 'navigation-mega-sidebar.css' | asset_url }}" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="{{ 'navigation-mega-sidebar.aio.min.css' | asset_url }}" media="print" onload="this.media='all'">
 {%- endif -%}
 
 {%- if total_promo_count > 0 -%}
-  <link rel="stylesheet" href="{{ 'promos.css' | asset_url }}" media="print" onload="this.media='all'">
-  <link rel="stylesheet" href="{{ 'navigation-promos.css' | asset_url }}" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="{{ 'promos.aio.min.css' | asset_url }}" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="{{ 'navigation-promos.aio.min.css' | asset_url }}" media="print" onload="this.media='all'">
 {%- endif -%}
 
 {% javascript %}
@@ -868,7 +861,7 @@
       "type": "checkbox",
       "id": "menu_center",
       "label": "Center menu links on large screens",
-      "info": "Only applies when a \"Quicklinks menu/call to action\" is not specified.",
+      "info": "Ony applies when a \"Quicklinks menu/call to action\" is not specified.",
       "default": false
     },
     {
@@ -881,7 +874,7 @@
       "type": "text",
       "id": "menu_featured_link",
       "label": "Featured link",
-      "info": "Enter links to highlight in the Accent color. Separate multiple links with commas. e.g. \"Shop,Sale\".",
+      "info": "Enter links to highlight in the Accent color. Separate multiple links with commas. e.g. 'Shop,Sale'.",
       "default": "Sale"
     },
     {
@@ -1118,7 +1111,7 @@
           "type": "text",
           "id": "title",
           "label": "Link name",
-          "info": "The name of any top-level link that you wish to turn into a mega menu. Separate multiple links with commas. e.g. \"Shop,Collection\"."
+          "info": "The name of any top-level link that you wish to turn into a mega menu. Separate multiple links with commas. e.g. 'Shop,Collection'."
         },
         {
           "type": "header",
@@ -1148,12 +1141,6 @@
           "type": "checkbox",
           "id": "collection_use_product_image",
           "label": "Use the first product image as the collection image",
-          "default": false
-        },
-        {
-          "type": "checkbox",
-          "id": "collection_circle_image",
-          "label": "Crop images as circles",
           "default": false
         },
         {
@@ -1481,7 +1468,7 @@
           "type": "text",
           "id": "badge1_link",
           "label": "Link",
-          "info": "Separate links with commas. e.g. \"Shop,Sale\"."
+          "info": "Separate links with commas. e.g. 'Shop,Sale'."
         },
         {
           "type": "text",
@@ -1502,7 +1489,7 @@
           "type": "text",
           "id": "badge2_link",
           "label": "Link",
-          "info": "Separate links with commas. e.g. \"Shop,Sale\"."
+          "info": "Separate links with commas. e.g. 'Shop,Sale'."
         },
         {
           "type": "text",
@@ -1523,7 +1510,7 @@
           "type": "text",
           "id": "badge3_link",
           "label": "Link",
-          "info": "Separate links with commas. e.g. \"Shop,Sale\"."
+          "info": "Separate links with commas. e.g. 'Shop,Sale'."
         },
         {
           "type": "text",
@@ -1883,7 +1870,7 @@
           "type": "text",
           "id": "title",
           "label": "Link name",
-          "info": "The name of any top-level link that you wish to turn into a mega menu. Separate multiple links with commas. e.g. \"Shop,Collection\"."
+          "info": "The name of any top-level link that you wish to turn into a mega menu. Separate multiple links with commas. e.g. 'Shop,Collection'."
         },
         {
           "type": "header",
@@ -1913,12 +1900,6 @@
           "type": "checkbox",
           "id": "collection_use_product_image",
           "label": "Use the first product image as the collection image",
-          "default": false
-        },
-        {
-          "type": "checkbox",
-          "id": "collection_circle_image",
-          "label": "Crop images as circles",
           "default": false
         },
         {
@@ -1995,7 +1976,7 @@
           "type": "text",
           "id": "badge1_link",
           "label": "Link",
-          "info": "Separate links with commas. e.g. \"Shop,Sale\"."
+          "info": "Separate links with commas. e.g. 'Shop,Sale'."
         },
         {
           "type": "text",
@@ -2016,7 +1997,7 @@
           "type": "text",
           "id": "badge2_link",
           "label": "Link",
-          "info": "Separate links with commas. e.g. \"Shop,Sale\"."
+          "info": "Separate links with commas. e.g. 'Shop,Sale'."
         },
         {
           "type": "text",
@@ -2037,7 +2018,7 @@
           "type": "text",
           "id": "badge3_link",
           "label": "Link",
-          "info": "Separate links with commas. e.g. \"Shop,Sale\"."
+          "info": "Separate links with commas. e.g. 'Shop,Sale'."
         },
         {
           "type": "text",

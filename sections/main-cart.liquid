@@ -1,13 +1,38 @@
 {%- comment -%}theme-check-disable NestedSnippet{%- endcomment -%}
-{{ 'cart-items.css' | asset_url | stylesheet_tag }}
+{{ 'cart-items.aio.min.css' | asset_url | stylesheet_tag }}
 
 {%- if cart != empty -%}
-  <link rel="stylesheet" id="cart-summary-css" href="{{ 'cart-summary.css' | asset_url }}">
+  <link rel="stylesheet" id="cart-summary-css" href="{{ 'cart-summary.aio.min.css' | asset_url }}">
 {%- endif -%}
 
 {%- if section.settings.show_order_note -%}
-  <script src="{{ 'cart-note.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'cart-note.aio.min.js' | asset_url }}" defer="defer"></script>
 {%- endif -%}
+
+<script>
+  function code(){
+    var dropdown = document.getElementById('cash-on-delivery');
+    var selectedText = dropdown.options[dropdown.selectedIndex].value;
+    if(selectedText == "Cash on Delivery"){
+      document.getElementsByClassName('cash-discount-code')[0].style.display = 'block';
+      jQuery('.discount').show();
+         fetch('/discount/CASHONDELIVERY').then(() => {
+            jQuery.getJSON('/cart.js', function(cart) {
+              jQuery('.new_price').html(Shopify.formatMoney(cart.total_price,window.theme.settings.moneyWithCurrencyFormat));
+           });
+        });
+      
+    }else{
+      document.getElementsByClassName('cash-discount-code')[0].style.display = 'none';
+      jQuery('.discount').hide();
+      fetch('/discount/CLEAR').then(() => {
+        jQuery.getJSON('/cart.js', function(cart) {
+           jQuery('.new_price').html(Shopify.formatMoney(cart.original_total_price,window.theme.settings.moneyWithCurrencyFormat));
+        });
+      });
+    }
+  }
+</script> 
 
 <div class="container">
   <form class="cart form{% if cart != empty %} cart--with-items gap-theme heading--{{ section.settings.heading_align }}{% endif %}" id="cart" action="{{ routes.cart_url }}" method="post">
@@ -54,10 +79,11 @@
       {%- endif -%}
     </div>
 
-    <div id="cart-summary-and-blocks" class="cart-content">
-      {%- capture summary_and_checkout -%}
-        <div class="cart__summary p-6 md:p-8 mb-8" id="cart-summary" data-section="{{ section.id }}">
+    {%- if cart != empty -%}
+      <div class="cart__summary p-6 md:p-8" id="cart-summary" data-section="{{ section.id }}">
+        {%- if cart != empty -%}
           <h2 class="h5">{{ 'cart.summary.title' | t }}</h2>
+
           {%- if section.settings.show_order_note -%}
             <details-disclosure class="block mt-6">
               <details class="cart-note-disclosure disclosure disclosure--row">
@@ -89,6 +115,19 @@
                 </div>
               </details>
             </details-disclosure>
+             &nbsp;
+            <p class="cart-attribute__field">
+              <label>How are you Paying?</label><br>
+              <select id="cash-on-delivery" onchange="code();" required class="required" id="how-are-you-paying" name="attributes[How are you Paying?]">
+                <option value="" selected>Please Select</option>
+                <option value="Full or Finance Payment">Full via Card, PayPal or Finance</option>
+                <option value="Cash on Delivery">Cash on Delivery (25% Deposit Required)</option>
+              </select>
+            </p>
+             <div class="cash-discount-code" style="display:none">
+              <label>Discount Code <br />(Any eligible discount code will be taken off remaining cash amount)</label><br>
+              <input type="text" class="input w-full" name="attributes[cash-discount-code]">
+            </div>
           {%- endif -%}
 
           {%- if section.settings.show_tax_and_shipping -%}
@@ -109,7 +148,7 @@
             <ul class="mt-3 mb-2 font-bold" aria-label="{{ 'customer.order.discount' | t }}" role="list">
               {%- for discount in cart.cart_level_discount_applications -%}
                 <li class="mt-2">
-                  <div class="discount text-sm inline-flex items-center" dir="auto">
+                  <div class="discount text-sm inline-flex items-center">
                     {% render 'icon-tags' %} {{ discount.title | escape_once }} (-{{ discount.total_allocated_amount | money }})
                   </div>
                 </li>
@@ -119,7 +158,7 @@
 
           <div class="flex justify-between items-center mt-6">
             <h3 class="mb-0 h6">{{ 'cart.summary.subtotal' | t }}:</h3>
-            <p class="mb-0 h6">{%- render 'price-as-money', price: cart.total_price, show_money_with_currency: true -%}</p>
+            <p class="mb-0 h6 new_price">{%- render 'price-as-money', price: cart.total_price, show_money_with_currency: true -%}</p>
           </div>
 
           {%- if section.settings.cart_terms_page != blank -%}
@@ -145,7 +184,7 @@
           </div>
 
           {%- if additional_checkout_buttons and section.settings.cart_terms_page == blank and section.settings.show_additional_checkout_buttons -%}
-            <div class="dynamic-cart-btns mt-4">
+            <div class="dynamic-cart-btns">
               {{ content_for_additional_checkout_buttons }}
             </div>
           {%- endif -%}
@@ -155,31 +194,14 @@
               {{ 'cart.summary.continue_shopping' | t }}
             </a>
           {%- endif -%}
-        </div>
-      {%- endcapture -%}
-      {%- if cart != empty -%}
-        {%- for block in section.blocks -%}
-          {%- case block.type -%}
-            {%- when '@app' -%}
-              <div class="inline-block{% unless forloop.first %} mt-4{% endunless %}{% unless forloop.last %} mb-4{% endunless %}" {{ block.shopify_attributes }}>
-                {%- render block -%}
-              </div>
-
-            {%- when 'summary-and-checkout' -%}
-                <div {{ block.shopify_attributes }}>
-                  {{- summary_and_checkout -}}
-                </div>
-          {%- endcase -%}
-        {%- else -%}
-          {{- summary_and_checkout -}}
-        {%- endfor -%}
-      {%- endif-%}
-    </div>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
   </form>
 </div>
 
 {%- if section.settings.cart_terms_page != blank -%}
-  <script src="{{ 'cart-terms.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'cart-terms.aio.min.js' | asset_url }}" defer="defer"></script>
 {%- endif -%}
 
 {% schema %}
@@ -285,22 +307,6 @@
       "label": "Default country",
       "info": "If the customer is logged-in, their default shipping address details will be selected.",
       "default": "United States"
-    }
-  ],
-  "blocks": [
-    {
-      "type": "@app"
-    },
-    {
-      "type": "summary-and-checkout",
-      "limit": 1,
-      "name": "Summary and checkout",
-      "settings": [
-        {
-          "type": "paragraph",
-          "content": "This will display when there are items in the cart."
-        }
-      ]
     }
   ]
 }

@@ -6,7 +6,6 @@ class QuantityInput extends HTMLElement {
     this.changeEvent = new Event('change', { bubbles: true });
 
     this.addEventListener('click', this.handleClick.bind(this));
-    this.input.addEventListener('focus', QuantityInput.handleFocus);
     this.input.addEventListener('keydown', this.handleKeydown.bind(this));
   }
 
@@ -18,8 +17,6 @@ class QuantityInput extends HTMLElement {
     if (!evt.target.matches('.qty-input__btn')) return;
     evt.preventDefault();
 
-    this.currentQty = this.input.value;
-
     if (evt.target.name === 'plus') {
       this.input.stepUp();
     } else {
@@ -29,16 +26,6 @@ class QuantityInput extends HTMLElement {
     if (this.input.value !== this.currentQty) {
       this.input.dispatchEvent(this.changeEvent);
       this.currentQty = this.input.value;
-    }
-  }
-
-  /**
-   * Handles 'focus' events on the quantity input element.
-   * @param {object} evt - Event object.
-   */
-  static handleFocus(evt) {
-    if (window.matchMedia('(pointer: fine)').matches) {
-      evt.target.select();
     }
   }
 

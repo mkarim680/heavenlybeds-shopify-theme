@@ -22,30 +22,12 @@ function trapFocus(container, elementToFocus = container) {
     container.querySelectorAll('summary, a[href], area[href], button:not([disabled]), input:not([type=hidden]):not([disabled]), select:not([disabled]), textarea:not([disabled]), object, iframe, audio[controls], video[controls], [tabindex]:not([tabindex^="-"])')
   );
 
-  let firstEl = null;
-  let lastEl = null;
-  const isVisible = (el) => el.offsetParent && getComputedStyle(el).visibility !== 'hidden';
-
-  const setFirstLastEls = () => {
-    for (let i = 0; i < focusableEls.length; i += 1) {
-      if (isVisible(focusableEls[i])) {
-        firstEl = focusableEls[i];
-        break;
-      }
-    }
-    for (let i = focusableEls.length - 1; i >= 0; i -= 1) {
-      if (isVisible(focusableEls[i])) {
-        lastEl = focusableEls[i];
-        break;
-      }
-    }
-  };
+  const firstEl = focusableEls[0];
+  const lastEl = focusableEls[focusableEls.length - 1];
 
   removeTrapFocus();
 
   trapFocusHandlers.focusin = (evt) => {
-    setFirstLastEls();
-
     if (evt.target !== container && evt.target !== lastEl && evt.target !== firstEl) return;
     document.addEventListener('keydown', trapFocusHandlers.keydown);
   };
@@ -56,8 +38,6 @@ function trapFocus(container, elementToFocus = container) {
 
   trapFocusHandlers.keydown = (evt) => {
     if (evt.code !== 'Tab') return;
-
-    setFirstLastEls();
 
     // If tab pressed on last focusable element, focus the first element.
     if (evt.target === lastEl && !evt.shiftKey) {
@@ -105,6 +85,12 @@ class SideDrawer extends HTMLElement {
       bubbles: true
     }));
 
+    // Prevent page behind from scrolling when side drawer is open.
+    this.scrollY = window.scrollY;
+    document.body.classList.add('fixed');
+    document.body.style.top = `-${this.scrollY}px`;
+    document.documentElement.style.height = '100vh';
+
     this.overlay.classList.add('is-visible');
     this.setAttribute('open', '');
     this.setAttribute('aria-hidden', 'false');
@@ -148,6 +134,12 @@ class SideDrawer extends HTMLElement {
     this.overlay.classList.remove('is-visible');
 
     removeTrapFocus(this.opener);
+
+    // Restore page position and scroll behaviour.
+    document.documentElement.style.height = '';
+    document.body.style.top = '';
+    document.body.classList.remove('fixed');
+    window.scrollTo(0, this.scrollY);
 
     // Remove event listeners added on drawer opening.
     this.removeEventListener('click', this.clickHandler);

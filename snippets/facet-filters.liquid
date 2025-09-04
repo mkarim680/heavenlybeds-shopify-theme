@@ -51,27 +51,28 @@
 {%- endunless -%}
 
 {%- if section.settings.filters_open_lg -%}
-  <link rel="stylesheet" href="{{ 'facet-filters.css' | asset_url }}">
+  <link rel="stylesheet" href="{{ 'facet-filters.aio.min.css' | asset_url }}">
   {%- if has_price_filter -%}
-    <link rel="stylesheet" href="{{ 'price-range.css' | asset_url }}">
+    <link rel="stylesheet" href="{{ 'price-range.aio.min.css' | asset_url }}">
   {%- endif -%}
 {%- else -%}
-  <link rel="stylesheet" href="{{ 'facet-filters.css' | asset_url }}" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="{{ 'facet-filters.aio.min.css' | asset_url }}" media="print" onload="this.media='all'">
   {%- if has_price_filter -%}
-    <link rel="stylesheet" href="{{ 'price-range.css' | asset_url }}" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="{{ 'price-range.aio.min.css' | asset_url }}" media="print" onload="this.media='all'">
   {%- endif -%}
 {%- endif -%}
 
-<script src="{{ 'facet-filters.js' | asset_url }}" defer="defer"></script>
+<script src="{{ 'facet-filters.aio.min.js' | asset_url }}" defer="defer"></script>
 {%- if has_price_filter -%}
-  <script src="{{ 'price-range.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'price-range.aio.min.js' | asset_url }}" defer="defer"></script>
 {%- endif -%}
 
 {%- if section.settings.stick_on_scroll -%}
-<script src="{{ 'sticky-scroll-direction.js' | asset_url }}" defer="defer"></script>
+<script src="{{ 'sticky-scroll-direction.aio.min.js' | asset_url }}" defer="defer"></script>
 
 <sticky-scroll-direction data-min-sticky-size="lg">
 {%- endif -%}
+
   <facet-filters class="facets drawer fixed top-0 left-0 flex flex-col w-full has-motion" data-name="facet-filters" id="facet-filters" data-filtering="{{ section.settings.enable_filtering }}" data-sorting="{{ section.settings.enable_sorting }}" role="dialog" aria-labelledby="facets-title" aria-modal="true" aria-hidden="true" tabindex="-1">
     <header class="drawer__header flex justify-between items-center lg:hidden">
       <h2 class="h4 mb-0" id="facets-title">
@@ -89,7 +90,7 @@
     </header>
 
     <div class="drawer__content">
-      <form id="facets" data-filter-section-id="{{ section.id }}" novalidate>
+      <form id="facets" novalidate>
         {%- if results.current_vendor or results.current_type -%}
           <input type="hidden" name="q" value="{{ results.current_vendor }}{{ results.current_type }}">
         {%- elsif results.terms -%}
@@ -99,7 +100,7 @@
         {%- endif -%}
 
         <details-disclosure class="facets__active-filters" {% if active_filters_count == 0 %} hidden{% endif %}>
-          <details class="disclosure" id="active-filters"{% if section.settings.expand_filters %} open{% endif %}>
+          <details class="disclosure"{% if section.settings.expand_filters %} open{% endif %}>
             {%- liquid
               assign filter_count = 0
               for filter in results.filters
@@ -168,7 +169,7 @@
           {%- capture mobile_sort_by -%}
             {% if section.settings.enable_sorting %}
               <details-disclosure class="md:hidden no-js-visible">
-                <details class="filter disclosure" id="filter-sort" data-type="sort"{% if section.settings.expand_filters %} open{% endif %}>
+                <details class="filter disclosure" data-type="sort" data-index="-1"{% if section.settings.expand_filters %} open{% endif %}>
                   <summary class="filter__toggle">
                     <div class="flex justify-between items-center">
                       <span class="flex-auto font-bold">{{- 'products.sorting.sort_by_label' | t -}}</span>
@@ -186,43 +187,19 @@
                       <div class="filter__content">
                         <ul role="list">
                           {%- for option in results.sort_options -%}
-                            {%- liquid
-                              if section.settings.sort_show_featured == false and option.value == 'manual' and collection.default_sort_by != 'manual'
-                                continue
-                              endif
-                              if section.settings.sort_show_best == false and option.value == 'best-selling' and collection.default_sort_by != 'best-selling'
-                                continue
-                              endif
-                              if section.settings.sort_show_alpha == false and option.value == 'title-ascending' and collection.default_sort_by != 'title-ascending'
-                                continue
-                              endif
-                              if section.settings.sort_show_alpha == false and option.value == 'title-descending' and collection.default_sort_by != 'title-descending'
-                                continue
-                              endif
-                              if section.settings.sort_show_price == false and option.value == 'price-ascending' and collection.default_sort_by != 'price-ascending'
-                                continue
-                              endif
-                              if section.settings.sort_show_price == false and option.value == 'price-descending' and collection.default_sort_by != 'price-descending'
-                                continue
-                              endif
-                              if section.settings.sort_show_date == false and option.value == 'created-ascending' and collection.default_sort_by != 'created-ascending'
-                                continue
-                              endif
-                              if section.settings.sort_show_date == false and option.value == 'created-descending' and collection.default_sort_by != 'created-descending'
-                                continue
-                              endif
-                            -%}
-                            <li>
-                              <input type="radio"
-                                      class="checkbox js-drawer-sort-by"
-                                      id="filter-sort-{{ forloop.index }}"
-                                      name="sort_by"
-                                      value="{{ option.value | escape }}"
-                                      {% if option.value == sort_by %}checked{% endif %}>
-                              <label for="filter-sort-{{ forloop.index }}" class="flex items-start w-full m-0">
-                                <span class="flex-auto">{{- option.name | escape -}}</span>
-                              </label>
-                            </li>
+                            {%- unless option.value == 'manual' and section.settings.show_feat_sort_opt == false -%}
+                              <li>
+                                <input type="radio"
+                                       class="checkbox js-drawer-sort-by"
+                                       id="filter-sort-{{ forloop.index }}"
+                                       name="sort_by"
+                                       value="{{ option.value | escape }}"
+                                       {% if option.value == sort_by %}checked{% endif %}>
+                                <label for="filter-sort-{{ forloop.index }}" class="flex items-start w-full m-0">
+                                  <span class="flex-auto">{{- option.name | escape -}}</span>
+                                </label>
+                              </li>
+                            {%- endunless -%}
                           {%- endfor -%}
                         </ul>
                       </div>
@@ -244,14 +221,8 @@
               assign active_count = filter.active_values.size
               assign selectable_filter_count = 0
 
-              if settings.filter_color_style == 'swatches' and settings.swatch_colors != blank and settings.swatch_option_name contains filter.label
+              if settings.filter_color_style == "swatches" and settings.swatch_colors != blank and settings.swatch_option_name contains filter.label
                 assign swatches = true
-              endif
-
-              if settings.filter_color_style == 'native'
-                if filter.presentation == 'swatch' or filter.presentation == 'image'
-                  assign swatches = true
-                endif
               endif
 
               if filter.type == 'price_range'
@@ -268,6 +239,7 @@
                   assign has_active_filters = true
                 endif
               endif
+
             -%}
 
             {%- capture filter_markup -%}
@@ -275,33 +247,26 @@
                 {%- when 'boolean' or 'list' -%}
                   <ul role="list"{% if swatches %} class="filter__swatches"{% endif %}>
                     {%- for value in filter.values -%}
-                      {%- assign selectable_filter_count = selectable_filter_count | plus: 1 -%}
-                      <li{% if selectable_filter_count > section.settings.max_filter_options %} class="js-hidden"{% endif %}>
-                        <input type="checkbox"
-                                class="{% unless swatches %}checkbox {% endunless %}visually-hidden focus-label-before"
-                                id="filter-{{ filter.param_name | escape }}-{{ forloop.index }}"
-                                name="{{ value.param_name }}"
-                                value="{{ value.value | escape }}"
-                                {% if value.active %}checked{% endif %}
-                          {% if value.count == 0 and value.active == false %}disabled{% endif %}>
-                        <label for="filter-{{ filter.param_name | escape }}-{{ forloop.index }}"
-                                class="filter__label flex items-start w-full m-0"
-                        {%- if swatches and settings.filter_color_style == 'swatches' %}
-                            data-swatch="{{ value.label | replace: '"', '' | downcase }}"
-                          {%- elsif swatches and settings.filter_color_style == 'native' -%}
-                            data-swatch
-                            {%- if value.swatch and value.swatch.image %}
-                              style="--swatch-image: url({{ value.swatch.image | image_url: width: 40, height: 40, crop: 'center' }})"
-                            {%- elsif value.swatch and value.swatch.color %}
-                              style="--swatch-color: rgb({{ value.swatch.color.rgb }});--swatch-image: none;"
-                            {%- endif %}
-                          {% endif %}>
-                          <span class="flex-auto">{{ value.label | escape }}</span>
-                          {% if section.settings.show_filter_counts -%}
-                            <span class="filter__count">({{ value.count }})</span>
-                          {%- endif -%}
-                        </label>
-                      </li>
+                      {%- if value.count > 0 or section.settings.show_filter_deadends -%}
+                        {%- assign selectable_filter_count = selectable_filter_count | plus: 1 -%}
+                        <li{% if selectable_filter_count > section.settings.max_filter_options %} class="js-hidden"{% endif %}>
+                          <input type="checkbox"
+                                 class="{% unless swatches %}checkbox {% endunless %}visually-hidden focus-label-before"
+                                 id="filter-{{ filter.param_name | escape }}-{{ forloop.index }}"
+                                 name="{{ value.param_name }}"
+                                 value="{{ value.value | escape }}"
+                                 {% if value.active %}checked{% endif %}
+                            {% if value.count == 0 and value.active == false %}disabled{% endif %}>
+                          <label for="filter-{{ filter.param_name | escape }}-{{ forloop.index }}"
+                                 class="filter__label flex items-start w-full m-0"
+                          {%- if swatches %} data-swatch="{{ value.label | replace: '"', '' | downcase }}"{% endif %}>
+                            <span class="flex-auto">{{ value.label | escape }}</span>
+                            {% if section.settings.show_filter_counts -%}
+                              <span class="filter__count">({{ value.count }})</span>
+                            {%- endif -%}
+                          </label>
+                        </li>
+                      {%- endif -%}
                     {%- endfor -%}
                   </ul>
 
@@ -314,7 +279,7 @@
 
             {%- if selectable_filter_count > 0 -%}
               <details-disclosure>
-                <details class="filter disclosure" id="filter-{{ filter.param_name | escape }}" data-type="{{ filter.type }}"{% if section.settings.expand_filters %} open{% endif %}>
+                <details class="filter disclosure" data-type="{{ filter.type }}" data-index="{{ forloop.index }}"{% if section.settings.expand_filters %} open{% endif %}>
                   <summary class="filter__toggle">
                     <div class="flex justify-between items-center">
                       <span class="flex-auto font-bold">{{ filter.label | escape }}</span>
@@ -333,7 +298,7 @@
                         {{ filter_markup }}
                       </div>
 
-                      <div class="disclosure__show-more flex relative items-center">
+                      <div class="flex relative items-center mt-6">
                         {%- if selectable_filter_count > section.settings.max_filter_options -%}
                           <button type="button" class="filter__more link text-current text-sm js-show-more">
                             {{- 'products.filtering.show_more' | t -}}
@@ -362,24 +327,6 @@
           <button type="submit" class="btn btn--primary">{{- 'products.filtering.apply' | t }}</button>
         </noscript>
       </form>
-
-      {%- assign facet_promo = section.blocks | where: 'type', 'facet-image-promotion' | first -%}
-      {%- if facet_promo -%}
-        <div class="mt-4 mb-2 hidden lg:block" style="--promo-text-color: {{- facet_promo.settings.text_color -}};--promo-overlay-color: rgba({{ facet_promo.settings.tint_color.red }}, {{ facet_promo.settings.tint_color.green }}, {{ facet_promo.settings.tint_color.blue }}, {{ facet_promo.settings.tint_opacity | divided_by: 100.0 }});--promo-min-height: {{- facet_promo.settings.min_height -}}px;">
-          {%-
-            render 'promo-image',
-              link_url: facet_promo.settings.link_url,
-              content: facet_promo.settings.content,
-              text_alignment: facet_promo.settings.text_alignment,
-              image: facet_promo.settings.image,
-              video_shopify: facet_promo.settings.video_shopify,
-              text_width: facet_promo.settings.text_width,
-              text_type_scale: facet_promo.settings.text_type_scale,
-              button_label: facet_promo.settings.button_label,
-              button_style: facet_promo.settings.button_style
-          -%}
-        </div>
-      {%- endif -%}
     </div>
 
     <footer class="drawer__footer lg:hidden no-js-hidden">

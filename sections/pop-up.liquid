@@ -1,13 +1,13 @@
 {%- if section.blocks.size > 0 -%}
   {%- unless section.settings.show_to_guests_only and customer and request.design_mode == false -%}
     {%- if section.settings.trigger == "delay" and section.settings.delay < 2 -%}
-      {{ 'popup.css' | asset_url | stylesheet_tag }}
-      {{ 'modal.css' | asset_url | stylesheet_tag }}
+      {{ 'popup.aio.min.css' | asset_url | stylesheet_tag }}
+      {{ 'modal.aio.min.css' | asset_url | stylesheet_tag }}
     {%- else -%}
-      <link rel="stylesheet" href="{{ 'popup.css' | asset_url }}" media="print" onload="this.media='all'">
-      <link rel="stylesheet" href="{{ 'modal.css' | asset_url }}" media="print" onload="this.media='all'">
+      <link rel="stylesheet" href="{{ 'popup.aio.min.css' | asset_url }}" media="print" onload="this.media='all'">
+      <link rel="stylesheet" href="{{ 'modal.aio.min.css' | asset_url }}" media="print" onload="this.media='all'">
     {%- endif -%}
-    <script src="{{ 'pop-up.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'pop-up.aio.min.js' | asset_url }}" defer="defer"></script>
 
     {%- liquid
       # constants
@@ -15,7 +15,6 @@
 
       assign bg_color = section.settings.bg_color
       assign bg = section.settings.bg_grad | default: bg_color
-      assign bg_alpha = bg | color_extract: 'alpha'
       assign heading_color = section.settings.heading_color
       assign text_color = section.settings.text_color
       assign popup_image = false
@@ -38,7 +37,7 @@
         --link-color: {{ text_color.rgb }};
       }
 
-      {%- if section.settings.bg_image != blank and bg_alpha > 0 -%}
+      {%- if section.settings.bg_image != blank and bg != 'rgba(0,0,0,0)' -%}
         #{{ section.id }} .popup-section__background-image::after {
           background-color: {{ bg_color }};
           opacity: {{ section.settings.tint_opacity }}%;
@@ -128,11 +127,6 @@
 
           {%- for block in section.blocks -%}
             {%- case block.type -%}
-              {% when '@app' %}
-                <div class="section__block" {{ block.shopify_attributes }}>
-                  {% render block %}
-                </div>
-
               {%- when 'heading' -%}
                 {%- if block.settings.heading != blank -%}
                   <h2 class="{{ block.settings.heading_size }}" id="{{ section.id }}-heading" {{ block.shopify_attributes }}>
@@ -177,7 +171,7 @@
                     {%- endif -%}
                   {% endif %}
                 {% endstyle %}
-                <script src="{{ 'countdown-timer.js' | asset_url }}" defer="defer"></script>
+                <script src="{{ 'countdown-timer.aio.min.js' | asset_url }}" defer="defer"></script>
                 <div class="section__block countdown__block no-js-hidden{% if block.settings.enlarge_end_text %} countdown-large-endtext{% endif %}" id="{{ block.id }}" {{ block.shopify_attributes }}>
                   {% render 'countdown-timer',
                     end_date: block.settings.end_date,
@@ -190,8 +184,8 @@
 
               {%- when 'discount' -%}
                 {%- if block.settings.discount_code != blank -%}
-                  {{ 'discount-code.css' | asset_url | stylesheet_tag }}
-                  <script src="{{ 'discount-code.js' | asset_url }}" defer="defer"></script>
+                  {{ 'discount-code.aio.min.css' | asset_url | stylesheet_tag }}
+                  <script src="{{ 'discount-code.aio.min.js' | asset_url }}" defer="defer"></script>
                   <div class="section__block promo-strip__discount form-width {% if section.settings.text_align == 'text-start' %} mie-auto{% elsif section.settings.text_align == 'text-end' %} mis-auto{% else %} mx-auto{% endif %}">
                     <discount-code class="discount-code inline-flex" {{ block.shopify_attributes }}>
                       <div class="input-with-button relative w-full">
@@ -471,9 +465,6 @@
     }
   ],
   "blocks": [
-    {
-      "type": "@app"
-    },
     {
       "type": "heading",
       "name": "Heading",

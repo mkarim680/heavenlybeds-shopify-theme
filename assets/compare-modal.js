@@ -169,13 +169,6 @@ customElements.whenDefined('details-modal').then(() => {
             const tmpl = document.createElement('template');
             tmpl.innerHTML = await response.text();
             const compareEl = tmpl.content.querySelector('.cc-compare');
-
-            // Remove the inner template tag
-            const templateEl = compareEl.querySelector('template');
-            const templateContent = document.importNode(templateEl.content, true);
-            templateEl.parentNode.insertBefore(templateContent, templateEl);
-            templateEl.remove();
-
             if (compareEl) tempHtml[product.id] = compareEl.outerHTML;
           }
         })

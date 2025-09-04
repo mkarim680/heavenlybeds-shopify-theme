@@ -131,7 +131,7 @@
                       {%- if block.settings.video_shopify != blank -%}
                         <deferred-media class="media absolute top-0 left-0 w-full h-full">
                           <template>
-                            <video-component class="has-iframe absolute top-0 left-0 w-full h-full no-js-hidden"
+                            <video preload="none"-component class="has-iframe absolute top-0 left-0 w-full h-full no-js-hidden"
                              data-autoplay="true"
                              data-background="true">
                               {{ block.settings.video_shopify | video_tag: class: 'img-fit promo__mp4 pointer-events-none', playsinline: true, autoplay: true, muted: true, loop: true, controls: false, poster: '' | replace: '<img ', '<img loading="lazy" hidden ' }}

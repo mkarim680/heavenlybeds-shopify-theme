@@ -8,11 +8,12 @@ if (!customElements.get('product-form')) {
     init() {
       this.form = this.querySelector('.js-product-form');
       if (this.form) {
+        this.form.querySelector('[name="id"]').disabled = false;
         this.cartDrawer = document.querySelector('cart-drawer');
         this.submitBtn = this.querySelector('[name="add"]');
 
         if (theme.settings.afterAtc !== 'no-js') {
-          this.form.addEventListener('submit', this.handleSubmit.bind(this));
+          this.addEventListener('submit', this.handleSubmit.bind(this));
         }
       }
     }
@@ -139,11 +140,9 @@ if (!customElements.get('product-form')) {
         this.dispatchEvent(new CustomEvent('on:cart:error', {
           bubbles: true,
           detail: {
-            error: this.errorMsg?.textContent
+            error: this.errorMsg.textContent
           }
         }));
-
-        if (this.cartDrawer) this.cartDrawer.refresh(true);
       } finally {
         // Re-enable 'Add to Cart' button.
         this.submitBtn.classList.add('is-success');

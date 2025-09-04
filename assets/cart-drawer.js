@@ -82,7 +82,6 @@ if (!customElements.get('cart-drawer')) {
 
     disconnectedCallback() {
       document.removeEventListener('dispatch:cart-drawer:refresh', this.refreshHandler);
-      document.removeEventListener('on:bfcache:load-restore', this.refreshHandler);
       document.removeEventListener('dispatch:cart-drawer:open', this.openDrawerViaEventHandler);
       document.removeEventListener('dispatch:cart-drawer:close', this.closeDrawerViaEventHandler);
 
@@ -135,7 +134,6 @@ if (!customElements.get('cart-drawer')) {
 
       this.refreshHandler = this.refresh.bind(this);
       document.addEventListener('dispatch:cart-drawer:refresh', this.refreshHandler);
-      document.addEventListener('on:bfcache:load-restore', this.refreshHandler);
     }
 
     /**
@@ -191,6 +189,7 @@ if (!customElements.get('cart-drawer')) {
 
         if (overlay) overlay.style.transitionDelay = '';
       }, quickAddDrawer ? 200 : 0);
+      window.initLazyImages();
     }
 
     /**
@@ -209,14 +208,13 @@ if (!customElements.get('cart-drawer')) {
           const cartResponse = await fetch(`?sections=${response.join(',')}`);
           const sections = await cartResponse.json();
           this.renderContents({ sections }, false);
-          CartDrawer.recalculateCssVarHeights();
         }
       } catch (error) {
         console.log(error); // eslint-disable-line
         this.dispatchEvent(new CustomEvent('on:cart:error', {
           bubbles: true,
           detail: {
-            error: this.errorMsg?.textContent
+            error: this.errorMsg.textContent
           }
         }));
       }
@@ -254,6 +252,8 @@ if (!customElements.get('cart-drawer')) {
       if (openDrawer && this.getAttribute('open') === null) {
         setTimeout(() => this.open());
       }
+
+      window.initLazyImages();
     }
 
     /**

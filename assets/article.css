@@ -42,7 +42,7 @@
 
 @media (max-width: 1023.98px) {
   .article-content,
-  .article-width {
+.article-width {
     max-width: 37em;
   }
 }

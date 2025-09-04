@@ -1,12 +1,12 @@
 {%- comment -%}theme-check-disable LiquidTag{%- endcomment -%}
 {%- unless section.settings.video_external == blank and section.settings.video_shopify == blank -%}
   {%- if section.index > 2 -%}
-    <link rel="stylesheet" href="{{ 'video.css' | asset_url }}" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="{{ 'video.aio.min.css' | asset_url }}" media="print" onload="this.media='all'">
   {%- else -%}
-    {{ 'video.css' | asset_url | stylesheet_tag }}
+    {{ 'video.aio.min.css' | asset_url | stylesheet_tag }}
   {%- endif -%}
 
-  <script src="{{ 'video.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'video.aio.min.js' | asset_url }}" defer="defer"></script>
 
   {%- liquid
     assign using_video_tag = false
@@ -19,17 +19,25 @@
   -%}
 
   {%- capture video_component -%}
-    <video-component class="{% if using_video_tag %}has-video{% else %}has-iframe{% endif %} block w-full h-full"
+    {% comment %}}
+    <video preload="none"-component class="{% if using_video_tag %}has-video{% else %}has-iframe{% endif %} block w-full h-full"
                      {%- unless using_video_tag %}data-video-url="{{ section.settings.video_external | escape }}" {% endunless -%}
                      data-video-id="{{ section.id }}"
                      data-autoplay="{% if autoplay %}true{% else %}false{% endif %}"
                      data-background="false"
                      data-description="{{ section.settings.video_description | escape }}">
       {%- if using_video_tag -%}
-        {{ section.settings.video_shopify | video_tag: playsinline: true, autoplay: autoplay, muted: autoplay, controls: true, poster: '' | replace: '<img ', '<img loading="lazy" hidden ' }}
+        {{ section.settings.video_shopify | video_tag: autoplay: false,loop: true, muted: false, controls: true, poster: '' | replace: '<img ', '<img loading="lazy" hidden ' }}
       {%- else -%}
         <div></div>
       {%- endif -%}
+    {% endcomment %}
+
+
+    <video class="block w-full h-full" onloadeddata="this.play();" poster="" loop autoplay playsinline>
+  <source src="{{ section.settings.video_shopify.sources[1].url }}" type="video/mp4">
+</video>
+    
     </video-component>
   {%- endcapture -%}
 
@@ -96,7 +104,7 @@
               </template>
             </deferred-media>
           {%- endif -%}
-
+{% comment %}
           <div class="media media--has-overlay absolute top-0 left-0 w-full h-full video-played-hidden">
             {%- liquid
               assign sizes = false
@@ -111,6 +119,7 @@
                 image: poster_image,
                 widths: '750, 856, 1440, 1680, 1920, 2560',
                 src_width: 1680,
+                src_placeholder: true,
                 sizes: sizes,
                 section_index: section.index,
                 class: class
@@ -120,6 +129,7 @@
               {{ 'lifestyle-1' | placeholder_svg_tag: class }}
             {%- endif -%}
           </div>
+  {% endcomment %}
         </div>
       </div>
     </div>

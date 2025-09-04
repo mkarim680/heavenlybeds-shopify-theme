@@ -1,8 +1,8 @@
 {%- if section.blocks.size > 0 -%}
   {%- if section.index > 2 -%}
-    <link rel="stylesheet" href="{{ 'text-overlay.css' | asset_url }}" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="{{ 'text-overlay.aio.min.css' | asset_url }}" media="print" onload="this.media='all'">
   {%- else -%}
-    {{ 'text-overlay.css' | asset_url | stylesheet_tag }}
+    {{ 'text-overlay.aio.min.css' | asset_url | stylesheet_tag }}
   {%- endif -%}
 {%- endif -%}
 
@@ -29,11 +29,8 @@
     assign bg_color = settings.color_scheme_3_bg_grad | default: settings.color_scheme_3_bg
   endif
 
-  if bg_color
-    assign bg_alpha = bg_color | color_extract: 'alpha'
-    if bg_alpha == 0
-      assign bg_color = false
-    endif
+  if bg_color == 'rgba(0,0,0,0)'
+    assign bg_color = false
   endif
 
   if bg_color and section.settings.image == blank
@@ -100,6 +97,7 @@
           image: section.settings.image,
           widths: '750, 856, 1440, 1680, 1920, 2560',
           src_width: 1680,
+          src_placeholder: true,
           sizes: sizes,
           class: 'img-fit'
         %}
@@ -119,9 +117,9 @@
 
             {%- when 'heading' -%}
               {%- if block.settings.heading != blank -%}
-                <{% if block.settings.heading_h1 %}h1{% else %}h2{% endif %} class="section__block section__block--heading {{ block.settings.heading_size }}" {{ block.shopify_attributes }}>
+                <h2 class="section__block section__block--heading {{ block.settings.heading_size }}" {{ block.shopify_attributes }}>
                   <span class="contained-heading inline-block">{{- block.settings.heading | escape -}}</span>
-                </{% if block.settings.heading_h1 %}h1{% else %}h2{% endif %}>
+                </h2>
               {%- endif -%}
 
             {%- when 'text' -%}
@@ -132,7 +130,7 @@
               {%- endif -%}
 
             {%- when 'countdown' -%}
-              <script src="{{ 'countdown-timer.js' | asset_url }}" defer="defer"></script>
+              <script src="{{ 'countdown-timer.aio.min.js' | asset_url }}" defer="defer"></script>
               {% style %}
                 #{{ section.id }} .section__block--countdown {
                   --countdown-size: {{ section.settings.countdown_size }};
@@ -465,13 +463,6 @@
             }
           ],
           "default": "h2"
-        },
-        {
-          "type": "checkbox",
-          "id": "heading_h1",
-          "label": "Set as page heading (uses h1 tag)",
-          "info": "For optimum SEO, a page should only have one h1 and it should be the first heading on the page.",
-          "default": false
         }
       ]
     },

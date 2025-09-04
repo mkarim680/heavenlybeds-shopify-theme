@@ -1,4 +1,4 @@
-{{ 'collection-banner.css' | asset_url | stylesheet_tag }}
+{{ 'collection-banner.aio.min.css' | asset_url | stylesheet_tag }}
 
 {%- liquid
   if section.settings.show_collection_description and collection.description != blank
@@ -85,7 +85,7 @@
 
         {%- if is_description -%}
           <div class="rte mt-4">
-            {{ collection.description }}
+            {{ collection.description | replace: '<img', '<img loading="lazy"' | replace: '<iframe', '<iframe loading="lazy"' | replace: '<video', '<video preload="none"' }}
           </div>
         {%- endif -%}
       </div>

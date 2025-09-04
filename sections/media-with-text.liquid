@@ -1,7 +1,7 @@
 {%- if section.index > 2 -%}
-  <link rel="stylesheet" href="{{ 'media-with-text.css' | asset_url }}" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="{{ 'media-with-text.aio.min.css' | asset_url }}" media="print" onload="this.media='all'">
 {%- else -%}
-  {{ 'media-with-text.css' | asset_url | stylesheet_tag }}
+  {{ 'media-with-text.aio.min.css' | asset_url | stylesheet_tag }}
 {%- endif -%}
 
 {%- liquid
@@ -27,8 +27,8 @@
 -%}
 
 {%- if media_type == 'video' -%}
-  {{ 'video.css' | asset_url | stylesheet_tag }}
-  <script src="{{ 'video.js' | asset_url }}" defer="defer"></script>
+  {{ 'video.aio.min.css' | asset_url | stylesheet_tag }}
+  <script src="{{ 'video.aio.min.js' | asset_url }}" defer="defer"></script>
 {%- endif -%}
 
 {%- liquid
@@ -43,12 +43,7 @@
     assign bg_color = settings.color_scheme_3_bg
   endif
 
-  if bg_color and bg_color != settings.bg_color
-    assign bg_alpha = bg_color | color_extract: 'alpha'
-    if bg_alpha == 0
-      assign bg_color = false
-    endif
-  else
+  if bg_color == settings.bg_color or bg_color == 'rgba(0,0,0,0)'
     assign bg_color = false
   endif
 
@@ -59,7 +54,7 @@
 -%}
 
 {%- capture video_component -%}
-  <video-component class="{% if using_video_tag %}has-video{% else %}has-iframe{% endif %} absolute top-0 left-0 w-full h-full"
+  <video preload="none"-component class="{% if using_video_tag %}has-video{% else %}has-iframe{% endif %} absolute top-0 left-0 w-full h-full"
                    {%- unless using_video_tag %}data-video-url="{{ section.settings.video_external | escape }}" {% endunless -%}
                    data-video-id="{{ section.id }}"
                    data-autoplay="{% if autoplay %}true{% else %}false{% endif %}"

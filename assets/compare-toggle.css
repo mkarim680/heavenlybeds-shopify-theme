@@ -121,14 +121,3 @@
   position: absolute;
   top: calc(4 * var(--space-unit));
 }
-
-.main-products-grid[data-layout=list][data-compare=true] .card--product-compare.card--highlight-product:not(.card--product-contained) {
-  padding-top: calc(8 * var(--space-unit));
-}
-.main-products-grid[data-layout=list][data-compare=true] .card--product-compare.card--highlight-product:not(.card--product-contained) .card__compare {
-  top: 1px;
-}
-
-.main-products-grid[data-layout=list][data-compare=false] .card--product-compare.card--product-contained {
-  padding-top: calc(5 * var(--space-unit));
-}

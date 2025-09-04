@@ -1,8 +1,3 @@
-.product-main:has(custom-select.is-open) {
-  position: relative;
-  z-index: 4;
-}
-
 .product-main .product-media {
   margin-top: calc(5 * var(--space-unit));
   margin-bottom: calc(5 * var(--space-unit));
@@ -26,19 +21,19 @@
     overflow: hidden;
   }
   .product-breadcrumbs + .product-main .product-media,
-  .product-breadcrumbs + .product-main .product-info {
+.product-breadcrumbs + .product-main .product-info {
     padding-top: 0;
   }
   .product-breadcrumbs + .product-main .product-info::before,
-  .product-breadcrumbs + .product-main .product-info::after {
+.product-breadcrumbs + .product-main .product-info::after {
     top: calc(-10 * var(--space-unit) - 1em - 2px);
   }
   .shopify-section + .product-main {
     margin-top: -1px;
   }
   .shopify-section + .product-main::before,
-  .product-details + .shopify-section::before,
-  .product-main + .shopify-section:not(.product-details)::before {
+.product-details + .shopify-section::before,
+.product-main + .shopify-section:not(.product-details)::before {
     content: "";
     display: block;
     position: relative;
@@ -48,7 +43,7 @@
     background-color: rgba(var(--text-color)/0.15);
   }
   .product-main .product-media,
-  .product-main + .product-details > .container {
+.product-main + .product-details > .container {
     width: calc(100% - var(--product-info-width));
     float: left;
     clear: left;
@@ -85,6 +80,7 @@
     min-height: var(--sticky-height, 0);
   }
   .product-info__sticky {
+    position: -webkit-sticky;
     position: sticky;
     top: var(--header-end-padded, 48px);
     padding-bottom: 0;
@@ -106,7 +102,7 @@
     top: 1px;
   }
   [dir=rtl] .product-main .product-media,
-  [dir=rtl] .product-main + .product-details > .container {
+[dir=rtl] .product-main + .product-details > .container {
     float: right;
     clear: right;
   }
@@ -123,7 +119,7 @@
     --product-column-padding: calc(12 * var(--space-unit));
   }
   .product-main .product-media,
-  .product-main .product-info {
+.product-main .product-info {
     padding-top: calc(12 * var(--space-unit));
   }
 }

@@ -1,3 +1,19 @@
+.badge {
+  display: inline-flex;
+  position: relative;
+  top: -2px;
+  align-items: center;
+  margin: -0.6em 0;
+  padding: 0.6em 0.9em;
+  border-radius: 2em;
+  background: rgb(var(--text-color));
+  color: rgba(var(--bg-color));
+  font-size: 1rem;
+  font-weight: bold;
+  line-height: 1rem;
+  white-space: nowrap;
+}
+
 @media (max-width: 768.98px) {
   .main-nav__badge {
     display: none;
@@ -20,19 +36,12 @@
     display: none;
   }
   .mega-nav--columns .child-nav__item,
-  .mega-nav--columns .main-nav__grandchild {
+.mega-nav--columns .main-nav__grandchild {
     padding-right: 0;
     padding-left: 0;
   }
   .mega-nav--columns .child-nav__collection-image {
     min-height: 54px;
-    pointer-events: inherit;
-  }
-  .mega-nav--columns .child-nav__item--toggle {
-    pointer-events: none;
-  }
-  .mega-nav--columns .child-nav__item--toggle a {
-    pointer-events: initial;
   }
   .mega-nav--columns .child-nav__item--toggle:not(.nav__item--no-underline) {
     margin-bottom: calc(2 * var(--space-unit));

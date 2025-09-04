@@ -26,7 +26,7 @@
 
       assign money_price = money_price | replace: separator, '<sup>'
       if show_money_with_currency
-        assign money_price = money_price | replace_last: ' ', '</sup> '
+        assign money_price = money_price | replace: ' ', '</sup> '
       else
         assign money_price = money_price | concat: '</sup>'
       endif

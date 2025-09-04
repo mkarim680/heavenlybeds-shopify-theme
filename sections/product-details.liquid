@@ -7,13 +7,14 @@
           if (document.getElementById('shopify-product-reviews')) {
             const link = document.createElement('link');
             link.rel = "stylesheet";
-            link.href = "{{ 'reviews.css' | asset_url }}";
+            link.href = "{{ 'reviews.aio.min.css' | asset_url }}";
             document.body.appendChild(link);
           }
         }, { once: true });
       </script>
+      <script type="text/javascript" src="https://node1.itoris.com/dpo/storefront/include.js?shop=heavenlybeds.myshopify.com"></script>
     {%- elsif block.type == 'highlight-text' and found_highlight_text == false -%}
-      <link rel="stylesheet" href="{{ 'product-highlights.css' | asset_url }}" media="print" onload="this.media='all'">
+      <link rel="stylesheet" href="{{ 'product-highlights.aio.min.css' | asset_url }}" media="print" onload="this.media='all'">
       {%- assign found_highlight_text = true -%}
     {%- endif -%}
   {%- endfor -%}
@@ -55,7 +56,6 @@
               {%- assign metafield_array = block.settings.spec_metafields | newline_to_br | strip_newlines | split: '<br />' -%}
               {%- for key_value in metafield_array -%}
                 {%- liquid
-                  assign is_variant_metafield = false
                   assign parts = key_value | split: ':'
                   assign label = parts.first | strip | replace: '"', ''
                   assign metafield_key = parts.last | strip
@@ -65,84 +65,31 @@
                   assign metafield_namespace = metafield_key_parts[metafield_namespace_index]
                   assign metafield = product.metafields[metafield_namespace][metafield_key]
 
-                  if metafield == blank
-                    for variant in product.variants
-                      assign metafield = variant.metafields[metafield_namespace][metafield_key]
-                      if metafield != blank
-                        assign is_variant_metafield = true
-                        break
-                      endif
-                    endfor
-                  endif
-
-                  if is_variant_metafield == false
-                    capture metafield_output
-                      if metafield.type contains "list.metaobject_reference"
-                        render 'render-metafield', metafield: metafield, metafield_type: metafield.type, metafield_value: metafield.value
-                      elsif metafield.type contains "list."
-                        for item in metafield.value
-                          assign metafield_type = metafield.type | replace: "list.", ""
-                          assign comma = ""
-                          if forloop.last == false
-                            assign comma = ", "
-                          endif
-                          render 'render-metafield', metafield: metafield, metafield_type: metafield_type, metafield_value: item, comma: comma
-                          if forloop.last == false and metafield_type == "file_reference"
-                            echo "<div class='mt-2'></div>"
-                          endif
-                        endfor
-                      elsif metafield.value
-                        render 'render-metafield', metafield: metafield, metafield_type: metafield.type, metafield_value: metafield.value
-                      endif
-                    endcapture
-                  endif
+                  capture metafield_output
+                    if metafield.type contains "list."
+                      for item in metafield.value
+                        assign metafield_type = metafield.type | replace: "list.", ""
+                        assign comma = ""
+                        if forloop.last == false
+                          assign comma = ", "
+                        endif
+                        render 'render-metafield', metafield: metafield, metafield_type: metafield_type, metafield_value: item, comma: comma
+                        if forloop.last == false and metafield_type == "file_reference"
+                          echo "<div class='mt-2'></div>"
+                        endif
+                      endfor
+                    elsif metafield.value
+                      render 'render-metafield', metafield: metafield, metafield_type: metafield.type, metafield_value: metafield.value
+                    endif
+                  endcapture
                 -%}
-
-                {%- if is_variant_metafield -%}
-                  {%- capture metafield_output -%}
-                    {%- for variant in product.variants -%}
-                      {%- assign metafield = variant.metafields[metafield_namespace][metafield_key] -%}
-                      <div {% if product.selected_or_first_available_variant != variant %}class="hidden"{% endif %} data-variant-metafield="{{ variant.id }}">
-                        {%- liquid
-                          capture variant_metafield
-                            if metafield.type contains "list.metaobject_reference"
-                              render 'render-metafield', metafield: metafield, metafield_type: metafield.type, metafield_value: metafield.value
-                            elsif metafield.type contains "list."
-                              for item in metafield.value
-                                assign metafield_type = metafield.type | replace: "list.", ""
-                                assign comma = ""
-                                if forloop.last == false
-                                  assign comma = ", "
-                                endif
-                                render 'render-metafield', metafield: metafield, metafield_type: metafield_type, metafield_value: item, comma: comma
-                                if forloop.last == false and metafield_type == "file_reference"
-                                  echo "<div class='mt-2'></div>"
-                                endif
-                              endfor
-                            elsif metafield.value
-                              render 'render-metafield', metafield: metafield, metafield_type: metafield.type, metafield_value: metafield.value
-                            endif
-                          endcapture
-                        -%}
-                        {%- if variant_metafield == blank -%}
-                          {{ block.settings.spec_empty_field_text }}
-                        {%- else -%}
-                          <div class="{% if metafield.type contains "color" %}flex flex-wrap gap-3{% endif %}{% if block.settings.spec_right_align %} text-end justify-end grow{% endif %}">
-                            {{ variant_metafield }}
-                          </div>
-                        {%- endif -%}
-                      </div>
-                    {%- endfor -%}
-                  {%- endcapture -%}
-                {%- endif -%}
-
                 {%- unless metafield_output contains "Liquid error" -%}
                   {%- unless metafield_output == blank and block.settings.spec_show_empty_metafields == false -%}
                     <li class="product-spec__item flex flex-col gap-x-theme md:flex-row pb-4 mb-4 last:pb-0 last:mb-0">
                       <div class="product-spec__label{% if block.settings.spec_right_align %} product-spec__label--right{% endif %} mb-2 block font-bold">
                         {{ label }}
                       </div>
-                      <div class="product-spec__value {% if is_variant_metafield == false and metafield.type contains "color" %}flex flex-wrap gap-3{% else %}block{% endif %}{% if block.settings.spec_right_align %} text-end justify-end grow{% endif %}">
+                      <div class="product-spec__value {% if metafield.type contains "color" %}flex{% else %}block{% endif %}{% if block.settings.spec_right_align %} text-end justify-end grow{% endif %}">
                         {%- if metafield_output == blank -%}
                           {{ block.settings.spec_empty_field_text }}
                         {%- else -%}
@@ -200,7 +147,7 @@
                       <div class="disclosure__panel has-motion">
                         <div class="disclosure__content{% unless i == "4" %} rte product-description{% endunless %}">
                           {%- if forloop.first and block.settings.show_description -%}
-                            {{ product.description }}
+                            {{ product.description | replace: '<img', '<img loading="lazy"' | replace: '<iframe', '<iframe loading="lazy"' | replace: '<video', '<video preload="none"' }}
                           {%- elsif i == "4"  and specification != blank -%}
                             <ul class="product-spec">
                               {{ specification }}
@@ -278,8 +225,9 @@
             </div>
           {%- endif -%}
           {%- if block.settings.style == 'tabs' -%}
-            <script src="{{ 'tabs.js' | asset_url }}" defer="defer"></script>
+            <script src="{{ 'tabs.aio.min.js' | asset_url }}" defer="defer"></script>
           {%- endif -%}
+<div class="wk_default_warranty" variant_available="{{ product.selected_or_first_available_variant.available }}" variant_id="{{ product.selected_or_first_available_variant.id }}" customer_id = "{{ customer.id }}" product_id="{{ product.id }}" product_type = "{{ product.type }}"></div>
 
         {%- when 'richtext' -%}
           {%- if block.settings.text != blank -%}
@@ -297,26 +245,26 @@
           <hr class="{{ block.settings.spacing }}{% unless block.settings.show_line %} invisible{% endunless %}" {{ block.shopify_attributes }}>
 
         {%- when 'highlight-text' -%}
-          {%- liquid
-          assign last_section_index = forloop.index0 | minus: 1
-          assign next_section_index = forloop.index
-          assign last_section_was_highlight = false
-          assign next_section_is_highlight = false
-          
-          if last_section_index > -1 and section.blocks[last_section_index].type == 'highlight-text'
-          assign last_section_was_highlight = true
-          endif
-          
-          if section.blocks[next_section_index].type == 'highlight-text'
-          assign next_section_is_highlight = true
-          endif
-          -%}
-          
-          {%- if last_section_was_highlight == false and next_section_is_highlight -%}
-            <div class="product-details__block product-details__highlight-grid grid sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2">
-            {%- endif -%}
-            
           {%- if block.settings.title != blank or block.settings.text != blank -%}
+            {%- liquid
+              assign last_section_index = forloop.index0 | minus: 1
+              assign next_section_index = forloop.index
+              assign last_section_was_highlight = false
+              assign next_section_is_highlight = false
+
+              if last_section_index > -1 and section.blocks[last_section_index].type == 'highlight-text'
+                assign last_section_was_highlight = true
+              endif
+
+              if section.blocks[next_section_index].type == 'highlight-text'
+                assign next_section_is_highlight = true
+              endif
+            -%}
+
+            {%- if last_section_was_highlight == false and next_section_is_highlight -%}
+              <div class="product-details__block product-details__highlight-grid grid sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2">
+            {%- endif -%}
+
             <div class="{% unless last_section_was_highlight or next_section_is_highlight %}product-details__block {% endunless %}product-details__highlight text-center" {{ block.shopify_attributes }}>
               {%- if block.settings.title != blank -%}
                 <p class="h4">{{- block.settings.title | escape -}}</p>
@@ -325,14 +273,14 @@
                 <div class="rte large-text">{{ block.settings.text }}</div>
               {%- endif -%}
             </div>
-          {%- endif -%}
 
-          {%- if last_section_was_highlight and next_section_is_highlight == false -%}
-            </div>
+            {%- if last_section_was_highlight and next_section_is_highlight == false -%}
+              </div>
+            {%- endif -%}
           {%- endif -%}
 
         {%- when 'payment-methods' -%}
-          <div class="product-details__block panel" {{ block.shopify_attributes }}>
+          <div class="product-details__block" {{ block.shopify_attributes }}>
             {%- if block.settings.title != blank -%}
               <h3 class="h5 mb-6">{{- block.settings.title | escape -}}</h3>
             {%- endif -%}
@@ -495,7 +443,7 @@
         },
         {
           "type": "paragraph",
-          "content": "Include a list of labels and product or variant metafield keys below, separated by a colon, one per line. E.g. Trim color:custom.trim_color. [Read more](https://cleancanvas.co.uk/support/enterprise/templates/product-page#product-details-section)"
+          "content": "Include a list of labels and product metafield keys below, separated by a colon, one per line. E.g. Trim color:custom.trim_color. [Read more](https://cleancanvas.co.uk/support/enterprise/templates/product-page)"
         },
         {
           "type": "checkbox",

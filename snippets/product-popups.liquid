@@ -8,7 +8,7 @@
 -%}
 
 {%- if popups.size > 0 or show_size_chart -%}
-  <link rel="stylesheet" href="{{ 'modal.css' | asset_url }}">
+  <link rel="stylesheet" href="{{ 'modal.aio.min.css' | asset_url }}">
 
   {%- if popups.size > 0 -%}
     {%- for block in popups -%}
@@ -42,13 +42,5 @@
         </div>
       </div>
     </modal-dialog>
-    <script>
-      document.querySelectorAll('#size-chart .modal__content table').forEach((table) => {
-        const wrapper = document.createElement('div');
-        wrapper.className = 'scrollable-table';
-        table.parentNode.insertBefore(wrapper, table);
-        wrapper.appendChild(table);
-      });
-    </script>
   {%- endif -%}
 {%- endif -%}

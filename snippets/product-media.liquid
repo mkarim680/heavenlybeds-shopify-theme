@@ -2,12 +2,10 @@
   Parameters:
   - media {Object} - Media object.
   - media_ratio {Number} - Media aspect ratio.
-  - media_crop {String} - If media should crop to fill available space (Options: none, top, center)
+  - media_crop {String} - If media should crop to fill available spacfe (Options: none, top, center)
   - loop {Boolean} - Enable video looping.
   - lazy_load {Boolean} - Lazy load the media.
-  - enable_zoom {Boolean} - Whether zoom should be enabled or not
-  - zoom_level {String} - The level of zoom to apply to the image. (Options: medium, large, original)
-  - zoom_mode {String} - The tpye of image zoom to initialize (Options: lightbox, click, hover)
+  - zoom {String} - The level of zoom to apply to the image. (Options: off, medium, large, original)
   - featured_product {Boolean} - Media is for a 'Featured product' section (optional, default is false).
 
   Usage:
@@ -17,9 +15,7 @@
     media_crop: 'top',
     loop: section.settings.enable_video_looping,
     lazy_load: false,
-    enable_zoom: true,
-    zoom_level: section.settings.hover_zoom,
-    zoom_mode: section.settings.zoom_mode
+    zoom: section.settings.hover_zoom
   %}
 {%- endcomment -%}
 
@@ -92,8 +88,8 @@
     assign img_class = 'product-image img-fit img-fit--contain w-full'
   endif
 
-  if enable_zoom
-    case zoom_level
+  if zoom != 'off'
+    case zoom
       when 'original'
         assign zoom_level = media.preview_image.width
         if zoom_level > 5760
@@ -115,7 +111,7 @@
 
 {%- if media.media_type == 'image' -%}
   <div class="media relative{% if settings.blend_product_images %} image-blend{% endif %}" style="padding-top: {{ 1 | divided_by: media_ratio | times: 100 }}%;">
-    {%- if enable_zoom -%}
+    {%- if zoom_level -%}
       {%- liquid
         if media_crop != "none"
           assign height = zoom_level | divided_by: media_ratio
@@ -125,7 +121,7 @@
         endif
       -%}
 
-      <a href="{{ image_url }}" class="media--cover media--zoom media--zoom-not-loaded inline-flex overflow-hidden absolute top-0 left-0 w-full h-full js-zoom-link" target="_blank">
+      <a href="{{ image_url }}" rel="nofollow" class="media--cover media--zoom media--zoom-not-loaded inline-flex overflow-hidden absolute top-0 left-0 w-full h-full js-zoom-link" target="_blank">
     {%- else -%}
         <div class="media--cover overflow-hidden absolute top-0 left-0 w-full h-full">
     {%- endif -%}
@@ -141,9 +137,8 @@
       disable_focal_point: true
     %}
 
-    {%- if enable_zoom -%}
+    {%- if zoom_level -%}
         <img class="zoom-image{% if media_crop == "none" %} zoom-image--contain top-0{% endif %} absolute left-0 right-0 pointer-events-none js-zoom-image no-js-hidden"
-             alt="{{ media.alt | escape }}"
              src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20{{ zoom_level }}%20{{ zoom_level | divided_by: media_ratio }}'%3E%3C/svg%3E" loading="lazy"
              data-src="{{ image_url }}" width="{{ zoom_level }}" height="{{ zoom_level | divided_by: media_ratio }}"
              data-original-width="{{ media.preview_image.width }}" data-original-height="{{ media.preview_image.height }}">
@@ -207,7 +202,7 @@
     </product-model>
     {%- if section.settings.media_layout == 'stacked' and xr_button -%}
       <button type="button"
-              class="media-xr-button btn btn--secondary btn--icon-with-text font-normal w-full hidden md:block"
+              class="media-xr-button btn btn--primary btn--icon-with-text w-full hidden md:block"
               data-shopify-model3d-id="{{ media.id }}"
               data-shopify-title="title"
               data-shopify-xr

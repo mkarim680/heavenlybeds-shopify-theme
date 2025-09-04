@@ -13,12 +13,7 @@
     assign bg_color = settings.color_scheme_3_bg_grad | default: settings.color_scheme_3_bg
   endif
 
-  if bg_color and bg_color != settings.bg_color
-    assign bg_alpha = bg_color | color_extract: 'alpha'
-    if bg_alpha == 0
-      assign bg_color = false
-    endif
-  else
+  if bg_color == 'rgba(0,0,0,0)' or bg_color == settings.bg_color
     assign bg_color = false
   endif
 -%}
@@ -34,6 +29,7 @@
         image: section.settings.image,
         widths: '800, 1200, 1600',
         src_width: 1600,
+        src_placeholder: true,
         sizes: sizes
       %}
     </div>
@@ -176,26 +172,6 @@
                       {{ block.settings.text }}
                     </div>
                 {%- endif -%}
-
-              {%- when 'checkbox' -%}
-                {% if block.settings.title != blank %}
-                  {%- assign title_handle = block.settings.title | handle -%}
-                  <input
-                    type="hidden"
-                    name="contact[{{ title_handle }}]"
-                    value="{{ block.settings.value_no | escape }}" />
-                  <input
-                    type="checkbox"
-                    class="checkbox checkbox--small"
-                    id="contact_{{ title_handle }}"
-                    name="contact[{{ title_handle }}]"
-                    value="{{ block.settings.value_yes | escape }}"
-                    {%- if block.settings.required %} required{% endif %}
-                    {% if form[title_handle] == block.settings.value_yes %} checked{% endif %} />
-                  <label for="contact_{{ title_handle }}" class="required-inline label">
-                    {{ block.settings.title | escape }}{% if block.settings.required %} *{% endif %}
-                  </label>
-                {% endif %}
 
             {%- endcase -%}
 
@@ -540,46 +516,6 @@
           "type": "checkbox",
           "id": "half_width",
           "label": "Half width on large screens",
-          "default": false
-        }
-      ]
-    },
-    {
-      "type": "checkbox",
-      "name": "Checkbox",
-      "settings": [
-        {
-          "type": "paragraph",
-          "content": "Checkboxes require a label, and that label may only be used once in the form."
-        },
-        {
-          "type": "text",
-          "id": "title",
-          "label": "Label",
-          "default": "Custom checkbox"
-        },
-        {
-          "type": "text",
-          "id": "value_no",
-          "label": "Deselected value",
-          "default": "No"
-        },
-        {
-          "type": "text",
-          "id": "value_yes",
-          "label": "Selected value",
-          "default": "Yes"
-        },
-        {
-          "type": "checkbox",
-          "id": "half_width",
-          "label": "Half width on large screens",
-          "default": false
-        },
-        {
-          "type": "checkbox",
-          "id": "required",
-          "label": "Required",
           "default": false
         }
       ]

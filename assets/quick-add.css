@@ -35,6 +35,7 @@
 }
 
 .quick-add__close-btn--mob {
+  position: -webkit-sticky;
   position: sticky;
   top: -8px;
   margin-left: calc(100% - 30px);
@@ -51,10 +52,6 @@
 
 .quick-add-info .price__was {
   font-size: 0.8em;
-}
-
-.quick-add__product-details .custom-option__inner {
-  margin-bottom: 3rem;
 }
 
 .quick-add-info .unit-price {
@@ -227,23 +224,23 @@
     padding: calc(4 * var(--space-unit)) 0 0 0;
   }
   .main-products-grid:not([data-layout=list]) .desktop\:card__quick-add--icon,
-  .products-grid-container .desktop\:card__quick-add--icon {
+.products-grid-container .desktop\:card__quick-add--icon {
     text-align: end;
   }
   .main-products-grid:not([data-layout=list]) .desktop\:card__quick-add--icon .btn,
-  .products-grid-container .desktop\:card__quick-add--icon .btn {
+.products-grid-container .desktop\:card__quick-add--icon .btn {
     width: auto;
     padding: 6px;
     transition: opacity 0.3s;
     opacity: 0.9;
   }
   .main-products-grid:not([data-layout=list]) .desktop\:card__quick-add--icon .btn path:nth-child(2),
-  .products-grid-container .desktop\:card__quick-add--icon .btn path:nth-child(2) {
+.products-grid-container .desktop\:card__quick-add--icon .btn path:nth-child(2) {
     transform-origin: 70% 75%;
     transition: transform 0.3s ease-out;
   }
   .main-products-grid:not([data-layout=list]) .desktop\:card__quick-add--icon .btn::after,
-  .products-grid-container .desktop\:card__quick-add--icon .btn::after {
+.products-grid-container .desktop\:card__quick-add--icon .btn::after {
     content: "";
     display: inline-block;
     position: absolute;
@@ -254,18 +251,18 @@
     height: 44px;
   }
   .main-products-grid:not([data-layout=list]) .desktop\:card__quick-add--icon .btn.is-loading::after,
-  .products-grid-container .desktop\:card__quick-add--icon .btn.is-loading::after {
+.products-grid-container .desktop\:card__quick-add--icon .btn.is-loading::after {
     top: calc(50% - 8px);
     right: calc(50% - 8px);
     width: 16px;
     height: 16px;
   }
   .main-products-grid:not([data-layout=list]) .desktop\:card__quick-add--icon .btn.is-loading::before,
-  .products-grid-container .desktop\:card__quick-add--icon .btn.is-loading::before {
+.products-grid-container .desktop\:card__quick-add--icon .btn.is-loading::before {
     transform: scale(0.8) scaleX(-1) rotate(135deg) translateX(-50%) translateY(-50%);
   }
   .main-products-grid:not([data-layout=list]) .desktop\:card__quick-add--icon .btn:not(.is-loading)::before,
-  .products-grid-container .desktop\:card__quick-add--icon .btn:not(.is-loading)::before {
+.products-grid-container .desktop\:card__quick-add--icon .btn:not(.is-loading)::before {
     content: "";
     position: absolute;
     z-index: -1;
@@ -279,25 +276,25 @@
     background: inherit;
   }
   .main-products-grid:not([data-layout=list]) .desktop\:card__quick-add--icon .btn:not(.is-loading):hover,
-  .products-grid-container .desktop\:card__quick-add--icon .btn:not(.is-loading):hover {
+.products-grid-container .desktop\:card__quick-add--icon .btn:not(.is-loading):hover {
     border-color: transparent;
     opacity: 1;
   }
   .main-products-grid:not([data-layout=list]) .desktop\:card__quick-add--icon .btn:not(.is-loading):hover::before,
-  .products-grid-container .desktop\:card__quick-add--icon .btn:not(.is-loading):hover::before {
+.products-grid-container .desktop\:card__quick-add--icon .btn:not(.is-loading):hover::before {
     transform: scale(1.2);
     opacity: 1;
   }
   .main-products-grid:not([data-layout=list]) .desktop\:card__quick-add--icon .btn:not(.is-loading):hover path:nth-child(2),
-  .products-grid-container .desktop\:card__quick-add--icon .btn:not(.is-loading):hover path:nth-child(2) {
+.products-grid-container .desktop\:card__quick-add--icon .btn:not(.is-loading):hover path:nth-child(2) {
     transform: rotate(180deg);
   }
   .main-products-grid:not([data-layout=list]) .desktop\:card__quick-add--icon .quick-add-btn-icon,
-  .products-grid-container .desktop\:card__quick-add--icon .quick-add-btn-icon {
+.products-grid-container .desktop\:card__quick-add--icon .quick-add-btn-icon {
     display: block;
   }
   .main-products-grid:not([data-layout=list]) .desktop\:card__quick-add--icon .quick-add-btn-text,
-  .products-grid-container .desktop\:card__quick-add--icon .quick-add-btn-text {
+.products-grid-container .desktop\:card__quick-add--icon .quick-add-btn-text {
     display: none;
   }
   .main-products-grid[data-layout=list] .card__quick-add:not(.desktop\:card__quick-add--below) {

@@ -2,8 +2,6 @@ if (!customElements.get('shipping-calculator')) {
   class ShippingCalculator extends HTMLElement {
     constructor() {
       super();
-      this.zip = this.querySelector('.js-zip-input');
-      this.zip.addEventListener('keydown', this.handleZipKeydown.bind(this));
       this.button = this.querySelector('button');
       this.button.addEventListener('click', this.handleSubmit.bind(this));
     }
@@ -11,6 +9,7 @@ if (!customElements.get('shipping-calculator')) {
     init() {
       this.country = this.querySelector('.js-country-select');
       this.province = this.querySelector('.js-province-select');
+      this.zip = this.querySelector('.js-zip-input');
       this.rates = this.querySelector('.js-rates');
       this.errors = this.querySelector('.js-errors');
       this.initialised = true;
@@ -45,17 +44,6 @@ if (!customElements.get('shipping-calculator')) {
       } finally {
         this.button.classList.remove('is-loading');
         this.button.disabled = false;
-      }
-    }
-
-    /**
-     * Handles keydown event on the zip code input.
-     * @param {object} evt - Event object.
-     */
-    handleZipKeydown(evt) {
-      if (evt.key === 'Enter') {
-        evt.preventDefault();
-        this.handleSubmit(evt);
       }
     }
 

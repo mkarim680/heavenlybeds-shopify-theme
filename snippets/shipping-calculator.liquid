@@ -7,8 +7,8 @@
   {% render 'shipping-calculator', id: 'some-id', default_country: 'United States' %}
 {%- endcomment -%}
 
-<script src="{{ 'country-province-selector.js' | asset_url }}" defer="defer"></script>
-<script src="{{ 'shipping-calculator.js' | asset_url }}" defer="defer"></script>
+<script src="{{ 'country-province-selector.aio.min.js' | asset_url }}" defer="defer"></script>
+<script src="{{ 'shipping-calculator.aio.min.js' | asset_url }}" defer="defer"></script>
 
 {%- liquid
   assign grid_classes = 'grid-cols-1 sm:grid-cols-8 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-8'

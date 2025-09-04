@@ -51,8 +51,7 @@
   width: 64px;
 }
 
-.video-section--played .video-played-hidden,
-.video-section:has(deferred-media[loaded]) .video-played-hidden {
+.video-section--played .video-played-hidden {
   transition: opacity 0.3s;
   opacity: 0;
   pointer-events: none;

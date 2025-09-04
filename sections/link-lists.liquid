@@ -101,7 +101,7 @@
     <div class="container">
       <ul class="{% if carousel %}slider__grid grid {{ grid_classes }}{% else %} flex flex-wrap{% endif %} gap-x-theme gap-y-theme" role="list">
         {%- for block in section.blocks -%}
-          <li class="multi-column block-{{ block.id }}{% if carousel %} slider__item{% else %} w-full{% endif %}" {{ block.shopify_attributes }}{% if settings.animations_enabled != "disabled" %} data-cc-animate data-cc-animate-delay="{{ forloop.index | times: 0.07 }}s"{% endif %}>
+          <li class="multi-column block-{{ block.id }}{% if carousel %} slider__item{% endif %}" {{ block.shopify_attributes }}{% if settings.animations_enabled != "disabled" %} data-cc-animate data-cc-animate-delay="{{ forloop.index | times: 0.07 }}s"{% endif %}>
             <div class="card {% unless color_scheme == 'none' %} color-scheme color-scheme--{{ color_scheme }}{% endunless %} relative flex flex-col h-full">
               {%- if block.settings.image != blank -%}
                 {%- capture sizes %}{% render 'sizes-attribute', grid: true, min: 1, md: 2 %}{% endcapture -%}

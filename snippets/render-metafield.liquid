@@ -46,9 +46,6 @@
 {%- elsif metafield_type == "page_reference" or metafield_type == "product_reference" or metafield_type == "variant_reference"or metafield_type == "collection_reference" -%}
   <a href="{{- metafield_value.url -}}" class="link" target="_blank">{{- metafield_value.title -}}{{ comma }}</a>
 
-{%- elsif metafield.type contains "metaobject_reference" -%}
-  {{ metafield | metafield_tag: field: 'label' }}
-
 {%- elsif metafield.type contains "list." -%}
   {{- metafield_value | newline_to_br -}}{{ comma }}
 

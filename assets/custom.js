@@ -311,7 +311,7 @@
  * connection at the same time - meaning multiple JS files are essentially served at the speed of a
  * single file.
  *
- * The only JS file which is served on every page in Enterprise is 'main.js'. Main.js contains
+ * The only JS file which is served on every page in Enterprise is 'main.aio.min.js'. Main.js contains
  * utility JS which is likely to be needed by many scripts. This is outlined more in the next
  * section.
  *
@@ -334,6 +334,7 @@
  *
  *  - setImageSources function - copies the data-src and data-srcset attributes of lazy loaded
  *    images to their src and srcset attributes.
+ *  - initLazyImages function - uses the IntersectionObserver API to lazy load images when needed.
  *  - initLazyScript function - only loads a script when a specific element is scrolled into view.
  *
  *
@@ -404,3 +405,89 @@
  *
  * Have fun! - The Clean Canvas Development Team.
  */
+
+Shopify.formatMoney = function(cents, format) {
+if (typeof cents == 'string') {
+cents = cents.replace('.', '');
+}
+var value = '';
+var placeholderRegex = /{{\s*(\w+)\s*}}/;
+var formatString = (format || this.money_format);
+function defaultOption(opt, def) {
+    return (typeof opt == 'undefined' ? def : opt);
+}
+function formatWithDelimiters(number, precision, thousands, decimal) {
+    precision = defaultOption(precision, 2);
+    thousands = defaultOption(thousands, ',');
+    decimal = defaultOption(decimal, '.');
+    if (isNaN(number) || number == null) {
+        return 0;
+    }
+    number = (number / 100.0).toFixed(precision);
+    var parts = number.split('.'),
+        dollars = parts[0].replace(/(\d)(?=(\d\d\d)+(?!\d))/g, '$1' + thousands),
+        cents = parts[1] ? (decimal + parts[1]) : '';
+    return dollars + cents;
+}
+switch (formatString.match(placeholderRegex)[1]) {
+    case 'amount':
+        value = formatWithDelimiters(cents, 2);
+        break;
+    case 'amount_no_decimals':
+        value = formatWithDelimiters(cents, 0);
+        break;
+    case 'amount_with_comma_separator':
+        value = formatWithDelimiters(cents, 2, '.', ',');
+        break;
+    case 'amount_no_decimals_with_comma_separator':
+        value = formatWithDelimiters(cents, 0, '.', ',');
+        break;
+}
+return formatString.replace(placeholderRegex, value);
+};
+
+jQuery(document).on({
+    "contextmenu": function (e) {
+        console.log("ctx menu button:", e.which); 
+
+        // Stop the context menu
+        e.preventDefault();
+    },
+    "mousedown": function(e) { 
+        console.log("normal mouse down:", e.which); 
+    },
+    "mouseup": function(e) { 
+        console.log("normal mouse up:", e.which); 
+    }
+});
+document.onkeydown = function(e) {
+        if (e.ctrlKey && 
+            (e.keyCode === 67 || 
+             e.keyCode === 86 || 
+             e.keyCode === 85 || 
+             e.keyCode === 117)) {
+            //alert('not allowed');
+            return false;
+        } else {
+            return true;
+        }
+};
+document.addEventListener('keydown', (e) => {
+    if (e.ctrlKey && e.key == 'p') {
+        alert('This section is not allowed to print or export to PDF');
+        e.cancelBubble = true;
+        e.preventDefault();
+        e.stopImmediatePropagation();
+    }
+});
+
+document.addEventListener('keyup', (e) => {
+    if (e.key == 'PrintScreen') {
+        navigator.clipboard.writeText('');
+        alert('Screenshots disabled!');
+    }
+});
+jQuery('body').on('dragstart drop', function(e){
+    e.preventDefault();
+    return false;
+});

@@ -48,13 +48,6 @@
   max-width: 360px;
 }
 
-html:has(.modal[open]) {
-  overflow: hidden;
-}
-html:has(.modal[open]) > body {
-  width: calc(100% - var(--scrollbar-width));
-}
-
 @media (min-width: 600px) {
   .modal__window {
     width: auto;

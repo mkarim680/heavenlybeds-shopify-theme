@@ -24,7 +24,6 @@ if (!customElements.get('media-gallery')) {
 
     init() {
       this.section = this.closest('.js-product');
-      this.noSelectedVariant = this.hasAttribute('data-no-selected-variant');
       this.mediaGroupingEnabled = this.hasAttribute('data-media-grouping-enabled')
         && this.getMediaGroupData();
       this.stackedScroll = this.dataset.stackedScroll;
@@ -43,11 +42,7 @@ if (!customElements.get('media-gallery')) {
       this.loadingSpinner = this.querySelector('.loading-spinner');
       this.xrButton = this.querySelector('.media-xr-button');
 
-      if (this.hasAttribute('data-zoom-enabled')) {
-        this.galleryModal = this.querySelector('.js-media-zoom-template').content.firstElementChild.cloneNode(true);
-      }
-
-      if (this.mediaGroupingEnabled && !this.noSelectedVariant) {
+      if (this.mediaGroupingEnabled) {
         this.setActiveMediaGroup(this.getMediaGroupFromOptionSelectors());
       }
 
@@ -62,31 +57,18 @@ if (!customElements.get('media-gallery')) {
       }
 
       if (this.zoomLinks) {
-        if (this.dataset.zoomTrigger === 'hover') {
-          this.triggerZoomInit();
-        } else {
-          this.zoomLinks.forEach((zoomLink) => {
-            zoomLink.addEventListener('click', (evt) => {
-              this.triggerZoomInit();
-              evt.preventDefault();
-            });
+        this.zoomInitHandler = this.zoomInitHandler || this.initZoom.bind(this);
+        this.zoomEventListener = this.zoomEventListener || this.handleZoomMouseMove.bind(this);
+        window.addEventListener('on:debounced-resize', this.zoomInitHandler);
+        this.initZoom();
+        this.zoomLinks.forEach((el) => {
+          el.addEventListener('click', (evt) => {
+            evt.preventDefault();
           });
-        }
+        });
       }
 
       this.section.addEventListener('on:variant:change', this.onVariantChange.bind(this));
-    }
-
-    triggerZoomInit() {
-      this.zoomInitHandler = this.zoomInitHandler || this.initZoom.bind(this);
-      this.zoomEventListener = this.zoomEventListener || this.handleZoomMouseMove.bind(this);
-      window.addEventListener('on:debounced-resize', this.zoomInitHandler);
-      this.initZoom();
-      this.zoomLinks.forEach((zoomLink) => {
-        zoomLink.addEventListener('click', (evt) => {
-          evt.preventDefault();
-        });
-      });
     }
 
     /**
@@ -306,10 +288,6 @@ if (!customElements.get('media-gallery')) {
      * @param {?object} evt - Event object.
      */
     handleZoomMouseMove(evt) {
-      if (this.hasAttribute('data-zoom-enabled') && !this.dataset.zoomTrigger && !evt.target.closest('.gallery-zoom-modal')) {
-        return;
-      }
-
       const hoverElem = evt.currentTarget;
       const zoomImage = hoverElem.querySelector('.js-zoom-image');
 

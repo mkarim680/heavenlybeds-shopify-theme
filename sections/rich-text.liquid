@@ -1,4 +1,4 @@
-{{ 'text-overlay.css' | asset_url | stylesheet_tag }}
+{{ 'text-overlay.aio.min.css' | asset_url | stylesheet_tag }}
 
 {%- liquid
   assign color_scheme = section.settings.color_scheme
@@ -12,12 +12,7 @@
     assign bg_color = settings.color_scheme_3_bg
   endif
 
-  if bg_color and bg_color != settings.bg_color
-    assign bg_alpha = bg_color | color_extract: 'alpha'
-    if bg_alpha == 0
-      assign bg_color = false
-    endif
-  else
+  if bg_color == settings.bg_color or bg_color == 'rgba(0,0,0,0)'
     assign bg_color = false
   endif
 -%}
@@ -28,7 +23,7 @@
 
 <div class="section{% unless bg_color == false %} section--padded{% if section.settings.full_width %} section--full-width{% endif %}{% endunless %}{% unless color_scheme == 'none' %} color-scheme color-scheme--{{ color_scheme }}{% endunless %}{% if bg_color == false %} color-scheme--transparent{% endif %}" id="{{ section.id }}"{% if settings.animations_enabled != "disabled" and section.settings.prevent_animation == false %} data-cc-animate{% endif %}>
   <div class="container flex {{ section.settings.text_position }} {{ section.settings.text_align }}{% if section.settings.mob_center_text %} md-down:text-center{% endif %}">
-    <div class="{% if section.settings.wide %}max-w-text-large{% else %}max-w-text-overlay{% endif %}">
+    <div class="max-w-text-overlay">
       {%- for block in section.blocks -%}
         {%- case block.type -%}
           {%- when 'heading' -%}
@@ -47,7 +42,7 @@
 
           {%- when 'text' -%}
             {%- if block.settings.text != blank -%}
-              <div class="section__block{% unless section.settings.wide %} reading-width--inline{% endunless %} md-down:px-gutter rte{% if section.settings.text_align == 'text-start' %} mr-auto{% elsif section.settings.text_align == 'text-end' %} ml-auto{% else %} mx-auto{% endif %}{% if block.settings.enlarge_text %} enlarge-text{% endif %}" {{ block.shopify_attributes }}>
+              <div class="section__block reading-width--inline md-down:px-gutter rte{% if section.settings.text_align == 'text-start' %} mr-auto{% elsif section.settings.text_align == 'text-end' %} ml-auto{% else %} mx-auto{% endif %}{% if block.settings.enlarge_text %} enlarge-text{% endif %}" {{ block.shopify_attributes }}>
                 {{ block.settings.text }}
               </div>
             {%- endif -%}
@@ -131,12 +126,6 @@
       "id": "mob_center_text",
       "label": "Center text on mobile",
       "default": true
-    },
-    {
-      "type": "checkbox",
-      "id": "wide",
-      "label": "Wide text on large screens",
-      "default": false
     },
     {
       "type": "header",

@@ -1,6 +1,6 @@
 @media (min-width: 769px) {
   .custom-select--boxed,
-  .custom-select--boxed .custom-select {
+.custom-select--boxed .custom-select {
     position: static;
   }
   .quick-nav__listbox--boxed {
@@ -127,7 +127,7 @@
 }
 @media (min-width: 900px) {
   .custom-select--boxed,
-  .custom-select--boxed .custom-select {
+.custom-select--boxed .custom-select {
     position: relative;
   }
   .quick-nav__listbox--boxed {

@@ -23,7 +23,8 @@ if (!customElements.get('cart-note')) {
     init() {
       this.debouncedHandleNoteChange = debounce(this.handleNoteChange.bind(this), 300);
       // Save as soon as possible, avoid link-click not providing time to save
-      this.addEventListener('input', this.debouncedHandleNoteChange);
+      this.addEventListener('keyup', this.debouncedHandleNoteChange);
+      this.addEventListener('change', this.debouncedHandleNoteChange);
     }
 
     handleNoteChange(evt) {

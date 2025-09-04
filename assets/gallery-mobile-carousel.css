@@ -27,15 +27,6 @@
     border-radius: var(--btn-border-radius, 0);
     box-shadow: inset 0 0 0 2px rgba(var(--scrollbar-color, 60 60 60)/0.3);
   }
-  .gallery-mobile-carousel:has([data-overlayscrollbars]) {
-    padding-bottom: 0;
-  }
-  .gallery-mobile-carousel:has([data-overlayscrollbars]) > .container {
-    padding-bottom: calc(10 * var(--space-unit));
-  }
-  .cc-promo-gallery .gallery-mobile-carousel:has([data-overlayscrollbars]) > .container {
-    padding-bottom: calc(8 * var(--space-unit));
-  }
   .gallery-mobile-carousel .gallery {
     display: flex;
     gap: var(--column-gap);

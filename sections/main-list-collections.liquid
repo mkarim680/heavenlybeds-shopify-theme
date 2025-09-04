@@ -1,10 +1,10 @@
 {%- if section.blocks.size > 0 -%}
-  {{ 'promos.css' | asset_url | stylesheet_tag }}
+  {{ 'promos.aio.min.css' | asset_url | stylesheet_tag }}
 
   {%- for block in section.blocks -%}
     {%- if block.settings.video_shopify != blank -%}
-      {{ 'video.css' | asset_url | stylesheet_tag }}
-      <script src="{{ 'video.js' | asset_url }}" defer="defer"></script>
+      {{ 'video.aio.min.css' | asset_url | stylesheet_tag }}
+      <script src="{{ 'video.aio.min.js' | asset_url }}" defer="defer"></script>
       {%- break -%}
     {%- endif -%}
   {%- endfor -%}
@@ -121,7 +121,7 @@
 
   {%- if section.settings.display_type == 'all' -%}
     {%- if settings.pagination_style == "modern" or settings.pagination_infinite -%}
-      <script src="{{ 'custom-pagination.js' | asset_url }}" defer="defer"></script>
+      <script src="{{ 'custom-pagination.aio.min.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
 
     {%- paginate collections by section.settings.collections_per_page -%}
@@ -129,9 +129,7 @@
         <ul class="grid mb-8 md:mb-12 {{ grid_classes }} gap-x-theme gap-y-12 md:gap-y-16{% if section.settings.title != blank or section.settings.description != blank %} mt-10 md:mt-16{% endif %}" role="list"
           {% if section.blocks.size > 0 %}style="--promo-border-color: {{ settings.coll_border_color }}"{% endif %}>
 
-          {%- if paginate.pages == 0 or paginate.current_page == 1 -%}
-            {{ top_promo }}
-          {%- endif -%}
+          {{ top_promo }}
 
           {%- assign rendered_collection_ids = "" -%}
           {%- for collection in collections -%}
@@ -152,40 +150,38 @@
               {%- endif -%}
 
               {%- unless block.settings.position == "top" or block.settings.position == "bottom" -%}
-                {%- if paginate.pages == 0 or paginate.current_page == 1 -%}
-                  {%- if collection_index == block.settings.position or is_last_position -%}
-                    <li class="js-pagination-result" {% if block.type == "image-promotion" %}style="--promo-text-color: {{- block.settings.text_color -}};--promo-min-height: {{- block.settings.min_height -}}px;--promo-overlay-color: rgba({{ block.settings.tint_color.red }}, {{ block.settings.tint_color.green }}, {{ block.settings.tint_color.blue }}, {{ block.settings.tint_opacity | divided_by: 100.0 }});"{% endif %}>
-                      {% if block.type == "image-promotion" or block.type == "wide-promotion" %}
-                        {%-
-                                render 'promo-image',
-                                link_url: block.settings.link_url,
-                                content: block.settings.content,
-                                text_alignment: block.settings.text_alignment,
-                                image: block.settings.image,
-                                video_shopify: block.settings.video_shopify,
-                                text_width: block.settings.text_width,
-                                text_type_scale: block.settings.text_type_scale,
-                                size: section.settings.card_size,
-                                button_label: block.settings.button_label,
-                                button_style: block.settings.button_style
-                        -%}
-                      {%- elsif block.type == "card-promotion" -%}
-                        {%-
-                                render 'promo-card',
-                                link_url: block.settings.link_url,
-                                title: block.settings.title,
-                                content: block.settings.content,
-                                image: block.settings.image,
-                                image_ratio: block.settings.image_ratio,
-                                button_label: block.settings.button_label,
-                                button_style: block.settings.button_style,
-                                color_scheme: block.settings.color_scheme,
-                                button_bottom_align: block.settings.button_bottom_align,
-                                size: section.settings.card_size
-                        -%}
-                      {%- endif -%}
-                    </li>
-                  {%- endif -%}
+                {%- if collection_index == block.settings.position or is_last_position -%}
+                  <li class="js-pagination-result" {% if block.type == "image-promotion" %}style="--promo-text-color: {{- block.settings.text_color -}};--promo-min-height: {{- block.settings.min_height -}}px;--promo-overlay-color: rgba({{ block.settings.tint_color.red }}, {{ block.settings.tint_color.green }}, {{ block.settings.tint_color.blue }}, {{ block.settings.tint_opacity | divided_by: 100.0 }});"{% endif %}>
+                    {% if block.type == "image-promotion" or block.type == "wide-promotion" %}
+                      {%-
+                              render 'promo-image',
+                              link_url: block.settings.link_url,
+                              content: block.settings.content,
+                              text_alignment: block.settings.text_alignment,
+                              image: block.settings.image,
+                              video_shopify: block.settings.video_shopify,
+                              text_width: block.settings.text_width,
+                              text_type_scale: block.settings.text_type_scale,
+                              size: section.settings.card_size,
+                              button_label: block.settings.button_label,
+                              button_style: block.settings.button_style
+                      -%}
+                    {%- elsif block.type == "card-promotion" -%}
+                      {%-
+                              render 'promo-card',
+                              link_url: block.settings.link_url,
+                              title: block.settings.title,
+                              content: block.settings.content,
+                              image: block.settings.image,
+                              image_ratio: block.settings.image_ratio,
+                              button_label: block.settings.button_label,
+                              button_style: block.settings.button_style,
+                              color_scheme: block.settings.color_scheme,
+                              button_bottom_align: block.settings.button_bottom_align,
+                              size: section.settings.card_size
+                      -%}
+                    {%- endif -%}
+                  </li>
                 {%- endif -%}
               {%- endunless -%}
             {%- endfor -%}
@@ -279,9 +275,7 @@
         {%- endunless -%}
       {%- endfor -%}
 
-      {%- if paginate.pages == 0 or paginate.current_page == 1 -%}
-        {{ end_promo }}
-      {%- endif -%}
+      {{ end_promo }}
     </ul>
   {%- endif -%}
 </div>
@@ -328,7 +322,7 @@
     },
     {
       "type": "paragraph",
-      "content": "All of your collections are listed by default. To show a custom list, choose \"Selected\" and add collections."
+      "content": "All of your collections are listed by default. To show a custom list, choose 'Selected' and add collections."
     },
     {
       "type": "select",

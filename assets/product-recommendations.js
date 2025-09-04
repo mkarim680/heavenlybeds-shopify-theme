@@ -19,6 +19,8 @@ class ProductRecommendations extends HTMLElement {
       if (el && el.hasChildNodes()) {
         this.innerHTML = el.innerHTML;
       }
+
+      window.initLazyImages();
     } catch (error) {
       console.log(error); // eslint-disable-line
     }

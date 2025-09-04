@@ -71,7 +71,6 @@
       --btn-text-color: {{ settings.button_text_color.rgb }};
       --btn-alt-bg-color: {{ settings.button_alt_bg_color.rgb }};
       --btn-alt-text-color: {{ settings.button_alt_text_color.rgb }};
-      --btn-alt-bg-alpha: {{ settings.button_alt_bg_color.alpha }};
       --btn-border-width: {{ settings.button_border_width | default: 1 }}px;
 
       {%- if settings.button_border_width == '0' %}
@@ -88,7 +87,7 @@
     }
   {%- endstyle -%}
 
-  <link rel="stylesheet" href="{{ 'gift-card.css' | asset_url }}">
+  <link rel="stylesheet" href="{{ 'gift-card.aio.min.css' | asset_url }}">
   <script src="{{ 'vendor/qrcode.js' | shopify_asset_url }}" defer></script>
 
   {{ content_for_header }}

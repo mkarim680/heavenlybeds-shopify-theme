@@ -48,13 +48,6 @@
   max-width: 360px;
 }
 
-html:has(.modal[open]) {
-  overflow: hidden;
-}
-html:has(.modal[open]) > body {
-  width: calc(100% - var(--scrollbar-width));
-}
-
 @media (min-width: 600px) {
   .modal__window {
     width: auto;
@@ -231,10 +224,6 @@ html:has(.modal[open]) > body {
   padding-top: 0;
 }
 
-.compare-row--rating .rating {
-  margin-top: -1px;
-}
-
 .compare-col--dotted::before,
 .compare-col--solid::before {
   content: "";
@@ -260,11 +249,6 @@ html:has(.modal[open]) > body {
 .compare-value {
   margin-bottom: calc(6 * var(--space-unit));
 }
-.compare-value input:checked + .opt-label--swatch,
-.compare-value input:checked + .filter__label[data-swatch]::before {
-  border: 1px solid rgb(var(--swatch-border-color-default));
-  box-shadow: none;
-}
 
 .compare-value--options li {
   display: inline;
@@ -276,8 +260,7 @@ html:has(.modal[open]) > body {
 .compare-row--variants div:last-of-type,
 .compare-row--description .compare-col p:last-child,
 .compare-row--metafield .compare-value,
-.compare-row--type .compare-value,
-.compare-row--weight .compare-value {
+.compare-row--type .compare-value {
   margin-bottom: 0;
 }
 

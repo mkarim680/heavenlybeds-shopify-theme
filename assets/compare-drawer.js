@@ -286,6 +286,8 @@ if (!customElements.get('compare-drawer')) {
           this.compareBasketArea.innerHTML += compareProductHtml;
         });
 
+        window.initLazyImages();
+
         // Timeout to trigger CSS transition
         setTimeout(() => {
           this.loadingSpinner.setAttribute('hidden', 'true');

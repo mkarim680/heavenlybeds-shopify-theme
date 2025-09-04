@@ -2,7 +2,7 @@ if (!customElements.get('products-toolbar')) {
   class ProductsToolbar extends HTMLElement {
     constructor() {
       super();
-      this.init();
+      window.initLazyScript(this, this.init.bind(this));
     }
 
     init() {
@@ -26,7 +26,6 @@ if (!customElements.get('products-toolbar')) {
         if (layout && layout === 'list') {
           const toggle = document.getElementById(`${layout}-layout-opt`);
           if (toggle) toggle.click();
-          this.handleLayoutChange(null, layout);
         }
       }
 
@@ -118,11 +117,10 @@ if (!customElements.get('products-toolbar')) {
     /**
      * Handles 'change' events on the layout switcher buttons.
      * @param {object} evt - Event object.
-     * @param {string} layout - 'grid' or 'list' - the layout to change to.
      */
-    handleLayoutChange(evt, layout) {
-      this.productsGrid.dataset.layout = layout || evt.target.value;
-      if (!layout) theme.storageUtil.set('products-layout', evt.target.value);
+    handleLayoutChange(evt) {
+      this.productsGrid.dataset.layout = evt.target.value;
+      theme.storageUtil.set('products-layout', evt.target.value);
     }
 
     /**

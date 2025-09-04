@@ -10,12 +10,7 @@
     assign bg_color = settings.color_scheme_3_bg
   endif
 
-  if bg_color and bg_color != settings.bg_color
-    assign bg_alpha = bg_color | color_extract: 'alpha'
-    if bg_alpha == 0
-      assign bg_color = false
-    endif
-  else
+  if bg_color == settings.bg_color or bg_color == 'rgba(0,0,0,0)'
     assign bg_color = false
   endif
 
@@ -88,30 +83,24 @@
 {%- endunless -%}
 
 <script type="application/ld+json">
-  {%- capture faq_json -%}
-    {%- for block in section.blocks -%}
-      {%- if block.settings.heading != blank and block.settings.text != blank -%}
-        {
-          "@type": "Question",
-          "name": {{ block.settings.heading | json }},
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": {{ block.settings.text | json }}
-          }
-        },
-      {%- endif -%}
-    {%- endfor -%}
-  {%- endcapture -%}
-
-  {%- if faq_json != blank -%}
   {
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "mainEntity": [
-      {{ faq_json | remove_last: ',' }}
+      {%- for block in section.blocks -%}
+        {%- if block.settings.heading != blank and block.settings.text != blank -%}
+          {
+            "@type": "Question",
+            "name": "{{ block.settings.heading | strip_html | escape }}",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "{{ block.settings.text | strip_html | escape }}"
+            }
+          }{%- unless forloop.last -%},{%- endunless -%}
+        {%- endif -%}
+      {%- endfor -%}
     ]
   }
-  {%- endif -%}
 </script>
 
 {% schema %}

@@ -27,10 +27,12 @@
   endunless
 -%}
 
-<link rel="stylesheet" href="{{ 'search-suggestions.css' | asset_url }}" media="print" onload="this.media='all'">
+{%- if settings.search_show_suggestions -%}
+  <link rel="stylesheet" href="{{ 'search-suggestions.aio.min.css' | asset_url }}" media="print" onload="this.media='all'">
+{%- endif -%}
 
 {%- if show_search_types -%}
-  {{ 'product-type-search.css' | asset_url | stylesheet_tag }}
+  {{ 'product-type-search.aio.min.css' | asset_url | stylesheet_tag }}
 {%- endif -%}
 
 {%- if settings.enable_predictive_search -%}
@@ -40,8 +42,9 @@
     <label class="label{% if hide_label %} visually-hidden{% endif %}" for="{{ id }}">
       {{- 'general.search.input_label' | t -}}
     </label>
-    <script src="{{ 'search-form.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'search-form.aio.min.js' | asset_url }}" defer="defer"></script>
     <search-form class="search__form block">
+      <input type="hidden" name="type" value="{% if settings.search_show_products %}product,{% endif %}{% if settings.search_show_pages %}page,{% endif %}{% if settings.search_show_articles %}article{% endif %}">
       <input type="hidden" name="options[prefix]" value="last">
       <input type="search"
              class="search__input w-full input js-search-input{% if settings.search_input_font == "heading" %} h6{% endif %}"
@@ -124,13 +127,13 @@
       </button>
 
       {%- if settings.enable_speech_search -%}
-        <speech-search-button class="search__speech focus-inset{% if show_search_types %} right-0{% else %} end{% endif %} hidden" tabindex="0" title="{{ 'general.icon_labels.voice_search' | t }}"
+        <speech-search-button class="search__speech focus-inset{% if settings.show_search_types %} right-0{% else %} end{% endif %} hidden" tabindex="0" title="{{ 'general.icon_labels.voice_search' | t }}"
           style="--speech-icon-color: {{ settings.speech_icon_color }}">
           {% render 'icon-mic' %}
         </speech-search-button>
 
-        {{ 'speech-search.css' | asset_url | stylesheet_tag }}
-        <script src="{{ 'speech-search.js' | asset_url }}" defer="defer"></script>
+        {{ 'speech-search.aio.min.css' | asset_url | stylesheet_tag }}
+        <script src="{{ 'speech-search.aio.min.js' | asset_url }}" defer="defer"></script>
       {%- endif -%}
     </search-form>
 

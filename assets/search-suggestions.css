@@ -27,6 +27,7 @@
 }
 @media (min-width: 1024px) {
   .header__grid--left-logo .predictive-result__list-suggestions {
+    position: -webkit-sticky;
     position: sticky;
     top: 12px;
     padding-bottom: calc(8 * var(--space-unit));

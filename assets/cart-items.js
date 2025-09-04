@@ -105,8 +105,8 @@ if (!customElements.get('cart-items')) {
           const cartSummaryCss = document.getElementById('cart-summary-css');
           if (cartSummaryCss) cartSummaryCss.remove();
 
-          const cartContent = document.getElementById('cart-summary-and-blocks');
-          if (cartContent) cartContent.hidden = true;
+          const cartSummary = document.getElementById('cart-summary');
+          if (cartSummary) cartSummary.hidden = true;
         }
 
         this.getSectionsToRender().forEach((section) => {
@@ -128,6 +128,7 @@ if (!customElements.get('cart-items')) {
           }
         }
 
+        window.initLazyImages();
         this.updateRecommendations(data.item_count > 0 ? data.items[0].product_id : null);
         this.updateLiveRegions();
         this.setFocus(line, newTotalQuantity, name);
@@ -216,6 +217,8 @@ if (!customElements.get('cart-items')) {
 
         const firstCartItem = this.querySelector('.cart-item:first-child');
         this.updateRecommendations(firstCartItem ? firstCartItem.dataset.productId : null);
+
+        window.initLazyImages();
 
         errors.innerHTML = '';
         errors.hidden = true;

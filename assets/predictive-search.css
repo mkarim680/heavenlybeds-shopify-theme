@@ -43,6 +43,7 @@ predictive-search[open] .predictive-search {
   z-index: 31;
 }
 .predictive-search .tablist {
+  position: -webkit-sticky;
   position: sticky;
   z-index: 1;
   top: 0;
@@ -170,8 +171,8 @@ predictive-search .search__input {
     top: -12px;
   }
   .predictive-result,
-  .predictive-search__view-all,
-  .predictive-search__no-results {
+.predictive-search__view-all,
+.predictive-search__no-results {
     padding-right: 36px;
     padding-left: 36px;
   }

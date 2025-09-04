@@ -1,8 +1,8 @@
 {%- if section.blocks.size > 0 -%}
   {%- if section.index > 2 -%}
-    <link rel="stylesheet" href="{{ 'text-overlay.css' | asset_url }}" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="{{ 'text-overlay.aio.min.css' | asset_url }}" media="print" onload="this.media='all'">
   {%- else -%}
-    {{ 'text-overlay.css' | asset_url | stylesheet_tag }}
+    {{ 'text-overlay.aio.min.css' | asset_url | stylesheet_tag }}
   {%- endif -%}
 {%- endif -%}
 
@@ -30,11 +30,8 @@
     assign bg_color = settings.color_scheme_3_bg_grad | default: settings.color_scheme_3_bg
   endif
 
-  if bg_color
-    assign bg_alpha = bg_color | color_extract: 'alpha'
-    if bg_alpha == 0
-      assign bg_color = false
-    endif
+  if bg_color == 'rgba(0,0,0,0)'
+    assign bg_color = false
   endif
 
   if section.index == 1 or section.settings.prevent_animation
@@ -168,16 +165,26 @@
             endif
           -%}
 
-          {%- render 'image-desktop-and-mobile',
-            class: 'img-fit',
-            desktop_image: img,
-            mobile_image: m_img,
-            src_width_mobile: 980,
-            widths_mobile: '480, 980, 1200, 1400',
-            src_width_desktop: 1400,
-            widths_desktop: '480, 980, 1200, 1400, 1600, 1920, 2560, 3200',
+          {%- if m_img != blank -%}
+            {%- render 'image_banner',
+              image: m_img,
+              widths: '480, 980, 1200, 1400',
+              src_width: 980,
+              src_placeholder: true,
+              sizes: sizes,
+              lazy_load: lazy_load_images,
+              class: 'img-fit sm:hidden'
+            -%}
+          {%- endif -%}
+
+          {%- render 'image_banner',
+            image: img,
+            widths: '480, 980, 1200, 1400, 1600, 1920, 2560, 3200',
+            src_width: 1400,
+            src_placeholder: true,
+            sizes: sizes,
             lazy_load: lazy_load_images,
-            sizes: sizes
+            class: desktop_image_class
           -%}
         {%- else -%}
           {{ 'lifestyle-2' | placeholder_svg_tag: 'media__placeholder img-fit dark' }}

@@ -1,4 +1,4 @@
-{{ 'blog.css' | asset_url | stylesheet_tag }}
+{{ 'blog.aio.min.css' | asset_url | stylesheet_tag }}
 
 {%- liquid
   if section.settings.image_ratio == 'shortest'
@@ -36,17 +36,14 @@
       {%- if section.settings.show_share_links -%}
         <div class="social-share flex items-center">
           <p class="social-share__heading mb-0 font-bold">{{ 'general.social.share_heading' | t }}:</p>
-          {% render 'social-share', 
-            share_twitter: section.settings.show_twitter,
-            share_facebook: section.settings.show_facebook,
-            share_title: blog.title, share_url: blog.url %}
+          {% render 'social-share', share_title: blog.title, share_url: blog.url %}
         </div>
       {%- endif -%}
     </div>
   {%- endif -%}
 
   {%- if section.settings.show_tag_filter and blog.all_tags.size > 0 -%}
-    <script src="{{ 'blog-filter.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'blog-filter.aio.min.js' | asset_url }}" defer="defer"></script>
     <blog-filter>
       {%- liquid
         assign filter_label = 'blogs.filtering.filter_by' | t
@@ -69,7 +66,7 @@
             option_names: tag_names,
             selected_value: selected_Value
           %}
-          <script src="{{ 'custom-select.js' | asset_url }}" defer="defer"></script>
+          <script src="{{ 'custom-select.aio.min.js' | asset_url }}" defer="defer"></script>
         </div>
         <hr class="md-down:-mx-gutter w-auto">
       </div>
@@ -94,7 +91,7 @@
     </blog-filter>
   {%- endif -%}
 
-  {%- if section.settings.show_featured_post and current_tags == blank -%}
+  {%- if section.settings.show_featured_post -%}
     {%- for article in blog.articles -%}
       <div class="mt-6 mb-6 lg:blog-mb-16 lg:blog-mt-16 md-down:-mx-gutter featured-card">
         {% render 'article-card',
@@ -118,14 +115,14 @@
   {%- endif -%}
 
   {%- if settings.pagination_style == "modern" or settings.pagination_infinite -%}
-    <script src="{{ 'custom-pagination.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'custom-pagination.aio.min.js' | asset_url }}" defer="defer"></script>
   {%- endif -%}
 
   {%- paginate blog.articles by section.settings.posts_per_page -%}
     <custom-pagination class="block mt-8 lg:blog-mt-16" data-infinite-scroll="{{ settings.pagination_infinite }}" data-pause-infinite-scroll="false">
       <ul class="grid grid-cols-1 gap-theme blog-gap-y-12 lg:blog-gap-y-16 sm:grid-cols-2 md:grid-cols-3{% unless section.settings.three_columns %} lg:grid-cols-4{% endunless %}" role="list">
         {%- for article in blog.articles -%}
-          {%- unless section.settings.show_featured_post and forloop.first and paginate.current_page == 1 and current_tags == blank -%}
+          {%- unless section.settings.show_featured_post and forloop.first and paginate.current_page == 1 -%}
             <li class="js-pagination-result">
               {% render 'article-card',
                 article: article,
@@ -173,18 +170,6 @@
       "type": "checkbox",
       "id": "show_share_links",
       "label": "Show social share links",
-      "default": true
-    },
-    {
-      "type": "checkbox",
-      "id": "show_twitter",
-      "label": "Show X (formerly Twitter)",
-      "default": true
-    },
-    {
-      "type": "checkbox",
-      "id": "show_facebook",
-      "label": "Show Facebook",
       "default": true
     },
     {

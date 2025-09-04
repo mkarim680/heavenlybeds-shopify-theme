@@ -160,18 +160,6 @@
                 this.listbox.innerHTML = el.innerHTML;
 
                 this.options = this.querySelectorAll('.custom-select__option');
-
-                this.popular = this.querySelectorAll('[data-popular]');
-                if (this.popular.length) {
-                  this.popular[this.popular.length - 1].closest('.custom-select__option')
-                    .classList.add('custom-select__option--visual-group-end');
-                }
-
-                this.selectedOption = this.querySelector('[aria-selected="true"]');
-                if (!this.selectedOption) {
-                  this.selectedOption = this.listbox.firstElementChild;
-                }
-
                 this.loaded = true;
               } catch {
                 this.listbox.innerHTML = '<li>{{ "general.localization.countries_error" | t }}</li>';

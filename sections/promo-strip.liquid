@@ -1,8 +1,8 @@
 {% if section.blocks.size > 0 %}
   {%- if section.index > 2 and section.location != "header" -%}
-    <link rel="stylesheet" href="{{ 'promo-strip.css' | asset_url }}" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="{{ 'promo-strip.aio.min.css' | asset_url }}" media="print" onload="this.media='all'">
   {%- else -%}
-    {{ 'promo-strip.css' | asset_url | stylesheet_tag }}
+    {{ 'promo-strip.aio.min.css' | asset_url | stylesheet_tag }}
   {%- endif -%}
 
   {%- assign color_scheme = section.settings.color_scheme -%}
@@ -40,8 +40,8 @@
 
           {%- when 'discount' -%}
             {%- if block.settings.discount_code != blank -%}
-              {{ 'discount-code.css' | asset_url | stylesheet_tag }}
-              <script src="{{ 'discount-code.js' | asset_url }}" defer="defer"></script>
+              {{ 'discount-code.aio.min.css' | asset_url | stylesheet_tag }}
+              <script src="{{ 'discount-code.aio.min.js' | asset_url }}" defer="defer"></script>
               <div class="section__block promo-strip__discount shrink-0 text-center">
                 <discount-code class="discount-code inline-flex discount-code--{{ section.settings.section_height }}" {{ block.shopify_attributes }}>
                   <div class="input-with-button relative">

@@ -14,7 +14,9 @@ if (!customElements.get('variant-label')) {
           variantPicker.addEventListener('on:variant:change', this.handleVariantChange.bind(this));
         }
 
-        this.setVisibleVariantLabel(this.dataset.currentVariantId);
+        if (this.dataset.currentVariantId) {
+          this.setVisibleVariantLabel(this.dataset.currentVariantId);
+        }
       }
     }
 

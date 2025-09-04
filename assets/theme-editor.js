@@ -1,25 +1,20 @@
-const ccThemeRole = Shopify.theme.role ?? 'unknown';
-if (!localStorage.getItem('cc-settings-loaded') || localStorage.getItem('cc-settings-loaded') !== ccThemeRole) {
+if (!localStorage.getItem('cc-settings-loaded')) {
   fetch('https://check.cleancanvas.co.uk/', {
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
     method: 'POST',
     mode: 'cors',
-    body: new URLSearchParams({
-      shop: Shopify.shop,
-      theme: theme.info?.name ?? '',
-      version: theme.info?.version ?? '',
-      role: ccThemeRole,
-      contact: document.querySelector('script[src*=theme-editor][data-contact]')?.dataset.contact
-    })
+    body: new URLSearchParams({ shop: Shopify.shop, theme: theme.info ? theme.info.name : '' })
   })
     .then((response) => {
       if (response.ok) {
-        localStorage.setItem('cc-settings-loaded', ccThemeRole);
+        localStorage.setItem('cc-settings-loaded', 'true');
       }
     });
 }
 
 document.addEventListener('shopify:section:load', (evt) => {
+  window.initLazyImages();
+
   // Load and evaluate section specific scripts immediately.
   evt.target.querySelectorAll('script[src]').forEach((script) => {
     const s = document.createElement('script');

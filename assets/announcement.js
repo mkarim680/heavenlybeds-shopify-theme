@@ -1,17 +1,3 @@
-/**
- * Returns a function that as long as it continues to be invoked, won't be triggered.
- * @param {Function} fn - Callback function.
- * @param {number} [wait=300] - Delay (in milliseconds).
- * @returns {Function}
- */
-function debounce(fn, wait = 300) {
-  let t;
-  return (...args) => {
-    clearTimeout(t);
-    t = setTimeout(() => fn.apply(this, args), wait);
-  };
-}
-
 if (!customElements.get('announcement-bar')) {
   class AnnouncementBar extends HTMLElement {
     constructor() {
@@ -44,7 +30,7 @@ if (!customElements.get('announcement-bar')) {
 
       if (this.localization) {
         this.moveLocalizationHandler = this.moveLocalizationHandler
-          || debounce(this.moveLocalization.bind(this));
+          || this.moveLocalization.bind(this);
         window.addEventListener('on:breakpoint-change', this.moveLocalizationHandler);
       }
 
@@ -124,10 +110,6 @@ if (!customElements.get('announcement-bar')) {
      * Move the localization selectors to the mobile nav/back to the announcement bar if necessary
      */
     moveLocalization() {
-      this.slider = this.querySelector('.announcement__slider');
-      this.localization = this.querySelector('.announcement__localization');
-      this.links = this.querySelectorAll('.js-announcement-link');
-      this.menu = document.querySelector('.main-menu__content');
       const menuLocalization = document.querySelector('.mob__localization');
       if (!theme.mediaMatches.md && !menuLocalization) {
         // Move localization to mobile

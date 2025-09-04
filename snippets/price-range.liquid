@@ -7,13 +7,13 @@
 {% endcomment %}
 
 {%- liquid
-  assign uses_comma_decimals = false
-  assign currency_test_string_unit = 101 | money_without_currency
-  assign currency_test_string_thou = 100000 | money_without_currency
+assign uses_comma_decimals = false
+assign currency_test_string_unit = 101 | money_without_currency
+assign currency_test_string_thou = 100000 | money_without_currency
 
-  if currency_test_string_unit == '1,01' or currency_test_string_thou == '1.000'
-    assign uses_comma_decimals = true
-  endif
+if currency_test_string_unit == '1,01' or currency_test_string_thou == '1.000'
+  assign uses_comma_decimals = true
+endif
 
   if uses_comma_decimals
     assign min_value = filter.min_value.value | money_without_currency | remove: ' ' | remove: "'" | remove: '.' | replace: ',', '.' | floor

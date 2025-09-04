@@ -15,8 +15,7 @@ function debounce(fn, wait = 300) {
 class CarouselSlider extends HTMLElement {
   constructor() {
     super();
-    // Get slides, ignoring nested .slider__item elements
-    this.slides = this.querySelector('.slider__item').parentElement.children;
+    this.slides = this.querySelectorAll('.slider__item');
     if (this.slides.length < 2) return;
 
     window.initLazyScript(this, this.init.bind(this));
@@ -25,12 +24,12 @@ class CarouselSlider extends HTMLElement {
   init() {
     this.slider = this.querySelector('.slider');
     this.grid = this.querySelector('.slider__grid');
-    this.nav = this.querySelector(`.slider-nav__btn[aria-controls='${this.slider.id}']`)?.closest('.slider-nav');
+    this.nav = this.querySelector('.slider-nav');
     this.rtl = document.dir === 'rtl';
 
     if (this.nav) {
-      this.prevBtn = this.nav.querySelector('button[name="prev"]');
-      this.nextBtn = this.nav.querySelector('button[name="next"]');
+      this.prevBtn = this.querySelector('button[name="prev"]');
+      this.nextBtn = this.querySelector('button[name="next"]');
     }
 
     this.initSlider();
@@ -56,16 +55,6 @@ class CarouselSlider extends HTMLElement {
     this.sliderStart = this.getWindowOffset(this.slider);
     if (!this.sliderStart) this.sliderStart = (this.slider.clientWidth - this.gridWidth) / 2;
     this.sliderEnd = this.sliderStart + this.gridWidth;
-
-    // Remove reveal transitions from off-screen slides
-    if (!this.dataset.keepAnimations && this.grid.querySelector('[data-cc-animate]')) {
-      for (let i = this.slidesPerPage; i < this.slides.length; i += 1) {
-        this.slides[i].querySelectorAll('[data-cc-animate]').forEach((el) => {
-          el.removeAttribute('data-cc-animate-delay');
-          el.classList.add('cc-animate-in');
-        });
-      }
-    }
 
     this.addListeners();
     this.setButtonStates();
@@ -135,7 +124,7 @@ class CarouselSlider extends HTMLElement {
   getSlideVisibility(el) {
     const slideStart = this.getWindowOffset(el);
     const slideEnd = Math.floor(slideStart + this.slides[0].clientWidth);
-    return slideStart >= this.sliderStart && slideEnd <= Math.ceil(this.sliderEnd);
+    return slideStart >= this.sliderStart && slideEnd <= this.sliderEnd;
   }
 
   /**

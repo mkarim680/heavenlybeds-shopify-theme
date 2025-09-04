@@ -43,7 +43,8 @@
     flex: 1 1 auto;
     max-width: 50%;
   }
-  .cart-content {
+  .cart__summary {
+    position: -webkit-sticky;
     position: sticky;
     top: var(--header-end-padded, 48px);
     flex: 0 0 45%;
@@ -55,8 +56,9 @@
   .cart {
     column-gap: calc(16 * var(--space-unit));
   }
-  .cart-content {
+  .cart__summary {
     flex: 0 0 35%;
+    width: 416px;
   }
 }
 @media (min-width: 1280px) {

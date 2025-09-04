@@ -8,8 +8,8 @@
   assign max_chars_for_message = 200
 -%}
 
-<link rel="stylesheet" href="{{ 'gift-card-recipient.css' | asset_url }}">
-<script src="{{ 'gift-card-recipient.js' | asset_url }}" defer="defer"></script>
+<link rel="stylesheet" href="{{ 'gift-card-recipient.aio.min.css' | asset_url }}">
+<script src="{{ 'gift-card-recipient.aio.min.js' | asset_url }}" defer="defer"></script>
 
 <gift-card-recipient class="gift-card-recipient">
   <input class="checkbox gift-card-recipient__checkbox" aria-label="{{ 'gift_cards.recipient.checkbox' | t }}" type="checkbox" id="{{ section.id }}-gift-card-recipient-checkbox" name="properties[__shopify_send_gift_card_to_recipient]"/>

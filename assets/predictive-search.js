@@ -188,6 +188,13 @@ if (!customElements.get('predictive-search')) {
     async getResults(searchTerm) {
       this.setLiveRegionLoadingState();
 
+      const searchTypes = [];
+      if (theme.settings.pSearchShowProducts) searchTypes.push('product');
+      if (theme.settings.pSearchShowCollections) searchTypes.push('collection');
+      if (theme.settings.pSearchShowPages) searchTypes.push('page');
+      if (theme.settings.pSearchShowArticles) searchTypes.push('article');
+      if (theme.settings.pSearchShowSuggestions) searchTypes.push('query');
+
       let searchFields = 'title,product_type,variants.title,vendor';
       if (theme.settings.pSearchIncludeSkus) searchFields += ',variants.sku';
       if (theme.settings.pSearchIncludeTags) searchFields += ',tag';
@@ -199,6 +206,7 @@ if (!customElements.get('predictive-search')) {
         searchParams = `q=${encodeURIComponent(searchTerm)}`;
       }
 
+      searchParams += `&${encodeURIComponent('resources[type]')}=${searchTypes.join()}`;
       searchParams += `&${encodeURIComponent('resources[limit]')}=${theme.settings.pSearchLimit}`;
       searchParams += `&${encodeURIComponent('resources[limit_scope]')}=${
         theme.settings.pSearchLimitScope

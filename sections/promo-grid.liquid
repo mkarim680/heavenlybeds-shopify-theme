@@ -3,27 +3,27 @@
 {%- endcomment -%}
 
 {%- if section.index > 2 -%}
-  <link rel="stylesheet" href="{{ 'gallery.css' | asset_url }}" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="{{ 'gallery.aio.min.css' | asset_url }}" media="print" onload="this.media='all'">
 
   {%- if section.settings.mobile_carousel -%}
-    <link rel="stylesheet" href="{{ 'gallery-mobile-carousel.css' | asset_url }}" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="{{ 'gallery-mobile-carousel.aio.min.css' | asset_url }}" media="print" onload="this.media='all'">
   {%- endif -%}
 {%- else -%}
-  {{ 'gallery.css' | asset_url | stylesheet_tag }}
+  {{ 'gallery.aio.min.css' | asset_url | stylesheet_tag }}
 
   {%- if section.settings.mobile_carousel -%}
-    {{ 'gallery-mobile-carousel.css' | asset_url | stylesheet_tag }}
+    {{ 'gallery-mobile-carousel.aio.min.css' | asset_url | stylesheet_tag }}
   {%- endif -%}
 {%- endif -%}
 
 {%- for block in section.blocks -%}
   {%- if block.settings.video_shopify != blank -%}
     {%- if section.index > 2 -%}
-      <link rel="stylesheet" href="{{ 'video.css' | asset_url }}" media="print" onload="this.media='all'">
+      <link rel="stylesheet" href="{{ 'video.aio.min.css' | asset_url }}" media="print" onload="this.media='all'">
     {%- else -%}
-      {{ 'video.css' | asset_url | stylesheet_tag }}
+      {{ 'video.aio.min.css' | asset_url | stylesheet_tag }}
     {%- endif -%}
-    <script src="{{ 'video.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'video.aio.min.js' | asset_url }}" defer="defer"></script>
     {%- break -%}
   {%- endif -%}
 {%- endfor -%}
@@ -57,12 +57,7 @@
     assign bg_color = settings.color_scheme_3_bg_grad | default: settings.color_scheme_3_bg
   endif
 
-  if bg_color and bg_color != settings.bg_color
-    assign bg_alpha = bg_color | color_extract: 'alpha'
-    if bg_alpha == 0
-      assign bg_color = false
-    endif
-  else
+  if bg_color == 'rgba(0,0,0,0)' or bg_color == settings.bg_color
     assign bg_color = false
   endif
 -%}
@@ -106,7 +101,7 @@
   {% if section.settings.mobile_carousel %}<div class="gallery-mobile-carousel">{% endif %}
 
   <div class="container" id="{{ section.id }}">
-    <div class="gallery grid {{ grid_classes }}{% if section.settings.mobile_carousel %} slider--mobile{% endif %}">
+    <div class="gallery grid {{ grid_classes }}">
       {%- for block in section.blocks -%}
         {%- liquid
           assign img = block.settings.image
@@ -121,12 +116,12 @@
             <div class="gallery-block__image{% if block.settings.video_shopify != blank %} video-section{% endif %} overflow-hidden flex relative w-full h-full {{ overlay_position | first }} {{ overlay_position | last }}{% if is_link %} card__media{% endif %}">
               <div class="media media--has-overlay flex absolute top-0 left-0 w-full h-full has-motion">
                 {%- if img != blank -%}
-                  {%- assign cols = 4 | minus: block.settings.columns | at_least: 1 %}
-                  {%- capture sizes %}{% render 'sizes-attribute', grid: true, min: section.settings.gallery_cols_min, sm: cols %}{% endcapture -%}
+                  {%- capture sizes %}{% render 'sizes-attribute', grid: true, min: section.settings.gallery_cols_min, sm: block.settings.columns %}{% endcapture -%}
                   {% render 'image',
                     image: img,
-                    widths: '480, 800, 980, 1200, 1440',
+                    widths: '480, 800, 980',
                     src_width: 800,
+                    src_placeholder: true,
                     sizes: sizes,
                     quality: 1,
                     section_index: section.index,
@@ -140,7 +135,7 @@
               {%- if block.settings.video_shopify != blank -%}
                 <deferred-media class="video-section__media media media--has-overlay overflow-hidden absolute top-0 left-0 w-full h-full">
                   <template>
-                    <video-component class="has-iframe absolute top-0 left-0 w-full h-full no-js-hidden"
+                    <video preload="none"-component class="has-iframe absolute top-0 left-0 w-full h-full no-js-hidden"
                                     data-autoplay="true"
                                     data-background="true">
                       {{ block.settings.video_shopify | video_tag: class: 'img-fit pointer-events-none', playsinline: true, autoplay: true, muted: true, loop: true, controls: false, poster: '' | replace: '<img ', '<img loading="lazy" hidden ' }}
@@ -171,7 +166,7 @@
             </div>
 
             {%- if block.settings.subheading != blank or block.settings.link_text != blank -%}
-              <div class="gallery-block__text text-start{% if bg_color %} gallery-block__text--with-bg{% endif %}{% if color_scheme == 'default' %} {% unless section.settings.mobile_carousel %}mb-3 md:mb-0{% endunless %}{% else %} color-scheme color-scheme--{{ color_scheme }}{% endif %}"{% if settings.animations_enabled != "disabled" %} data-cc-animate{% endif %}>
+              <div class="gallery-block__text text-start{% if bg_color %} gallery-block__text--with-bg{% endif %}{% if color_scheme == 'default' %} mb-3 md:mb-0{% else %} color-scheme color-scheme--{{ color_scheme }}{% endif %}"{% if settings.animations_enabled != "disabled" %} data-cc-animate{% endif %}>
                 {%- if block.settings.subheading != blank -%}
                   <h3 class="gallery_block__heading subheading-case mt-2 mb-0 {{ block.settings.text_type_scale }}">
                     {{- block.settings.subheading | newline_to_br -}}
@@ -198,7 +193,7 @@
 {
   "name": "Promo grid",
   "tag": "section",
-  "class": "cc-gallery cc-promo-gallery",
+  "class": "cc-gallery",
   "settings": [
     {
       "type": "header",

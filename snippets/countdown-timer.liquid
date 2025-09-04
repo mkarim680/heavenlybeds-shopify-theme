@@ -5,7 +5,6 @@
   - end_text {String} - Text to show once the time has ended (optional).
   - end_midnight {Boolean} - If true and there's no end_date - the end_date will be set to midnight tonight
   - hide_on_end {Boolean} - If true the timer will hide when it elapses (via liquid, not js)
-  - show_labels {Boolean} - Show d/h/m/s labels (optional, default is true).
 
   Usage:
   {% render 'countdown-timer',
@@ -29,34 +28,30 @@
   elsif end_midnight
     assign now = "now" | date: '%Y-%m-%dT%H:%M%z'
     assign now_split = now | split: "T"
-    assign end_date = now_split.first | append: "T23:59" | date: '%Y-%m-%dT%H:%M%z'
+    assign end_date = now_split.first | append: "T23:59%z" | date: '%Y-%m-%dT%H:%M%z'
   endif
 
   assign a11y_end_date = end_date | date: format: 'date_at_time'
-
-  if show_labels != false
-    assign show_labels = true
-  endif
 -%}
 
 <countdown-timer class="countdown" role="timer" data-end-date="{% if end_date != blank %}{{ end_date }}{% endif %}" aria-label="{{ 'sections.countdown.end_date' | t: date: a11y_end_date }}">
-  {%- if end_date >= now or hide_on_end == false -%}
+  {%- if end_date > now or hide_on_end == false -%}
     <div class="countdown__grid inline-grid no-js-hidden">
       <div class="countdown__item text-center">
         <strong class="countdown__number inline-block relative js-days">0</strong>
-        <div class="countdown__unit text-sm{% unless show_labels %} visually-hidden{% endunless %}">{{ 'sections.countdown.days' | t }}</div>
+        <div class="countdown__unit text-sm">{{ 'sections.countdown.days' | t }}</div>
       </div>
       <div class="countdown__item text-center">
         <strong class="countdown__number inline-block relative js-hours">0</strong>
-        <div class="countdown__unit text-sm{% unless show_labels %} visually-hidden{% endunless %}">{{ 'sections.countdown.hours' | t }}</div>
+        <div class="countdown__unit text-sm">{{ 'sections.countdown.hours' | t }}</div>
       </div>
       <div class="countdown__item text-center">
         <strong class="countdown__number inline-block relative js-mins">0</strong>
-        <div class="countdown__unit text-sm{% unless show_labels %} visually-hidden{% endunless %}">{{ 'sections.countdown.minutes' | t }}</div>
+        <div class="countdown__unit text-sm">{{ 'sections.countdown.minutes' | t }}</div>
       </div>
       <div class="countdown__item text-center">
         <strong class="countdown__number inline-block relative js-secs">0</strong>
-        <div class="countdown__unit text-sm{% unless show_labels %} visually-hidden{% endunless %}">{{ 'sections.countdown.seconds' | t }}</div>
+        <div class="countdown__unit text-sm">{{ 'sections.countdown.seconds' | t }}</div>
       </div>
     </div>
   {%- endif -%}
@@ -65,7 +60,7 @@
     {{ 'sections.countdown.end_date' | t: date: a11y_end_date }}
   </div>
 
-  {%- if now >= end_date and end_text -%}
+  {%- if now > end_date and end_text -%}
     <div class="countdown__text rte">
       {{- end_text -}}
     </div>

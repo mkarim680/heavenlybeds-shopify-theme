@@ -2,7 +2,6 @@
   Parameters:
   - product {Object} - Product object.
   - variant {Object} - Variant object (for use on Product Pages for example)
-  - show_variant_icon {Boolean} - Only applies when this is being used as a variant label.
   - is_product_card {Boolean} - Whether the label is on a card or not
   - limit {Number} - The number of product labels to show
 
@@ -180,18 +179,6 @@
         </span>
       </div>
     {%- endif -%}
-  {%- endif -%}
-
-  {%- if is_product_card != true and variant and variant.metafields.theme.label != blank -%}
-    <div class="product-label-wrapper flex">
-        <span class="product-label product-label--custom product-label--custom-variant"
-              style="{% if variant.metafields.theme.label_background_color != blank %}--custom-label-bg-color: {{ variant.metafields.theme.label_background_color.value.rgb }};{% endif %}{% if variant.metafields.theme.label_text_color != blank %}--custom-label-text-color: {{ variant.metafields.theme.label_text_color.value.rgb }};{% endif %}">
-          {% if show_variant_icon and settings.custom_label_icon != "none" %}
-            {% render 'icon', icon: settings.custom_label_icon, width: 14, height: 14 %}
-          {% endif %}
-          {{ variant.metafields.theme.label }}
-        </span>
-      </div>
   {%- endif -%}
 {%- endcapture -%}
 

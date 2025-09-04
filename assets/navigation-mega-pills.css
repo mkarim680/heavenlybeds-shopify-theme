@@ -26,7 +26,7 @@
     border-radius: 50%;
   }
   .mega-nav--pills .main-nav__grandchild,
-  .mega-nav--pills .child-nav__item {
+.mega-nav--pills .child-nav__item {
     padding-inline-start: 0;
   }
   .mega-nav--pills .main-nav__grandchild, .mega-nav--pills.mega-nav--no-grandchildren .child-nav {
@@ -53,8 +53,8 @@
     font-size: 0.88em;
   }
   .mega-nav--pills .main-nav__grandchild .main-nav__item:hover,
-  .mega-nav--pills .main-nav__grandchild .main-nav__item .is-active, .mega-nav--pills.mega-nav--no-grandchildren .child-nav__item:hover,
-  .mega-nav--pills.mega-nav--no-grandchildren .child-nav__item .is-active {
+.mega-nav--pills .main-nav__grandchild .main-nav__item .is-active, .mega-nav--pills.mega-nav--no-grandchildren .child-nav__item:hover,
+.mega-nav--pills.mega-nav--no-grandchildren .child-nav__item .is-active {
     border-color: rgb(var(--nav-child-text-color));
     box-shadow: 0 2px 2px 0 var(--nav-line-color);
   }
@@ -82,7 +82,7 @@
 }
 @media (min-width: 1024px) {
   .mega-nav--pills.mega-nav--no-grandchildren .child-promos,
-  .mega-nav--pills.mega-nav--no-grandchildren .main-nav__promos {
+.mega-nav--pills.mega-nav--no-grandchildren .main-nav__promos {
     margin-top: 1.5em;
   }
 }

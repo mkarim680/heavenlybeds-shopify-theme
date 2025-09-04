@@ -11,6 +11,7 @@
   overflow: auto;
 }
 .facets .drawer__footer {
+  position: -webkit-sticky;
   position: sticky;
   bottom: 0;
   background-color: rgba(var(--drawer-bg-color));
@@ -105,6 +106,7 @@ input[disabled] + .filter__label {
     color: currentColor;
   }
   sticky-scroll-direction .facets.drawer {
+    position: -webkit-sticky;
     position: sticky;
     z-index: 0;
     top: var(--header-end, 0);
@@ -142,15 +144,6 @@ input[disabled] + .filter__label {
   width: 24px;
   height: 24px;
   margin-inline-end: calc(3 * var(--space-unit));
-}
-
-.disclosure__show-more {
-  margin-top: calc(2 * var(--space-unit));
-}
-
-.disclosure__show-more:has(.filter__more),
-.disclosure__show-more:has(.js-clear-filter:not([hidden])) {
-  margin-top: calc(6 * var(--space-unit));
 }
 
 @media (min-width: 1280px) {

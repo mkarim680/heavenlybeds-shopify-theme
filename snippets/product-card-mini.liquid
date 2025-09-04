@@ -63,7 +63,7 @@
         <product-form>
           <div class="alert mb-8 bg-error-bg text-error-text js-form-error text-start" role="alert" hidden></div>
           {%- form 'product', product, class: 'js-product-form', id: item_form_id, novalidate: 'novalidate' -%}
-            <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+            <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}" disabled>
 
             {%- capture add_to_cart_text -%}
               {%- if product.template_suffix contains 'preorder' -%}

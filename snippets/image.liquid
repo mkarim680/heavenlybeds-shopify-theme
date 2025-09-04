@@ -8,15 +8,14 @@
                       The higher the number, the sharper (but larger) the image will be.
   - src_width {Number} - Width for the 'src' attribute.
   - srcset_2x {Boolean} - Srcset should only be a 2x version of the src_width (optional, default is false).
+  - src_placeholder {Boolean} - Add a blank src placeholder when image is lazy load (optional, default is false).
   - sizes {String} - Content for the 'sizes' attribute (optional).
   - lazy_load {Boolean} - Image should be lazy load (optional, default is true).
-  - fetchpriority {String} - low/high/nil, passed on to image_tag (optional, default is nil)
   - class {String} - Class name(s) for the 'class' attribute (optional).
   - attributes {String} - Additional attributes (optional).
   - alt_text {String} - Custom text for the 'alt' attribute (optional).
   - disable_focal_point {Boolean} - Disables the focussing of a spot on the image (optional, default is false).
   - section_index {Number} - If passed, image lazy load will be prevented if it's the first section
-  - as_mobile_source {Boolean} - Will output <source> instead of <img> for use in <picture> (optional, default is false)
 
   Usage:
   {% render 'image',
@@ -42,7 +41,7 @@
       assign src_width = src_width_2x
       assign image_width = src_width_2x
     endif
-  elsif widths
+  else if widths
     assign input_srcset = widths | remove: ' ' | split: ','
 
     for size in input_srcset
@@ -128,53 +127,59 @@
   endif
 
   assign image_height = image_width | divided_by: image.aspect_ratio | round
+  assign js_class = class
 
   unless lazy_load == false or section_index == 1
     assign lazy_load = true
-  endunless
 
-  if fetchpriority == blank
-    assign fetchpriority = nil
-  endif
+    if class
+      assign js_class = class | append: ' no-js-hidden'
+    else
+      assign js_class = 'no-js-hidden'
+    endif
+  endunless
 
   assign disable_focal_point = disable_focal_point | default: false
 -%}
 
+{%- capture placeholder_image -%}
+  data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20{{ image_width }}%20{{ image_height }}'%3E%3C/svg%3E
+{%- endcapture -%}
+
 {%- if image and src_width -%}
   {%- if mobile_srcset -%}
     <picture>
-      <source srcset="{{ mobile_srcset }}"
+      <source {% if lazy_load %}data-{% endif %}srcset="{{ mobile_srcset }}"
               media="(max-width: 600px)"
               width="{{ mobile_image_width }}"
               height="{{ mobile_image_width | divided_by: image.aspect_ratio | round }}">
   {%- endif -%}
 
-  {%- if as_mobile_source -%}
-    <source {% if srcset %}srcset="{{ srcset }}" {% endif -%}
-         {% if sizes and srcset %}sizes="{{ sizes }}" {% endif -%}
-         og-src="{{ image | image_url: width: src_width }}"
-         {% if class %}class="{{ class }}" {% endif -%}
-         {% if attributes %}{{ attributes }} {% endif -%}
-         {% if disable_focal_point == false and image.presentation %}style="object-position: {{ image.presentation.focal_point }}" {% endif -%}
-         loading="{% if lazy_load %}lazy{% else %}eager{% endif %}"
-         width="{{ image_width }}"
-         height="{{ image_height }}"
-         alt="{{ alt_text | default: image.alt | escape }}"
-         media="(max-width: 767px)">
-  {%- else -%}
-    <img {% if srcset %}srcset="{{ srcset }}" {% endif -%}
-         {% if sizes and srcset %}sizes="{{ sizes }}" {% endif -%}
-         src="{{ image | image_url: width: src_width }}"
-         {% if class %}class="{{ class }}" {% endif -%}
-         {% if attributes %}{{ attributes }} {% endif -%}
-         {% if disable_focal_point == false and image.presentation %}style="object-position: {{ image.presentation.focal_point }}" {% endif -%}
-         loading="{% if lazy_load %}lazy{% else %}eager{% endif %}"
-         width="{{ image_width }}"
-         height="{{ image_height }}"
-         {% if fetchpriority %}fetchpriority="{{ fetchpriority }}"{% endif %}
-         alt="{{ alt_text | default: image.alt | escape }}">
-  {%- endif -%}
+      <img {% if srcset %}{% if lazy_load %}data-{% endif %}srcset="{{ srcset }}" {% endif -%}
+           {% if sizes and srcset %}sizes="{{ sizes }}" {% endif -%}
+           {% if lazy_load %}data-{% endif %}src="{{ image | image_url: width: src_width }}"
+           {% if lazy_load and src_placeholder %}src="{{ placeholder_image }}" {% endif -%}
+           {% if js_class %}class="{{ js_class }}" {% endif -%}
+           {% if attributes %}{{ attributes }} {% endif -%}
+           {% if disable_focal_point == false and image.presentation %}style="object-position: {{ image.presentation.focal_point }}" {% endif -%}
+           loading="lazy"
+           width="{{ image_width }}"
+           height="{{ image_height }}"
+           alt="{{ alt_text | default: image.alt | escape }}">
+
   {%- if mobile_srcset -%}
     </picture>
+  {%- endif -%}
+
+  {%- if lazy_load -%}
+    <noscript>
+      <img loading="lazy" loading="lazy" loading="lazy" src="{{ image | image_url: width: src_width }}"
+           loading="lazy"
+           {% if class %}class="{{ class }}" {% endif -%}
+           {% if disable_focal_point == false and image.presentation %}style="object-position: {{ image.presentation.focal_point }}" {% endif -%}
+           width="{{ image_width }}"
+           height="{{ image_height }}"
+           alt="{{ alt_text | default: image.alt | escape }}">
+    </noscript>
   {%- endif -%}
 {%- endif -%}

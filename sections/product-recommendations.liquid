@@ -1,20 +1,16 @@
 {%- comment -%}theme-check-disable NestedSnippet{%- endcomment -%}
 {%- if section.index > 2 -%}
-  <link rel="stylesheet" href="{{ 'product.css' | asset_url }}" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="{{ 'product.aio.min.css' | asset_url }}" media="print" onload="this.media='all'">
 {%- else -%}
-  {{ 'product.css' | asset_url | stylesheet_tag }}
-{%- endif -%}
-
-{%- if settings.card_hover_action == 'slideshow' -%}
-  <script src="{{ 'product-card-image-slider.js' | asset_url }}" defer="defer"></script>
+  {{ 'product.aio.min.css' | asset_url | stylesheet_tag }}
 {%- endif -%}
 
 {%- if settings.enable_quick_add -%}
-  <link rel="stylesheet" href="{{ 'quick-add.css' | asset_url }}" media="print" onload="this.media='all'">
-  <script src="{{ 'quick-add.js' | asset_url }}" defer="defer"></script>
-  <script src="{{ 'variant-picker.js' | asset_url }}" defer="defer"></script>
-  <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
-  <script src="{{ 'custom-select.js' | asset_url }}" defer="defer"></script>
+  <link rel="stylesheet" href="{{ 'quick-add.aio.min.css' | asset_url }}" media="print" onload="this.media='all'">
+  <script src="{{ 'quick-add.aio.min.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'variant-picker.aio.min.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'product-form.aio.min.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'custom-select.aio.min.js' | asset_url }}" defer="defer"></script>
 {%- endif -%}
 
 {%- liquid
@@ -29,9 +25,6 @@
   if section.settings.card_size_mobile == 'small'
     assign carousel_mobile_cols = 'grid-flow-col auto-cols-2 small-cards-mobile'
     assign grid_mobile_cols = 'grid-cols-2 small-cards-mobile'
-    if section.settings.layout == 'carousel_on_mobile'
-      assign carousel_mobile_cols = carousel_mobile_cols | append: ' sm:grid-cols-2'
-    endif
   else
     assign carousel_mobile_cols = 'grid-flow-col auto-cols-1'
     assign grid_mobile_cols = 'grid-cols-1'
@@ -76,7 +69,7 @@
 <product-recommendations class="section" data-url="{{ routes.product_recommendations_url }}?section_id={{ section.id }}&product_id={{ product_id }}&limit={{ limit }}&intent=related" data-product-id="{{ product_id }}">
   {%- if recommendations.performed and recommendations.products_count > 0 -%}
     {%- if section.settings.heading != blank -%}
-      <div class="container mb-heading">
+      <div class="container">
         <h2 class="h4 section__heading {{ section.settings.heading_align }}">{{ section.settings.heading | escape }}</h2>
       </div>
     {%- endif -%}
@@ -121,7 +114,7 @@
 {
   "name": "Related products",
   "tag": "section",
-  "class": "cc-product-recommendations cc-product-card-grid",
+  "class": "cc-product-recommendations",
   "settings": [
     {
       "type": "paragraph",

@@ -1,13 +1,13 @@
 {%- if section.index > 2 -%}
-  <link rel="stylesheet" href="{{ 'slideshow.css' | asset_url }}" media="print" onload="this.media='all'">
-  <link rel="stylesheet" href="{{ 'testimonials.css' | asset_url }}" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="{{ 'slideshow.aio.min.css' | asset_url }}" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="{{ 'testimonials.aio.min.css' | asset_url }}" media="print" onload="this.media='all'">
 {%- else -%}
-  {{ 'slideshow.css' | asset_url | stylesheet_tag }}
-  {{ 'testimonials.css' | asset_url | stylesheet_tag }}
+  {{ 'slideshow.aio.min.css' | asset_url | stylesheet_tag }}
+  {{ 'testimonials.aio.min.css' | asset_url | stylesheet_tag }}
 {%- endif -%}
 
 {%- if section.blocks.size > 1 -%}
-  <script src="{{ 'slideshow.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'slideshow.aio.min.js' | asset_url }}" defer="defer"></script>
 {%- endif -%}
 
 {%- liquid
@@ -22,12 +22,7 @@
     assign bg_color = settings.color_scheme_3_bg
   endif
 
-  if bg_color and bg_color != settings.bg_color
-    assign bg_alpha = bg_color | color_extract: 'alpha'
-    if bg_alpha == 0
-      assign bg_color = false
-    endif
-  else
+  if bg_color == settings.bg_color or bg_color == 'rgba(0,0,0,0)'
     assign bg_color = false
   endif
 -%}

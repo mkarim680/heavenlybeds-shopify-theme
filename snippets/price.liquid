@@ -24,36 +24,25 @@
 <div class="price{%- if compare_at_price > price %} price--on-sale{% endif -%}
                  {%- if available == false %} price--sold-out{% endif -%}{% if class %} {{ class }}{% endif %}">
   <div class="price__default">
-    <span class="price__current">
-      <span class="visually-hidden js-label">
-        {%- if compare_at_price and compare_at_price > price -%}
-          {{- 'products.product.price.sale_price' | t -}}
-        {%- else -%}
-          {{- 'products.product.price.regular_price' | t -}}
-        {%- endif -%}
-      </span>
-      {%- if product.price_varies and use_variant == false %}
-        <span class="price__from">{{ 'products.product.from' | t }}</span>
-      {%- endif %}
-      <span class="js-value">
-        {%- render 'price-as-money', price: price -%}
-      </span>
-    </span>
-    <span class="price__was{% if settings.superscript_decimals %} price__was--supercents{% endif %}">
-      <span class="visually-hidden js-label">
-        {%- if compare_at_price and compare_at_price > price -%}
-          {{- 'products.product.price.regular_price' | t -}}
-        {%- endif -%}
-      </span>
-      <span class="js-value">
-        {%- if compare_at_price and compare_at_price > price -%}
-          {%- render 'price-as-money', price: compare_at_price, show_money_with_currency: false -%}
-        {%- endif -%}
-      </span>
-    </span>
+    {% if product.template_suffix == "wall-panels" %}
+      <strong>From £129.99</strong>
+      {% break %}
+    {% elsif product.template_suffix == "wall-mirror-panels" %}
+      <strong>From £1,999 - £3,799</strong>
+      {% break %}
+    {% endif %}
+    {%- if product.price_varies and use_variant == false %}
+      <span class="price__from">{{ 'products.product.from' | t }}</span>
+    {%- endif %}
+    <strong class="price__current">{%- render 'price-as-money', price: price -%}</strong>
+    <s class="price__was{% if settings.superscript_decimals %} price__was--supercents{% endif %}">
+      {%- if compare_at_price and compare_at_price > price -%}
+        {%- render 'price-as-money', price: compare_at_price, show_money_with_currency: false -%}
+      {%- endif -%}
+    </s>
   </div>
 
-  <div class="unit-price relative"{% if variant.unit_price_measurement == nil %} hidden{% endif %}><span class="visually-hidden">{{ 'products.product.price.unit_price' | t }}</span><span class="unit-price__price">{%- render 'price-as-money', price: variant.unit_price, show_money_with_currency: false -%}</span><span class="unit-price__separator">{{ 'products.product.price.unit_price_separator' | t }}</span><span class="unit-price__unit">{%- if variant.unit_price_measurement.reference_value != 1 -%}{{- variant.unit_price_measurement.reference_value -}}{%- endif -%}{{ variant.unit_price_measurement.reference_unit }}</span></div>
+  <div class="unit-price relative"{% if variant.unit_price_measurement == nil %} hidden{% endif %}><span class="visually-hidden">{{ 'products.product.price.unit_price' | t }}</span><span class="unit-price__price">{%- render 'price-as-money', price: variant.unit_price -%}</span><span class="unit-price__separator">{{ 'products.product.price.unit_price_separator' | t }}</span><span class="unit-price__unit">{%- if variant.unit_price_measurement.reference_value != 1 -%}{{- variant.unit_price_measurement.reference_value -}}{%- endif -%}{{ variant.unit_price_measurement.reference_unit }}</span></div>
 
   <div class="price__no-variant" hidden>
     <strong class="price__current">{{ 'products.variant.non_existent' | t }}</strong>

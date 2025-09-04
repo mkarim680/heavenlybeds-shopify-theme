@@ -51,7 +51,7 @@
 }
 @media (min-width: 1024px) {
   .product-details__highlight .h3,
-  .product-details__highlight .rte {
+.product-details__highlight .rte {
     max-width: 400px;
     margin-right: auto;
     margin-left: auto;
@@ -59,7 +59,7 @@
 }
 @media (min-width: 1280px) {
   .product-details__highlight-grid .product-details__highlight .h3,
-  .product-details__highlight-grid .product-details__highlight .rte {
+.product-details__highlight-grid .product-details__highlight .rte {
     max-width: 300px;
   }
 }

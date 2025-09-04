@@ -3,7 +3,7 @@
  *
  * Usage:
  *  {%- if settings.pagination_style == "modern" or settings.pagination_infinite -%}
- *    <script src="{{ 'custom-pagination.js' | asset_url }}" defer="defer"></script>
+ *    <script src="{{ 'custom-pagination.aio.min.js' | asset_url }}" defer="defer"></script>
  *  {%- endif -%}
  *
  *  {%- paginate thing by stuff -%}
@@ -148,6 +148,7 @@ if (!customElements.get('custom-pagination')) {
             newResultsHtml += result.outerHTML;
           });
           lastResult.insertAdjacentHTML('afterend', newResultsHtml);
+          window.initLazyImages();
           this.results = this.querySelectorAll('.js-pagination-result');
 
           // Update the pagination content

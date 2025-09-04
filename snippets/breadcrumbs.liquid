@@ -46,16 +46,7 @@
 -%}
 
 {%- if template.name == 'blog' and current_tags -%}
-  {%- liquid
-    assign current_tags_handles = nil | sort | compact
-    for current_tag in current_tags
-      assign current_tag_handle = current_tag | handleize | sort
-      assign current_tags_handles = current_tags_handles | concat: current_tag_handle
-    endfor
-    assign current_tags_handles = current_tags_handles
-  -%}
-
-  {%- capture blog_tag_url -%}{{ blog.url }}/tagged/{{ current_tags_handles | join: "+" }}{%- endcapture -%}
+  {%- capture blog_tag_url -%}{{ blog.url }}/tagged/{{ current_tags | join: "+" }}{%- endcapture -%}
 {%- endif -%}
 
 {%- liquid

@@ -1,5 +1,5 @@
-{{ 'product-inventory.css' | asset_url | stylesheet_tag }}
-<script src="{{ 'product-inventory.js' | asset_url }}" defer="defer"></script>
+{{ 'product-inventory.aio.min.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'product-inventory.aio.min.js' | asset_url }}" defer="defer"></script>
 
 <product-inventory class="product-info__block product-info__block--sm product-inventory block no-js-hidden" {{ block.shopify_attributes }}
      data-show-count="{{ settings.inventory_show_count }}"
@@ -16,11 +16,7 @@
      data-variant-available="{{ current_variant.available }}"
      data-inventory-quantity="{{ current_variant.inventory_quantity | at_least: 0 }}"
      data-inventory-policy="{{ current_variant.inventory_policy | escape }}"
-     data-scale="35"
-     {% if current_variant == false %}
-        hidden
-     {% endif %}
->
+     data-scale="35">
   {% if product and product != empty %}
     <div class="product-inventory__text">
       <span class="product-inventory__status js-inventory-notice"></span>

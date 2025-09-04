@@ -4,7 +4,7 @@
 {%- endunless -%}
 
 {%- if section.settings.cart_terms_page != blank and section.settings.show_checkout_button -%}
-  <script src="{{ 'cart-terms.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'cart-terms.aio.min.js' | asset_url }}" defer="defer"></script>
 {%- endif -%}
 
 {% schema %}

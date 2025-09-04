@@ -1,28 +1,28 @@
 {%- if section.index > 2 -%}
-  <link rel="stylesheet" href="{{ 'slideshow.css' | asset_url }}" media="print" onload="this.media='all'">
-  <link rel="stylesheet" href="{{ 'slideshow-quick-nav.css' | asset_url }}" media="print" onload="this.media='all'">
-  <link rel="stylesheet" href="{{ 'text-overlay.css' | asset_url }}" media="print" onload="this.media='all'">
-  <link rel="stylesheet" href="{{ 'quick-nav.css' | asset_url }}" media="print" onload="this.media='all'">
-  <link rel="stylesheet" href="{{ 'quick-nav-large.css' | asset_url }}" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="{{ 'slideshow.aio.min.css' | asset_url }}" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="{{ 'slideshow-quick-nav.aio.min.css' | asset_url }}" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="{{ 'text-overlay.aio.min.css' | asset_url }}" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="{{ 'quick-nav.aio.min.css' | asset_url }}" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="{{ 'quick-nav-large.aio.min.css' | asset_url }}" media="print" onload="this.media='all'">
 {%- else -%}
-  {{ 'slideshow.css' | asset_url | stylesheet_tag }}
-  {{ 'slideshow-quick-nav.css' | asset_url | stylesheet_tag }}
-  {{ 'text-overlay.css' | asset_url | stylesheet_tag }}
-  {{ 'quick-nav.css' | asset_url | stylesheet_tag }}
-  {{ 'quick-nav-large.css' | asset_url | stylesheet_tag }}
+  {{ 'slideshow.aio.min.css' | asset_url | stylesheet_tag }}
+  {{ 'slideshow-quick-nav.aio.min.css' | asset_url | stylesheet_tag }}
+  {{ 'text-overlay.aio.min.css' | asset_url | stylesheet_tag }}
+  {{ 'quick-nav.aio.min.css' | asset_url | stylesheet_tag }}
+  {{ 'quick-nav-large.aio.min.css' | asset_url | stylesheet_tag }}
 {%- endif -%}
 
-<script src="{{ 'quick-nav.js' | asset_url }}" defer="defer"></script>
-<script src="{{ 'custom-select.js' | asset_url }}" defer="defer"></script>
+<script src="{{ 'quick-nav.aio.min.js' | asset_url }}" defer="defer"></script>
+<script src="{{ 'custom-select.aio.min.js' | asset_url }}" defer="defer"></script>
 
 {%- if section.settings.quick_nav_show_price -%}
-  <link rel="stylesheet" href="{{ 'quick-nav-price.css' | asset_url }}" media="print" onload="this.media='all'">
-  <link rel="stylesheet" href="{{ 'price-range.css' | asset_url }}" media="print" onload="this.media='all'">
-  <script src="{{ 'price-range.js' | asset_url }}" defer="defer"></script>
+  <link rel="stylesheet" href="{{ 'quick-nav-price.aio.min.css' | asset_url }}" media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="{{ 'price-range.aio.min.css' | asset_url }}" media="print" onload="this.media='all'">
+  <script src="{{ 'price-range.aio.min.js' | asset_url }}" defer="defer"></script>
 {%- endif -%}
 
 {%- if section.blocks.size > 1 -%}
-  <script src="{{ 'slideshow.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'slideshow.aio.min.js' | asset_url }}" defer="defer"></script>
 {%- endif -%}
 
 {%- liquid
@@ -44,11 +44,8 @@
     assign bg_color = settings.color_scheme_3_bg_grad | default: settings.color_scheme_3_bg
   endif
 
-  if bg_color
-    assign bg_alpha = bg_color | color_extract: 'alpha'
-    if bg_alpha == 0
-      assign bg_color = false
-    endif
+  if bg_color == 'rgba(0,0,0,0)'
+    assign bg_color = false
   endif
 -%}
 
@@ -109,11 +106,9 @@
           assign img = block.settings.image_desktop
           assign m_img = block.settings.image_mobile
           assign lazy_load = true
-          assign fetchpriority = 'low'
           if forloop.first
             if section.index == 1 or section.settings.prevent_animation
               assign lazy_load = false
-              assign fetchpriority = 'high'
             endif
           endif
 
@@ -157,29 +152,45 @@
                     render 'sizes-attribute'
                   endcapture
                 endif
+
+                if m_img != blank
+                  assign desktop_image_class = 'img-fit hidden sm:block'
+                else
+                  assign desktop_image_class = 'img-fit'
+                endif
               -%}
 
-              {%- render 'image-desktop-and-mobile',
-                class: 'img-fit',
-                desktop_image: img,
-                mobile_image: m_img,
-                src_width_mobile: 980,
-                widths_mobile: '480, 980, 1200, 1400',
-                src_width_desktop: 1400,
-                widths_desktop: '480, 980, 1200, 1400, 1600, 1920, 2560, 3200',
-                lazy_load: lazy_load,
-                fetchpriority: fetchpriority,
+              {%- if m_img != blank -%}
+                {%- render 'image',
+                  image: m_img,
+                  widths: '480, 980, 1200, 1400',
+                  src_width: 980,
+                  src_placeholder: true,
+                  sizes: sizes,
+                  quality: 1.5,
+                  class: 'img-fit sm:hidden',
+                  lazy_load: lazy_load
+                -%}
+              {%- endif -%}
+
+              {%- render 'image',
+                image: img,
+                widths: '480, 980, 1200, 1400, 1600, 1920, 2560, 3200',
+                src_width: 1400,
+                src_placeholder: true,
                 sizes: sizes,
-                block: block
+                quality: 1,
+                class: desktop_image_class,
+                lazy_load: lazy_load
               -%}
             {%- else -%}
-              {{ 'lifestyle-2' | placeholder_svg_tag: 'media__placeholder dark img-fit' }}
+              {{ 'lifestyle-2' | placeholder_svg_tag: 'media__placeholder img-fit' }}
             {%- endif -%}
           </div>
 
           {%- if block.settings.heading != blank or block.settings.subheading != blank or block.settings.text != blank or block.settings.button_1_label != blank or block.settings.button_2_label != blank -%}
-            <div class="slideshow__text container flex justify-start items-center{% if block.settings.mob_center_text %} md-down:center{% endif %}{% unless bg_color %}{% if section.settings.full_width %} md-down:p-xl h-full md:h-auto{% endif %}{% endunless %}"{% if settings.animations_enabled != "disabled" and section.settings.prevent_animation == false %} data-cc-animate{% endif %}>
-              <div class="text-overlay{% if bg_color %} text-overlay--bg{% endif %} {{ block.settings.overlay_text_align }}{% if block.settings.mob_center_text %} md-down:text-center{% endif %}{% if section.settings.color_scheme != "white" %}{% if section.settings.full_width %} md-down:p-xl h-full md:h-auto{% endif %}{% endif %} has-motion">
+            <div class="slideshow__text container flex justify-start items-center{% if block.settings.mob_center_text %} md-down:center{% endif %}{% unless bg_color %}{% if section.settings.full_width %} md-down:p-xl{% endif %}{% endunless %}"{% if settings.animations_enabled != "disabled" and section.settings.prevent_animation == false %} data-cc-animate{% endif %}>
+              <div class="text-overlay{% if bg_color %} text-overlay--bg{% endif %} {{ block.settings.overlay_text_align }}{% if block.settings.mob_center_text %} md-down:text-center{% endif %}{% if section.settings.color_scheme != "white" %}{% if section.settings.full_width %} md-down:p-xl{% endif %}{% endif %} has-motion">
                 {%- if block.settings.subheading != blank -%}
                   <p class="text-overlay__block subheading">
                     {{- block.settings.subheading | escape -}}
@@ -372,7 +383,7 @@
       "type": "range",
       "id": "fixed_height_desktop",
       "min": 600,
-      "max": 1200,
+      "max": 1000,
       "step": 10,
       "unit": "px",
       "label": "Minimum fixed height on large screens",
@@ -382,7 +393,7 @@
       "type": "range",
       "id": "fixed_height_mobile",
       "min": 250,
-      "max": 600,
+      "max": 500,
       "step": 10,
       "unit": "px",
       "label": "Minimum fixed height on mobile",
@@ -394,7 +405,7 @@
     },
     {
       "type": "paragraph",
-      "content": "This provides a small widget which allows users to quickly browse to their desired page. To get started, create a menu in [Content > Menus](/admin/content/menus) and choose that menu below. [Read more](https://cleancanvas.co.uk/support/enterprise/sections/navigation-slideshow)."
+      "content": "This provides a small widget which allows users to quickly browse to their desired page. To get started, create a menu in [Online Store > Navigation](/admin/menus) and choose that menu below. [Read more](https://cleancanvas.co.uk/support/enterprise/sections/navigation-slideshow)."
     },
     {
       "type": "link_list",
