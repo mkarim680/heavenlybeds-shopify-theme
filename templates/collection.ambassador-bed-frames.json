@@ -1,0 +1,128 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "collection-banner": {
+      "type": "main-collection-banner",
+      "custom_css": [
+        ".mt-4 {margin-top: calc(4 * var(--space-unit)); width: 100%; /* display: block; */ /* text-align: left; */}"
+      ],
+      "settings": {
+        "show_collection_title": true,
+        "show_product_count": false,
+        "show_collection_description": true,
+        "text_align": "items-center text-center",
+        "collection_image": "none",
+        "use_product_image": false,
+        "text_width": "wide",
+        "color_scheme": "default"
+      }
+    },
+    "logo_list_AdqPR4": {
+      "type": "logo-list",
+      "blocks": {
+        "logo_Ed36Yz": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/beds-05.png",
+            "url": "shopify://collections/3ft-single-ambassador-beds",
+            "logo_width": 120,
+            "text": "3ft Single"
+          }
+        },
+        "logo_VX6ywQ": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/beds-04_c42f87fd-73fb-4c2e-a7c7-9458ab05bb87.png",
+            "url": "shopify://collections/4ft-small-double-ambassador-beds",
+            "logo_width": 120,
+            "text": "4ft Small Double"
+          }
+        },
+        "logo_kfXVPH": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/beds-03.png",
+            "url": "shopify://collections/4ft6-double-ambassador-beds",
+            "logo_width": 120,
+            "text": "4ft6 Double"
+          }
+        },
+        "logo_JXhL6m": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/beds-02.png",
+            "url": "shopify://collections/5ft-king-size-ambassador-beds",
+            "logo_width": 120,
+            "text": "5ft King Size"
+          }
+        },
+        "logo_PFxFmF": {
+          "type": "logo",
+          "settings": {
+            "image": "shopify://shop_images/beds-01.png",
+            "url": "shopify://collections/6ft-super-king-ambassador-beds",
+            "logo_width": 120,
+            "text": "6ft Super King"
+          }
+        }
+      },
+      "block_order": [
+        "logo_Ed36Yz",
+        "logo_VX6ywQ",
+        "logo_kfXVPH",
+        "logo_JXhL6m",
+        "logo_PFxFmF"
+      ],
+      "custom_css": [
+        ".section--padded,.section--padded-default {padding: 20px;}",
+        ",.pt-4 pb-0 {font-size: 15px;}",
+        ",.pt-4 {padding-top: 0;}"
+      ],
+      "settings": {
+        "title": "Shop by Bed Size",
+        "heading_align": "text-center",
+        "button_label": "",
+        "button_link": "",
+        "layout": "carousel",
+        "spacing": 32,
+        "logo_grid_align": "justify-center",
+        "color_scheme": "none",
+        "full_width": true
+      }
+    },
+    "collection-products": {
+      "type": "main-collection-products",
+      "custom_css": [
+        ".price__from {color: red; font-size: 22px;}",
+        ".card--product-contained {--text-color: var(--card-text-color); padding: calc(5 * var(--space-unit)); border: 1px solid #000; background-color: var(--card-bg-color); color: rgb(var(--card-text-color));}"
+      ],
+      "settings": {
+        "products_per_page": 50,
+        "card_size_mobile": "large",
+        "card_size": "large",
+        "show_layout_toggle": true,
+        "enable_filtering": true,
+        "filters_open_lg": true,
+        "stick_on_scroll": true,
+        "show_filter_counts": true,
+        "expand_filters": true,
+        "max_filter_options": 7,
+        "enable_sorting": true,
+        "sort_first": true
+      }
+    }
+  },
+  "order": [
+    "collection-banner",
+    "logo_list_AdqPR4",
+    "collection-products"
+  ]
+}
