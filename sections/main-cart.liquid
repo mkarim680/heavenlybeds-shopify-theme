@@ -9,6 +9,31 @@
   <script src="{{ 'cart-note.js' | asset_url }}" defer="defer"></script>
 {%- endif -%}
 
+<script>
+  function code(){
+    var dropdown = document.getElementById('cash-on-delivery');
+    var selectedText = dropdown.options[dropdown.selectedIndex].value;
+    if(selectedText == "Cash on Delivery"){
+      document.getElementsByClassName('cash-discount-code')[0].style.display = 'block';
+      jQuery('.discount').show();
+         fetch('/discount/CASHONDELIVERY').then(() => {
+            jQuery.getJSON('/cart.js', function(cart) {
+              jQuery('.new_price').html(Shopify.formatMoney(cart.total_price,window.theme.settings.moneyWithCurrencyFormat));
+           });
+        });
+      
+    }else{
+      document.getElementsByClassName('cash-discount-code')[0].style.display = 'none';
+      jQuery('.discount').hide();
+      fetch('/discount/CLEAR').then(() => {
+        jQuery.getJSON('/cart.js', function(cart) {
+           jQuery('.new_price').html(Shopify.formatMoney(cart.original_total_price,window.theme.settings.moneyWithCurrencyFormat));
+        });
+      });
+    }
+  }
+</script> 
+
 <div class="container">
   <form class="cart form{% if cart != empty %} cart--with-items gap-theme heading--{{ section.settings.heading_align }}{% endif %}" id="cart" action="{{ routes.cart_url }}" method="post">
     <div class="cart__items">
