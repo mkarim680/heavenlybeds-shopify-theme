@@ -752,6 +752,55 @@
   </sticky-atc-panel>
 {%- endif -%}
 
+<script>
+document.getElementById('custom-add-to-cart').addEventListener('click', function() {
+    var variantId = 55773530620288; // Replace with actual variant ID
+    var button = this; // Reference to the button
+
+    fetch('/cart/add.js', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            id: variantId,
+            quantity: 1
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        button.innerText = "Added!";
+        button.style.backgroundColor = "#28a745"; // Green color for success
+        button.disabled = true; // Disable the button to prevent multiple clicks
+        console.log(data);
+    })
+    .catch(error => console.error('Error:', error));
+});
+
+document.getElementById('recycle-add-to-cart').addEventListener('click', function() {
+    var variantId = 56327745700224; // Replace with actual variant ID
+    var button = this; // Reference to the button
+
+    fetch('/cart/add.js', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            id: variantId,
+            quantity: 1
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        button.innerText = "Added!";
+        button.style.backgroundColor = "#28a745"; // Green color for success
+        button.disabled = true; // Disable the button to prevent multiple clicks
+        console.log(data);
+    })
+    .catch(error => console.error('Error:', error));
+});
+</script>
 
 <style>
 .custom-cart-btn {
@@ -771,7 +820,7 @@
     cursor: not-allowed;
     opacity: 0.7;
 }
-    <style>
+
         .container {
             display: flex;
             align-items: center;
