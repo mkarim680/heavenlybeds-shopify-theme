@@ -752,6 +752,116 @@
   </sticky-atc-panel>
 {%- endif -%}
 
+<script>
+document.getElementById('custom-add-to-cart').addEventListener('click', function() {
+    var variantId = 55773530620288; // Replace with actual variant ID
+    var button = this; // Reference to the button
+
+    fetch('/cart/add.js', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            id: variantId,
+            quantity: 1
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        button.innerText = "Added!";
+        button.style.backgroundColor = "#28a745"; // Green color for success
+        button.disabled = true; // Disable the button to prevent multiple clicks
+        console.log(data);
+    })
+    .catch(error => console.error('Error:', error));
+});
+
+document.getElementById('recycle-add-to-cart').addEventListener('click', function() {
+    var variantId = 56327745700224; // Replace with actual variant ID
+    var button = this; // Reference to the button
+
+    fetch('/cart/add.js', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            id: variantId,
+            quantity: 1
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        button.innerText = "Added!";
+        button.style.backgroundColor = "#28a745"; // Green color for success
+        button.disabled = true; // Disable the button to prevent multiple clicks
+        console.log(data);
+    })
+    .catch(error => console.error('Error:', error));
+});
+</script>
+
+<style>
+.custom-cart-btn {
+    background-color: #ff6600;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 12px;
+    transition: background-color 0.3s ease;
+    width: 130px;
+}
+.custom-cart-btn:hover {
+    background-color: #cc5500;
+}
+.custom-cart-btn:disabled {
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+    <style>
+        .container {
+            display: flex;
+            align-items: center;
+        }
+
+        .outlined-box {
+            border: 1px solid #333; /* Outline border */
+            padding: 10px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            border-radius: 8px; /* Optional: rounded corners */
+            margin-right: 10px; /* Space between div and button */
+        }
+
+        .image {
+            width: 50px; /* Adjust size */
+            height: 50px;
+            border-radius: 50%; /* Optional: makes it circular */
+            margin-right: 10px;
+        }
+
+        .text {
+            flex-grow: 1;
+        }
+
+        .button {
+            background: #E98C57;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+        }
+
+        .button:hover {
+            background: #FB8846; /* Darker blue on hover */
+        }
+    </style>
 {%- if first_3d_model -%}
   <script type="application/json" id="product-json-{{ product.id }}">
     {{ product.media | where: 'media_type', 'model' | json }}
