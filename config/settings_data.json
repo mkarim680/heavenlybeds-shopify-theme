@@ -140,15 +140,19 @@
     "blur_message_delay": 4,
     "vibrate_on_atc": true,
     "heading_type_scale": "1.3",
+    "sections": {
+      "main-password-header": {
+        "type": "main-password-header",
+        "settings": {
+          "logo_width": 150,
+          "logo_position": "center"
+        }
+      }
+    },
     "content_for_index": [],
     "blocks": {
       "12439146293631897289": {
         "type": "shopify://apps/blockify-fraud-filter/blocks/app_embed/2e3e0ba5-0e70-447a-9ec5-3bf76b5ef12e",
-        "disabled": false,
-        "settings": {}
-      },
-      "15623156175785154009": {
-        "type": "shopify://apps/qikify-smart-menu/blocks/app-embed/19d2f1cd-1836-4a32-8937-03df3c601dc8",
         "disabled": false,
         "settings": {}
       },
@@ -185,6 +189,11 @@
       "14916611450974054565": {
         "type": "shopify://apps/automatic-discounts-upsells/blocks/theme_app_embed/afbdc23b-1384-41ba-afd7-f55ee7ffbc4c",
         "disabled": false,
+        "settings": {}
+      },
+      "15623156175785154009": {
+        "type": "shopify://apps/qikify-smart-menu/blocks/app-embed/19d2f1cd-1836-4a32-8937-03df3c601dc8",
+        "disabled": true,
         "settings": {}
       }
     }
