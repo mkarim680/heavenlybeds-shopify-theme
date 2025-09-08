@@ -187,9 +187,9 @@
         "sidebar_Ncb49n": {
           "type": "sidebar",
           "settings": {
-            "title": "U Shape Sofas",
+            "title": "Sofas",
             "collection_images": "standard",
-            "collection_use_product_image": true,
+            "collection_use_product_image": false,
             "show_underline": true,
             "show_collection_images": true,
             "sidebar_link_use_product_image": false,
