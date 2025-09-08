@@ -96,38 +96,21 @@
     "header": {
       "type": "header",
       "blocks": {
-        "columns_FPearL": {
-          "type": "columns",
+        "sidebar_PAatXy": {
+          "type": "sidebar",
           "settings": {
             "title": "Beds",
             "collection_images": "standard",
             "collection_use_product_image": true,
-            "collection_circle_image": false,
             "show_underline": true,
-            "promo_position": "right",
-            "promo_min_height": 200,
-            "promo_text_color": "#ffffff",
-            "promo_tint_color": "#000000",
-            "promo_tint_opacity": 20,
-            "promo1_content": "",
-            "promo1_link_url": "",
-            "promo1_text_size": 16,
-            "promo1_text_width": 100,
-            "promo1_text_alignment": "justify-center items-center text-center",
-            "promo2_content": "",
-            "promo2_link_url": "",
-            "promo2_text_size": 16,
-            "promo2_text_width": 100,
-            "promo2_text_alignment": "justify-center items-center text-center",
-            "promo3_content": "",
-            "promo3_link_url": "",
-            "promo3_text_size": 16,
-            "promo3_text_width": 100,
-            "promo3_text_alignment": "justify-center items-center text-center",
-            "badge1_color": "#fb0000",
-            "badge1_link": "Divan Beds",
-            "badge1_text": "SALE",
-            "badge2_color": "#fb0000",
+            "show_collection_images": true,
+            "sidebar_link_use_product_image": false,
+            "show_product_images": true,
+            "aspect_ratio": "1",
+            "badge1_color": "#000000",
+            "badge1_link": "",
+            "badge1_text": "",
+            "badge2_color": "#000000",
             "badge2_link": "",
             "badge2_text": "",
             "badge3_color": "#000000",
@@ -135,10 +118,76 @@
             "badge3_text": ""
           }
         },
-        "sidebar_PAatXy": {
+        "sidebar_R3TepG": {
           "type": "sidebar",
           "settings": {
-            "title": "Beds",
+            "title": "Storage Beds",
+            "collection_images": "standard",
+            "collection_use_product_image": true,
+            "show_underline": true,
+            "show_collection_images": true,
+            "sidebar_link_use_product_image": false,
+            "show_product_images": true,
+            "aspect_ratio": "1",
+            "badge1_color": "#000000",
+            "badge1_link": "",
+            "badge1_text": "",
+            "badge2_color": "#000000",
+            "badge2_link": "",
+            "badge2_text": "",
+            "badge3_color": "#000000",
+            "badge3_link": "",
+            "badge3_text": ""
+          }
+        },
+        "sidebar_yhAMUz": {
+          "type": "sidebar",
+          "settings": {
+            "title": "High End Beds",
+            "collection_images": "standard",
+            "collection_use_product_image": true,
+            "show_underline": true,
+            "show_collection_images": true,
+            "sidebar_link_use_product_image": false,
+            "show_product_images": true,
+            "aspect_ratio": "1",
+            "badge1_color": "#000000",
+            "badge1_link": "",
+            "badge1_text": "",
+            "badge2_color": "#000000",
+            "badge2_link": "",
+            "badge2_text": "",
+            "badge3_color": "#000000",
+            "badge3_link": "",
+            "badge3_text": ""
+          }
+        },
+        "sidebar_HMEUdn": {
+          "type": "sidebar",
+          "settings": {
+            "title": "Mattresses",
+            "collection_images": "standard",
+            "collection_use_product_image": true,
+            "show_underline": true,
+            "show_collection_images": true,
+            "sidebar_link_use_product_image": false,
+            "show_product_images": true,
+            "aspect_ratio": "1",
+            "badge1_color": "#000000",
+            "badge1_link": "",
+            "badge1_text": "",
+            "badge2_color": "#000000",
+            "badge2_link": "",
+            "badge2_text": "",
+            "badge3_color": "#000000",
+            "badge3_link": "",
+            "badge3_text": ""
+          }
+        },
+        "sidebar_Ncb49n": {
+          "type": "sidebar",
+          "settings": {
+            "title": "All Sofas",
             "collection_images": "standard",
             "collection_use_product_image": true,
             "show_underline": true,
@@ -181,8 +230,11 @@
         }
       },
       "block_order": [
-        "columns_FPearL",
         "sidebar_PAatXy",
+        "sidebar_R3TepG",
+        "sidebar_yhAMUz",
+        "sidebar_HMEUdn",
+        "sidebar_Ncb49n",
         "sidebar_zwNYBR"
       ],
       "settings": {
