@@ -1,0 +1,94 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-article",
+      "settings": {
+        "show_tags": true,
+        "show_author": true,
+        "show_date": true,
+        "featured_image_width": "page",
+        "heading_align": "text-center",
+        "show_share_buttons": true,
+        "pagination": "bar-reading"
+      }
+    },
+    "faq_9qjNPD": {
+      "type": "faq",
+      "blocks": {
+        "question_yaFGqN": {
+          "type": "question",
+          "settings": {
+            "icon": "none",
+            "heading": "What is the difference between an upholstered bed and a regular bed?",
+            "text": "<p>An upholstered bed features a padded fabric or leather covering on the frame and headboard, whereas regular beds often have wooden or metal frames without padding.</p>"
+          }
+        },
+        "question_Tk4czm": {
+          "type": "question",
+          "settings": {
+            "icon": "none",
+            "heading": "Are upholstered beds durable?",
+            "text": "<p>Yes, upholstered beds are durable, especially when made from high-quality materials. With proper care, they can last for many years.</p>"
+          }
+        },
+        "question_p97g3q": {
+          "type": "question",
+          "settings": {
+            "icon": "none",
+            "heading": "Can I get storage with an upholstered bed?",
+            "text": "<p>Yes, many <strong>upholstered beds</strong>, such as <strong>ottoman beds</strong>, come with built-in storage, making them practical for small bedrooms.</p>"
+          }
+        },
+        "question_gpKiA8": {
+          "type": "question",
+          "settings": {
+            "icon": "none",
+            "heading": "Are upholstered headboards comfortable?",
+            "text": "<p>Absolutely! <strong>Upholstered headboards</strong> are padded, making them perfect for sitting up comfortably in bed.</p>"
+          }
+        },
+        "question_gQN4CL": {
+          "type": "question",
+          "settings": {
+            "icon": "none",
+            "heading": "What sizes are available for upholstered beds?",
+            "text": "<p><strong>Upholstered beds</strong> come in various sizes, including <strong>single bed</strong>, <strong>double bed</strong>, <strong>king-size bed</strong>, and <strong>super king bed</strong>.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "question_yaFGqN",
+        "question_Tk4czm",
+        "question_p97g3q",
+        "question_gpKiA8",
+        "question_gQN4CL"
+      ],
+      "settings": {
+        "heading": "Frequently Asked Questions",
+        "heading_align": "text-center",
+        "color_scheme": "1",
+        "full_width": true
+      }
+    },
+    "article-comments": {
+      "type": "article-comments",
+      "settings": {
+        "comments_per_page": 16
+      }
+    }
+  },
+  "order": [
+    "main",
+    "faq_9qjNPD",
+    "article-comments"
+  ]
+}

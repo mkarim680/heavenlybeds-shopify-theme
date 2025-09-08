@@ -1,0 +1,94 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-article",
+      "settings": {
+        "show_tags": true,
+        "show_author": true,
+        "show_date": true,
+        "featured_image_width": "page",
+        "heading_align": "text-center",
+        "show_share_buttons": true,
+        "pagination": "bar-reading"
+      }
+    },
+    "faq_b6JbDe": {
+      "type": "faq",
+      "blocks": {
+        "question_gaRDCj": {
+          "type": "question",
+          "settings": {
+            "icon": "none",
+            "heading": "1. How often should I clean my Velvet or Naples bed frame?",
+            "text": "<p>Regular cleaning is key to maintaining the luxurious look of your Velvet or Naples bed frame. We recommend vacuuming it lightly once a week using a vacuum with a soft brush attachment to prevent damage and remove dust.</p>"
+          }
+        },
+        "question_HD4bbe": {
+          "type": "question",
+          "settings": {
+            "icon": "none",
+            "heading": "2. What should I do if I spill something on my Velvet or Naples bed frame?",
+            "text": "<p>Act quickly! Gently blot the spill with a clean, dry cloth, avoiding rubbing, which can push the liquid deeper into the fabric. For stubborn stains, use a mild solution of warm water and dish soap, but always test on an inconspicuous area first.</p>"
+          }
+        },
+        "question_Rxd6yB": {
+          "type": "question",
+          "settings": {
+            "icon": "none",
+            "heading": "3. How can I prevent my Velvet or Naples bed frame from fading?",
+            "text": "<p>To protect your bed frame from fading, avoid placing it in direct sunlight or near high heat sources. Consider using curtains or blinds to block harsh sunlight during peak hours and keep your bed away from radiators or heat vents.</p>"
+          }
+        },
+        "question_egJAAW": {
+          "type": "question",
+          "settings": {
+            "icon": "none",
+            "heading": "4. Can I use a steamer to maintain my Velvet or Naples bed frame?",
+            "text": "<p>Yes, steaming can help refresh the fabric if it becomes flattened. Hold a steamer at arm's length and gently steam the area, using your hand to brush fibers back into place. Avoid over-steaming to prevent heat and moisture damage.</p>"
+          }
+        },
+        "question_rzMrty": {
+          "type": "question",
+          "settings": {
+            "icon": "none",
+            "heading": "5. Is professional cleaning necessary for my Velvet or Naples bed frame?",
+            "text": "<p>While regular home care is essential, occasional professional cleaning (about once a year) can help maintain the quality and longevity of your bed frame. Ensure the cleaning service has experience with delicate fabrics like Velvet and Naples to avoid any damage.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "question_gaRDCj",
+        "question_HD4bbe",
+        "question_Rxd6yB",
+        "question_egJAAW",
+        "question_rzMrty"
+      ],
+      "settings": {
+        "heading": "Frequently Asked Questions",
+        "heading_align": "text-center",
+        "color_scheme": "1",
+        "full_width": true
+      }
+    },
+    "article-comments": {
+      "type": "article-comments",
+      "settings": {
+        "comments_per_page": 16
+      }
+    }
+  },
+  "order": [
+    "main",
+    "faq_b6JbDe",
+    "article-comments"
+  ]
+}

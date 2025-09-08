@@ -1,0 +1,94 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-article",
+      "settings": {
+        "show_tags": true,
+        "show_author": true,
+        "show_date": true,
+        "featured_image_width": "page",
+        "heading_align": "text-center",
+        "show_share_buttons": true,
+        "pagination": "bar-reading"
+      }
+    },
+    "faq_4Hfpfg": {
+      "type": "faq",
+      "blocks": {
+        "question_r6fQxw": {
+          "type": "question",
+          "settings": {
+            "icon": "none",
+            "heading": "What are the main types of bed frame materials?",
+            "text": "<p>The three most common bed frame materials are wood, metal, and upholstered. Each offers unique benefits and drawbacks in terms of style, durability, comfort, and price. Understanding these differences will help you choose the right bed frame for your needs.</p>"
+          }
+        },
+        "question_YAkkNR": {
+          "type": "question",
+          "settings": {
+            "icon": "none",
+            "heading": "What are the benefits of a wooden bed frame?",
+            "text": "<p>Wooden bed frames are known for their strength, classic appeal, and customizability. They can be painted or stained to suit any decor and are made from various types of wood like oak, pine, mahogany, and walnut. However, they can be heavy, expensive, and require periodic maintenance.</p>"
+          }
+        },
+        "question_dPMwR9": {
+          "type": "question",
+          "settings": {
+            "icon": "none",
+            "heading": "Why should I choose a metal bed frame?",
+            "text": "<p>Metal bed frames are durable, lightweight, and often more affordable than wooden or upholstered options. They come in various styles, from minimalist to vintage. However, they may be noisy if not assembled correctly and can rust if not properly coated.</p>"
+          }
+        },
+        "question_g9iJRC": {
+          "type": "question",
+          "settings": {
+            "icon": "none",
+            "heading": "What are the advantages and disadvantages of upholstered bed frames?",
+            "text": "<p>Upholstered bed frames add a cozy, stylish touch to a bedroom with materials like velvet, linen, or leather. They provide comfort with soft headboards and can come with additional storage options. However, they are high maintenance, prone to staining, and may fade over time.</p>"
+          }
+        },
+        "question_cLpYnR": {
+          "type": "question",
+          "settings": {
+            "icon": "none",
+            "heading": "How do I choose the right size of a bed frame?",
+            "text": "<p>Choosing the right size depends on your room size and sleeping needs. A UK double bed is perfect for smaller rooms, a 4ft small double is ideal for single sleepers needing more space or close couples, and a super king size bed offers luxurious comfort for larger master bedrooms.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "question_r6fQxw",
+        "question_YAkkNR",
+        "question_dPMwR9",
+        "question_g9iJRC",
+        "question_cLpYnR"
+      ],
+      "settings": {
+        "heading": "Frequently Asked Questions",
+        "heading_align": "text-center",
+        "color_scheme": "1",
+        "full_width": true
+      }
+    },
+    "article-comments": {
+      "type": "article-comments",
+      "settings": {
+        "comments_per_page": 16
+      }
+    }
+  },
+  "order": [
+    "main",
+    "faq_4Hfpfg",
+    "article-comments"
+  ]
+}
