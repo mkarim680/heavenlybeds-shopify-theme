@@ -1,1 +1,456 @@
-{"type":"header","name":"Header Group","sections":{"announcement":{"type":"announcement","blocks":{"announcement-1":{"type":"announcement","settings":{"text":"<p>* Spend £499+ and Get 10% off Use Code: <strong>HEAVEN10 <\/strong>*  Sale Ends<strong> 8th Sep Midnight *<\/strong><\/p>"}},"announcement_wAhKcF":{"type":"announcement","settings":{"text":"<p>* Spend £1299+ and Get 20% off Use Code:<strong> HEAVEN20 <\/strong>*  Sale Ends <strong>8th Sep Midnight *<\/strong><\/p>"}},"announcement_MYNjbg":{"type":"announcement","disabled":true,"settings":{"text":"<p>15% Off Code <strong>SPRING15 <\/strong>Spend £1299<\/p>"}}},"block_order":["announcement-1","announcement_wAhKcF","announcement_MYNjbg"],"settings":{"link1":"","link1_label":"","link2":"","link2_label":"","enable_country_selector":true,"enable_language_selector":true,"bg_color":"#e98c57","text_color":"#2a2b2a","text_type_scale":"large","read_time":7}},"promo_strip_BGGAMp":{"type":"promo-strip","blocks":{"heading_6F3ipj":{"type":"heading","disabled":true,"settings":{"heading":"Promotion","heading_size":"h4","show_on_mobile":true,"show_on_desktop":true}},"text_Rr6JTe":{"type":"text","settings":{"text":"<p>Our phone lines are currently undergoing maintenance for the next 24 hours. We apologise for any inconvenience caused. You can reach us via WhatsApp or email support@heavenlybeds.co.uk<\/p>","enlarge_text":false,"show_on_mobile":true,"show_on_desktop":true}},"button_qHm7r6":{"type":"button","disabled":true,"settings":{"button_label":"Button","button_link":"","button_style":"btn btn--secondary"}}},"block_order":["heading_6F3ipj","text_Rr6JTe","button_qHm7r6"],"disabled":true,"settings":{"section_height":"xsmall","color_scheme":"3","full_width":true,"dividers":"border-top","prevent_animation":false}},"scrolling_banner_NQGfCY":{"type":"scrolling-banner","blocks":{"text_nXiXgj":{"type":"text","settings":{"text":"Free Delivery on All Orders Limited Time Offer*","link":"shopify:\/\/pages\/free-delivery-information","font":"body","heading_size":"h6"}}},"block_order":["text_nXiXgj"],"disabled":true,"settings":{"section_height":"xsmall","spacing":40,"speed":9,"direction":"normal","pausable":true,"color_scheme":"3","dividers":"none","prevent_animation":false}},"header":{"type":"header","blocks":{"columns_ETEMrn":{"type":"columns","settings":{"title":"Beds","collection_images":"none","collection_use_product_image":false,"show_underline":true,"promo_position":"right","promo_min_height":200,"promo_text_color":"#ffffff","promo_tint_color":"#000000","promo_tint_opacity":20,"promo1_content":"","promo1_link_url":"","promo1_text_size":16,"promo1_text_width":100,"promo1_text_alignment":"justify-center items-center text-center","promo2_content":"","promo2_link_url":"","promo2_text_size":16,"promo2_text_width":100,"promo2_text_alignment":"justify-center items-center text-center","promo3_content":"","promo3_link_url":"","promo3_text_size":16,"promo3_text_width":100,"promo3_text_alignment":"justify-center items-center text-center","badge1_color":"#fb0000","badge1_link":"Divan Beds","badge1_text":"SALE","badge2_color":"#fb0000","badge2_link":"","badge2_text":"","badge3_color":"#000000","badge3_link":"","badge3_text":""}},"columns_ctJDG9":{"type":"columns","settings":{"title":"Storage Beds","collection_images":"none","collection_use_product_image":false,"show_underline":true,"promo_position":"bottom","promo_min_height":200,"promo_text_color":"#ffffff","promo_tint_color":"#000000","promo_tint_opacity":20,"promo1_content":"","promo1_link_url":"","promo1_text_size":16,"promo1_text_width":100,"promo1_text_alignment":"justify-center items-center text-center","promo2_content":"","promo2_link_url":"","promo2_text_size":16,"promo2_text_width":100,"promo2_text_alignment":"justify-center items-center text-center","promo3_content":"","promo3_link_url":"","promo3_text_size":16,"promo3_text_width":100,"promo3_text_alignment":"justify-center items-center text-center","badge1_color":"#000000","badge1_link":"","badge1_text":"","badge2_color":"#000000","badge2_link":"","badge2_text":"","badge3_color":"#000000","badge3_link":"","badge3_text":""}},"columns_aNM3jT":{"type":"columns","settings":{"title":"Mattresses","collection_images":"none","collection_use_product_image":false,"show_underline":true,"promo_position":"bottom","promo_min_height":200,"promo_text_color":"#ffffff","promo_tint_color":"#000000","promo_tint_opacity":20,"promo1_content":"","promo1_link_url":"","promo1_text_size":16,"promo1_text_width":100,"promo1_text_alignment":"justify-center items-center text-center","promo2_content":"","promo2_link_url":"","promo2_text_size":16,"promo2_text_width":100,"promo2_text_alignment":"justify-center items-center text-center","promo3_content":"","promo3_link_url":"","promo3_text_size":16,"promo3_text_width":100,"promo3_text_alignment":"justify-center items-center text-center","badge1_color":"#000000","badge1_link":"","badge1_text":"","badge2_color":"#000000","badge2_link":"","badge2_text":"","badge3_color":"#000000","badge3_link":"","badge3_text":""}},"sidebar_VJQ7dV":{"type":"sidebar","settings":{"title":"Pouffes & Footstools","collection_images":"none","collection_use_product_image":false,"show_underline":true,"show_collection_images":true,"sidebar_link_use_product_image":false,"show_product_images":true,"aspect_ratio":"1","badge1_color":"#000000","badge1_link":"","badge1_text":"","badge2_color":"#000000","badge2_link":"","badge2_text":"","badge3_color":"#000000","badge3_link":"","badge3_text":""}},"columns_anYTM7":{"type":"columns","settings":{"title":"High End Beds","collection_images":"none","collection_use_product_image":false,"show_underline":true,"promo_position":"bottom","promo_min_height":200,"promo_text_color":"#ffffff","promo_tint_color":"#000000","promo_tint_opacity":20,"promo1_content":"","promo1_link_url":"","promo1_text_size":16,"promo1_text_width":100,"promo1_text_alignment":"justify-center items-center text-center","promo2_content":"","promo2_link_url":"","promo2_text_size":16,"promo2_text_width":100,"promo2_text_alignment":"justify-center items-center text-center","promo3_content":"","promo3_link_url":"","promo3_text_size":16,"promo3_text_width":100,"promo3_text_alignment":"justify-center items-center text-center","badge1_color":"#000000","badge1_link":"","badge1_text":"","badge2_color":"#000000","badge2_link":"","badge2_text":"","badge3_color":"#000000","badge3_link":"","badge3_text":""}},"columns_iMPRPV":{"type":"columns","settings":{"title":"Heavenly Wall Panels","collection_images":"none","collection_use_product_image":false,"show_underline":true,"promo_position":"bottom","promo_min_height":200,"promo_text_color":"#ffffff","promo_tint_color":"#000000","promo_tint_opacity":20,"promo1_content":"","promo1_link_url":"","promo1_text_size":16,"promo1_text_width":100,"promo1_text_alignment":"justify-center items-center text-center","promo2_content":"","promo2_link_url":"","promo2_text_size":16,"promo2_text_width":100,"promo2_text_alignment":"justify-center items-center text-center","promo3_content":"","promo3_link_url":"","promo3_text_size":16,"promo3_text_width":100,"promo3_text_alignment":"justify-center items-center text-center","badge1_color":"#000000","badge1_link":"","badge1_text":"","badge2_color":"#000000","badge2_link":"","badge2_text":"","badge3_color":"#000000","badge3_link":"","badge3_text":""}}},"block_order":["columns_ETEMrn","columns_ctJDG9","columns_aNM3jT","sidebar_VJQ7dV","columns_anYTM7","columns_iMPRPV"],"settings":{"enable_sticky":true,"mobile_menu_position":"burger-left","logo_text":"Heavenly Beds","logo_type_scale":"1.5","logo":"{{ shop.brand.logo }}","logo_width":150,"logo_h1":true,"logo_center":true,"enable_search":true,"minimise_search_mobile":false,"minimise_search_desktop":false,"menu":"shop","menu_center":true,"repeat_links":true,"menu_featured_link":"Sale","quicklinks_menu":"","cta_show":true,"cta_icon":"phone","cta_label":"Call us","cta_link":"tel:01924 967200","cta_border_color":"#333333","cta_bg_color":"#2a2b2a","cta_text_color":"#ffffff","bg_color":"#ffffff","text_color":"#070707","accent_color":"#777777"}},"icons_with_text_Fq8rqk":{"type":"icons-with-text","blocks":{"item_HJVdR4":{"type":"item","settings":{"icon":"truck","custom_icon":"shopify:\/\/shop_images\/delivery.png","heading":"Delivery Timescales","text":"<p>Beds 7-10 Working Days<br\/>Sofas 4-5 Weeks<\/p>","link":""}},"item_Wp6HrG":{"type":"item","settings":{"icon":"price_tag","custom_icon":"shopify:\/\/shop_images\/guarantee.png","heading":"Our Guarantee","text":"<p>2 Years On All Items<\/p>","link":""}},"item_KTXwDK":{"type":"item","settings":{"icon":"return","custom_icon":"shopify:\/\/shop_images\/star.png","heading":"Customer Reviews","text":"<p><a href=\"https:\/\/www.trustpilot.com\/review\/www.heavenlybeds.co.uk\" target=\"_blank\" title=\"https:\/\/www.trustpilot.com\/review\/www.heavenlybeds.co.uk\">100s Of Happy Customers<\/a><\/p>","link":""}},"item_Fzt9zX":{"type":"item","settings":{"icon":"chat_bubble","custom_icon":"shopify:\/\/shop_images\/swatch.png","heading":"Order Fabric Samples","text":"<p><a href=\"https:\/\/www.heavenlybeds.co.uk\/pages\/request-fabric-samples\" target=\"_blank\" title=\"https:\/\/www.heavenlybeds.co.uk\/pages\/request-fabric-samples\">Click Here to Order<\/a><\/p>","link":""}}},"block_order":["item_HJVdR4","item_Wp6HrG","item_KTXwDK","item_Fzt9zX"],"name":"Icons with text","settings":{"heading":"","heading_align":"text-start","icon_size":40,"title_type_scale":"extra_small","text_type_scale":"extra_small","icon_position":"beside","mobile_stack":true,"section_height":"xsmall","color_scheme":"1","full_width":true,"dividers":"none","prevent_animation":false}}},"order":["announcement","promo_strip_BGGAMp","scrolling_banner_NQGfCY","header","icons_with_text_Fq8rqk"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "type": "header",
+  "name": "Header Group",
+  "sections": {
+    "announcement": {
+      "type": "announcement",
+      "blocks": {
+        "announcement-1": {
+          "type": "announcement",
+          "settings": {
+            "text": "<p>* Spend £499+ and Get 10% off Use Code: <strong>FALL10 </strong>*  Sale Ends<strong> 30th Sep Midnight *</strong></p>"
+          }
+        },
+        "announcement_wAhKcF": {
+          "type": "announcement",
+          "settings": {
+            "text": "<p>* Spend £1299+ and Get 20% off Use Code:<strong> HEAVEN20 </strong>*  Sale Ends <strong>8th Sep Midnight *</strong></p>"
+          }
+        },
+        "announcement_MYNjbg": {
+          "type": "announcement",
+          "disabled": true,
+          "settings": {
+            "text": "<p>15% Off Code <strong>SPRING15 </strong>Spend £1299</p>"
+          }
+        }
+      },
+      "block_order": [
+        "announcement-1",
+        "announcement_wAhKcF",
+        "announcement_MYNjbg"
+      ],
+      "settings": {
+        "link1": "",
+        "link1_label": "",
+        "link2": "",
+        "link2_label": "",
+        "enable_country_selector": true,
+        "enable_language_selector": true,
+        "bg_color": "#e98c57",
+        "text_color": "#2a2b2a",
+        "text_type_scale": "large",
+        "read_time": 7
+      }
+    },
+    "promo_strip_BGGAMp": {
+      "type": "promo-strip",
+      "blocks": {
+        "heading_6F3ipj": {
+          "type": "heading",
+          "disabled": true,
+          "settings": {
+            "heading": "Promotion",
+            "heading_size": "h4",
+            "show_on_mobile": true,
+            "show_on_desktop": true
+          }
+        },
+        "text_Rr6JTe": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Our phone lines are currently undergoing maintenance for the next 24 hours. We apologise for any inconvenience caused. You can reach us via WhatsApp or email support@heavenlybeds.co.uk</p>",
+            "enlarge_text": false,
+            "show_on_mobile": true,
+            "show_on_desktop": true
+          }
+        },
+        "button_qHm7r6": {
+          "type": "button",
+          "disabled": true,
+          "settings": {
+            "button_label": "Button",
+            "button_link": "",
+            "button_style": "btn btn--secondary"
+          }
+        }
+      },
+      "block_order": [
+        "heading_6F3ipj",
+        "text_Rr6JTe",
+        "button_qHm7r6"
+      ],
+      "disabled": true,
+      "settings": {
+        "section_height": "xsmall",
+        "color_scheme": "3",
+        "full_width": true,
+        "dividers": "border-top",
+        "prevent_animation": false
+      }
+    },
+    "scrolling_banner_NQGfCY": {
+      "type": "scrolling-banner",
+      "blocks": {
+        "text_nXiXgj": {
+          "type": "text",
+          "settings": {
+            "text": "Free Delivery on All Orders Limited Time Offer*",
+            "link": "shopify://pages/free-delivery-information",
+            "font": "body",
+            "heading_size": "h6"
+          }
+        }
+      },
+      "block_order": [
+        "text_nXiXgj"
+      ],
+      "disabled": true,
+      "settings": {
+        "section_height": "xsmall",
+        "spacing": 40,
+        "speed": 9,
+        "direction": "normal",
+        "pausable": true,
+        "color_scheme": "3",
+        "dividers": "none",
+        "prevent_animation": false
+      }
+    },
+    "header": {
+      "type": "header",
+      "blocks": {
+        "columns_ETEMrn": {
+          "type": "columns",
+          "settings": {
+            "title": "Beds",
+            "collection_images": "none",
+            "collection_use_product_image": false,
+            "show_underline": true,
+            "promo_position": "right",
+            "promo_min_height": 200,
+            "promo_text_color": "#ffffff",
+            "promo_tint_color": "#000000",
+            "promo_tint_opacity": 20,
+            "promo1_content": "",
+            "promo1_link_url": "",
+            "promo1_text_size": 16,
+            "promo1_text_width": 100,
+            "promo1_text_alignment": "justify-center items-center text-center",
+            "promo2_content": "",
+            "promo2_link_url": "",
+            "promo2_text_size": 16,
+            "promo2_text_width": 100,
+            "promo2_text_alignment": "justify-center items-center text-center",
+            "promo3_content": "",
+            "promo3_link_url": "",
+            "promo3_text_size": 16,
+            "promo3_text_width": 100,
+            "promo3_text_alignment": "justify-center items-center text-center",
+            "badge1_color": "#fb0000",
+            "badge1_link": "Divan Beds",
+            "badge1_text": "SALE",
+            "badge2_color": "#fb0000",
+            "badge2_link": "",
+            "badge2_text": "",
+            "badge3_color": "#000000",
+            "badge3_link": "",
+            "badge3_text": ""
+          }
+        },
+        "columns_ctJDG9": {
+          "type": "columns",
+          "settings": {
+            "title": "Storage Beds",
+            "collection_images": "none",
+            "collection_use_product_image": false,
+            "show_underline": true,
+            "promo_position": "bottom",
+            "promo_min_height": 200,
+            "promo_text_color": "#ffffff",
+            "promo_tint_color": "#000000",
+            "promo_tint_opacity": 20,
+            "promo1_content": "",
+            "promo1_link_url": "",
+            "promo1_text_size": 16,
+            "promo1_text_width": 100,
+            "promo1_text_alignment": "justify-center items-center text-center",
+            "promo2_content": "",
+            "promo2_link_url": "",
+            "promo2_text_size": 16,
+            "promo2_text_width": 100,
+            "promo2_text_alignment": "justify-center items-center text-center",
+            "promo3_content": "",
+            "promo3_link_url": "",
+            "promo3_text_size": 16,
+            "promo3_text_width": 100,
+            "promo3_text_alignment": "justify-center items-center text-center",
+            "badge1_color": "#000000",
+            "badge1_link": "",
+            "badge1_text": "",
+            "badge2_color": "#000000",
+            "badge2_link": "",
+            "badge2_text": "",
+            "badge3_color": "#000000",
+            "badge3_link": "",
+            "badge3_text": ""
+          }
+        },
+        "columns_aNM3jT": {
+          "type": "columns",
+          "settings": {
+            "title": "Mattresses",
+            "collection_images": "none",
+            "collection_use_product_image": false,
+            "show_underline": true,
+            "promo_position": "bottom",
+            "promo_min_height": 200,
+            "promo_text_color": "#ffffff",
+            "promo_tint_color": "#000000",
+            "promo_tint_opacity": 20,
+            "promo1_content": "",
+            "promo1_link_url": "",
+            "promo1_text_size": 16,
+            "promo1_text_width": 100,
+            "promo1_text_alignment": "justify-center items-center text-center",
+            "promo2_content": "",
+            "promo2_link_url": "",
+            "promo2_text_size": 16,
+            "promo2_text_width": 100,
+            "promo2_text_alignment": "justify-center items-center text-center",
+            "promo3_content": "",
+            "promo3_link_url": "",
+            "promo3_text_size": 16,
+            "promo3_text_width": 100,
+            "promo3_text_alignment": "justify-center items-center text-center",
+            "badge1_color": "#000000",
+            "badge1_link": "",
+            "badge1_text": "",
+            "badge2_color": "#000000",
+            "badge2_link": "",
+            "badge2_text": "",
+            "badge3_color": "#000000",
+            "badge3_link": "",
+            "badge3_text": ""
+          }
+        },
+        "sidebar_VJQ7dV": {
+          "type": "sidebar",
+          "settings": {
+            "title": "Pouffes & Footstools",
+            "collection_images": "none",
+            "collection_use_product_image": false,
+            "show_underline": true,
+            "show_collection_images": true,
+            "sidebar_link_use_product_image": false,
+            "show_product_images": true,
+            "aspect_ratio": "1",
+            "badge1_color": "#000000",
+            "badge1_link": "",
+            "badge1_text": "",
+            "badge2_color": "#000000",
+            "badge2_link": "",
+            "badge2_text": "",
+            "badge3_color": "#000000",
+            "badge3_link": "",
+            "badge3_text": ""
+          }
+        },
+        "columns_anYTM7": {
+          "type": "columns",
+          "settings": {
+            "title": "High End Beds",
+            "collection_images": "none",
+            "collection_use_product_image": false,
+            "show_underline": true,
+            "promo_position": "bottom",
+            "promo_min_height": 200,
+            "promo_text_color": "#ffffff",
+            "promo_tint_color": "#000000",
+            "promo_tint_opacity": 20,
+            "promo1_content": "",
+            "promo1_link_url": "",
+            "promo1_text_size": 16,
+            "promo1_text_width": 100,
+            "promo1_text_alignment": "justify-center items-center text-center",
+            "promo2_content": "",
+            "promo2_link_url": "",
+            "promo2_text_size": 16,
+            "promo2_text_width": 100,
+            "promo2_text_alignment": "justify-center items-center text-center",
+            "promo3_content": "",
+            "promo3_link_url": "",
+            "promo3_text_size": 16,
+            "promo3_text_width": 100,
+            "promo3_text_alignment": "justify-center items-center text-center",
+            "badge1_color": "#000000",
+            "badge1_link": "",
+            "badge1_text": "",
+            "badge2_color": "#000000",
+            "badge2_link": "",
+            "badge2_text": "",
+            "badge3_color": "#000000",
+            "badge3_link": "",
+            "badge3_text": ""
+          }
+        },
+        "columns_iMPRPV": {
+          "type": "columns",
+          "settings": {
+            "title": "Heavenly Wall Panels",
+            "collection_images": "none",
+            "collection_use_product_image": false,
+            "show_underline": true,
+            "promo_position": "bottom",
+            "promo_min_height": 200,
+            "promo_text_color": "#ffffff",
+            "promo_tint_color": "#000000",
+            "promo_tint_opacity": 20,
+            "promo1_content": "",
+            "promo1_link_url": "",
+            "promo1_text_size": 16,
+            "promo1_text_width": 100,
+            "promo1_text_alignment": "justify-center items-center text-center",
+            "promo2_content": "",
+            "promo2_link_url": "",
+            "promo2_text_size": 16,
+            "promo2_text_width": 100,
+            "promo2_text_alignment": "justify-center items-center text-center",
+            "promo3_content": "",
+            "promo3_link_url": "",
+            "promo3_text_size": 16,
+            "promo3_text_width": 100,
+            "promo3_text_alignment": "justify-center items-center text-center",
+            "badge1_color": "#000000",
+            "badge1_link": "",
+            "badge1_text": "",
+            "badge2_color": "#000000",
+            "badge2_link": "",
+            "badge2_text": "",
+            "badge3_color": "#000000",
+            "badge3_link": "",
+            "badge3_text": ""
+          }
+        }
+      },
+      "block_order": [
+        "columns_ETEMrn",
+        "columns_ctJDG9",
+        "columns_aNM3jT",
+        "sidebar_VJQ7dV",
+        "columns_anYTM7",
+        "columns_iMPRPV"
+      ],
+      "settings": {
+        "enable_sticky": true,
+        "mobile_menu_position": "burger-left",
+        "logo_text": "Heavenly Beds",
+        "logo_type_scale": "1.5",
+        "logo": "{{ shop.brand.logo }}",
+        "logo_width": 150,
+        "logo_h1": true,
+        "logo_center": true,
+        "enable_search": true,
+        "minimise_search_mobile": false,
+        "minimise_search_desktop": false,
+        "menu": "shop",
+        "menu_center": true,
+        "repeat_links": true,
+        "menu_featured_link": "Sale",
+        "quicklinks_menu": "",
+        "cta_show": true,
+        "cta_icon": "phone",
+        "cta_label": "Call us",
+        "cta_link": "tel:01924 967200",
+        "cta_border_color": "#333333",
+        "cta_bg_color": "#2a2b2a",
+        "cta_text_color": "#ffffff",
+        "bg_color": "#ffffff",
+        "text_color": "#070707",
+        "accent_color": "#777777"
+      }
+    },
+    "icons_with_text_Fq8rqk": {
+      "type": "icons-with-text",
+      "blocks": {
+        "item_HJVdR4": {
+          "type": "item",
+          "settings": {
+            "icon": "truck",
+            "custom_icon": "shopify://shop_images/delivery.png",
+            "heading": "Delivery Timescales",
+            "text": "<p>Beds 7-10 Working Days<br/>Sofas 4-5 Weeks</p>",
+            "link": ""
+          }
+        },
+        "item_Wp6HrG": {
+          "type": "item",
+          "settings": {
+            "icon": "price_tag",
+            "custom_icon": "shopify://shop_images/guarantee.png",
+            "heading": "Our Guarantee",
+            "text": "<p>2 Years On All Items</p>",
+            "link": ""
+          }
+        },
+        "item_KTXwDK": {
+          "type": "item",
+          "settings": {
+            "icon": "return",
+            "custom_icon": "shopify://shop_images/star.png",
+            "heading": "Customer Reviews",
+            "text": "<p><a href=\"https://www.trustpilot.com/review/www.heavenlybeds.co.uk\" target=\"_blank\" title=\"https://www.trustpilot.com/review/www.heavenlybeds.co.uk\">100s Of Happy Customers</a></p>",
+            "link": ""
+          }
+        },
+        "item_Fzt9zX": {
+          "type": "item",
+          "settings": {
+            "icon": "chat_bubble",
+            "custom_icon": "shopify://shop_images/swatch.png",
+            "heading": "Order Fabric Samples",
+            "text": "<p><a href=\"https://www.heavenlybeds.co.uk/pages/request-fabric-samples\" target=\"_blank\" title=\"https://www.heavenlybeds.co.uk/pages/request-fabric-samples\">Click Here to Order</a></p>",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "item_HJVdR4",
+        "item_Wp6HrG",
+        "item_KTXwDK",
+        "item_Fzt9zX"
+      ],
+      "name": "Icons with text",
+      "settings": {
+        "heading": "",
+        "heading_align": "text-start",
+        "icon_size": 40,
+        "title_type_scale": "extra_small",
+        "text_type_scale": "extra_small",
+        "icon_position": "beside",
+        "mobile_stack": true,
+        "section_height": "xsmall",
+        "color_scheme": "1",
+        "full_width": true,
+        "dividers": "none",
+        "prevent_animation": false
+      }
+    }
+  },
+  "order": [
+    "announcement",
+    "promo_strip_BGGAMp",
+    "scrolling_banner_NQGfCY",
+    "header",
+    "icons_with_text_Fq8rqk"
+  ]
+}
