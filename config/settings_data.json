@@ -498,16 +498,6 @@
         "disabled": false,
         "settings": {}
       },
-      "14916611450974054565": {
-        "type": "shopify://apps/automatic-discounts-upsells/blocks/theme_app_embed/afbdc23b-1384-41ba-afd7-f55ee7ffbc4c",
-        "disabled": false,
-        "settings": {}
-      },
-      "12439146293631897289": {
-        "type": "shopify://apps/blockify-fraud-filter/blocks/app_embed/2e3e0ba5-0e70-447a-9ec5-3bf76b5ef12e",
-        "disabled": false,
-        "settings": {}
-      },
       "8919820748245769377": {
         "type": "shopify://apps/delightchat-whatsapp-marketing/blocks/self-serve-widget/61838639-20a5-450c-957a-d2ac660a5776",
         "disabled": false,
@@ -531,6 +521,16 @@
       "15623156175785154009": {
         "type": "shopify://apps/qikify-smart-menu/blocks/app-embed/19d2f1cd-1836-4a32-8937-03df3c601dc8",
         "disabled": false,
+        "settings": {}
+      },
+      "14916611450974054565": {
+        "type": "shopify://apps/automatic-discounts-upsells/blocks/theme_app_embed/afbdc23b-1384-41ba-afd7-f55ee7ffbc4c",
+        "disabled": true,
+        "settings": {}
+      },
+      "12439146293631897289": {
+        "type": "shopify://apps/blockify-fraud-filter/blocks/app_embed/2e3e0ba5-0e70-447a-9ec5-3bf76b5ef12e",
+        "disabled": true,
         "settings": {}
       }
     }
