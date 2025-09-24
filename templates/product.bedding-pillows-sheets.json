@@ -122,6 +122,12 @@
             "open": false
           }
         },
+        "richtext_BLNYE3": {
+          "type": "richtext",
+          "settings": {
+            "text": "{{ product.description }}"
+          }
+        },
         "pop_up_b3qFYk": {
           "type": "pop-up",
           "disabled": true,
@@ -163,6 +169,7 @@
         "custom_liquid_zNnwrC",
         "dividebuy_spread_the_cost_dividebuyproduct_wEaHbt",
         "collapsible-content-2",
+        "richtext_BLNYE3",
         "pop_up_b3qFYk",
         "share",
         "klarna_on_site_messaging_app_block_UxfP6F"
@@ -214,6 +221,7 @@
         },
         "tabs_WbyzdB": {
           "type": "tabs",
+          "disabled": true,
           "settings": {
             "style": "collapsible",
             "open_first": true,
