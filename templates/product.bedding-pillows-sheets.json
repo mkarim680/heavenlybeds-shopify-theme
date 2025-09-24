@@ -50,6 +50,18 @@
             "size_chart_page": ""
           }
         },
+        "inventory_status_i48NV6": {
+          "type": "inventory-status",
+          "settings": {
+            "show_indicator_bar": true,
+            "show_urgency_message": true,
+            "text_very_low": "<p>- Almost gone!</p>",
+            "text_low": "<p>- Hurry while stocks last!</p>",
+            "text_normal": "",
+            "text_no_stock": "",
+            "text_no_stock_backordered": "<p>Backordered</p>"
+          }
+        },
         "divider-1": {
           "type": "divider",
           "disabled": true,
@@ -161,6 +173,7 @@
         "description_dUzqPF",
         "divider-0",
         "variant-picker",
+        "inventory_status_i48NV6",
         "divider-1",
         "buy-buttons",
         "price",
