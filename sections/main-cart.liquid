@@ -46,12 +46,14 @@
       {%- endif -%}
 
       <div class="alert mt-6 mb-6 bg-error-bg text-error-text" id="cart-errors" role="alert" hidden></div>
-{% assign cod_allowed = true %}
+
 
 {% for item in cart.items %}
   {{ item.product.metafields.custom.exclude_cash_on_delivery }}
   {% if item.product.metafields.custom.exclude_cash_on_delivery.value == 'Exclude from cash on delivery' %}
     {%  assign cod_allowed = false %}
+  {% else %}
+    {% assign cod_allowed = true %}
   {% endif %}
 {% endfor %}
 {{ cod_allowed }}
