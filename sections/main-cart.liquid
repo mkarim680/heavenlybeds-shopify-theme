@@ -47,16 +47,14 @@
 
       <div class="alert mt-6 mb-6 bg-error-bg text-error-text" id="cart-errors" role="alert" hidden></div>
 
-{%- assign cod_allowed = false -%}
+{% assign cod_allowed = true %}
 
-{%- for item in cart.items -%}
- {{ item.product.metafields.custom.exclude_cash_on_delivery.value }}
-  {%- if item.product.metafields.custom.exclude_cash_on_delivery.value == '' -%}
-   
-    {%-  assign cod_allowed = true -%}
-
-  {%- endif -%}
-{%- endfor -%}
+{% for item in cart.items %}
+  {% assign cod_value = item.product.metafields.custom.exclude_cash_on_delivery.value | strip %}
+  {% if cod_value == 'Exclude from cash on delivery' %}
+    {% assign cod_allowed = false %}
+  {% endif %}
+{% endfor %}
 
       {% render 'cart-items' %}
       
