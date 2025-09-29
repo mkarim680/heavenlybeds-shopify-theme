@@ -46,8 +46,15 @@
       {%- endif -%}
 
       <div class="alert mt-6 mb-6 bg-error-bg text-error-text" id="cart-errors" role="alert" hidden></div>
+{% assign cod_allowed = true %}
 
-      {% render 'cart-items' , cod_allowed: cod_allowed %}
+{% for item in cart.items %}
+  {% if item.product.metafields.custom.exclude_cod == true %}
+    {% assign cod_allowed = false %}
+  {% endif %}
+{% endfor %}
+
+      {% render 'cart-items' %}
       {{ cod_allowed }}
 
       {%- if settings.show_recommendations and cart != empty -%}
