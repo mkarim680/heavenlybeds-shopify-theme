@@ -62,7 +62,7 @@
             endif
           -%}
 
-           {% if item.product.metafields.custom.exclude_cod == true or item.product.metafields.custom.exclude_cod.value == 'true' %}
+           {% if item.product.metafields.custom.exclude_cash_on_delivery == true or item.product.metafields.custom.exclude_cash_on_delivery.value == 'true' %}
               {% assign cod_allowed = false %}
             {% endif %}
           <tr class="cart-item grid gap-x-6" id="cart-item-{{ item.index | plus: 1 }}" data-product-id="{{ item.product_id }}" data-variant-id="{{ item.variant_id }}">
