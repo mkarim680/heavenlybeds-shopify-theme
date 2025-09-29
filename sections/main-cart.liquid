@@ -49,12 +49,13 @@
 {% assign cod_allowed = true %}
 
 {% for item in cart.items %}
+  {{ item.product.metafields.custom.exclude_cash_on_delivery.value }}
   {% if item.product.metafields.custom.exclude_cash_on_delivery.value == 'Exclude from cash on delivery' %}
-    {{ cod_allowed }}
+   
     {%  assign cod_allowed = false %}
   {% endif %}
 {% endfor %}
-
+ {{ cod_allowed }}
       {% render 'cart-items' %}
       
 
