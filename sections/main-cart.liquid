@@ -51,9 +51,7 @@
 
 {%- for item in cart.items -%}
  
-  {{ item.product.metafields.custom.exclude_cash_on_delivery.value }}
- 
-  {%- if item.product.metafields.custom.exclude_cash_on_delivery.value == 'Exclude from cash on delivery' -%}
+  {%- if item.product.metafields.custom.exclude_cash_on_delivery.value != 'Exclude from cash on delivery' -%}
    
     {%-  assign cod_allowed = false -%}
 
