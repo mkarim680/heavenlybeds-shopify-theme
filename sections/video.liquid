@@ -34,7 +34,7 @@
     {% endcomment %}
 
 
-    <video class="block w-full h-full" onloadeddata="this.play();" poster="" loop autoplay playsinline>
+    <video preload="none" class="block w-full h-full" onloadeddata="this.play();" poster="" loop autoplay playsinline>
   <source src="{{ section.settings.video_shopify.sources[1].url }}" type="video/mp4">
 </video>
     

@@ -162,7 +162,7 @@
            {% if js_class %}class="{{ js_class }}" {% endif -%}
            {% if attributes %}{{ attributes }} {% endif -%}
            {% if disable_focal_point == false and image.presentation %}style="object-position: {{ image.presentation.focal_point }}" {% endif -%}
-           loading="eager"
+           loading="lazy"
            width="{{ image_width }}"
            height="{{ image_height }}"
            alt="{{ alt_text | default: image.alt | escape }}">

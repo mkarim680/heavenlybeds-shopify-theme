@@ -561,7 +561,7 @@
               </details-disclosure>
             {%- else -%}
               <div class="product-info__block product-info__block--sm rte product-description" {{ block.shopify_attributes }}>
-                {{ product.description | replace: '<img src=', '<img loading="lazy" src=' }}
+                {{ product.description | replace: '<img loading="lazy" src=', '<img loading="lazy" src=' }}
               </div>
             {%- endif -%}
           {%- when 'product-labels' -%}

@@ -196,7 +196,7 @@
                     <div id="panel-{{ i }}" role="tabpanel" tabindex="0" aria-labelledby="tab-{{ i }}"{% unless forloop.first %} hidden{% endunless %}>
                       {%- if forloop.first and block.settings.show_description -%}
                         <div class="rte product-description">
-                          {{ product.description }}
+                          {{ product.description | replace: '<img', '<img loading="lazy"' | replace: '<iframe', '<iframe loading="lazy"' | replace: '<video', '<video preload="none"' }}
                         </div>
                       {%- elsif i == "4" and specification != blank -%}
                         <ul class="product-spec">
