@@ -50,8 +50,8 @@
 {%- assign cod_allowed = false -%}
 
 {%- for item in cart.items -%}
- 
-  {%- if item.product.metafields.custom.exclude_cash_on_delivery.value == ' ' -%}
+ {{ item.product.metafields.custom.exclude_cash_on_delivery.value }}
+  {%- if item.product.metafields.custom.exclude_cash_on_delivery.value == '' -%}
    
     {%-  assign cod_allowed = true -%}
 
