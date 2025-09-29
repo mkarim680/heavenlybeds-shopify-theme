@@ -121,6 +121,7 @@
               </details>
             </details-disclosure>
              &nbsp;
+           {%- if cod_allowed -%}
             <p class="cart-attribute__field">
               <label>How are you Paying?</label><br>
               <select id="cash-on-delivery" onchange="code();" required class="required" id="how-are-you-paying" name="attributes[How are you Paying?]">
@@ -133,6 +134,8 @@
               <label>Discount Code <br />(Any eligible discount code will be taken off remaining cash amount)</label><br>
               <input type="text" class="input w-full" name="attributes[cash-discount-code]">
             </div>
+
+              {%- endif -%}
           {%- endif -%}
 
           {%- if section.settings.show_tax_and_shipping -%}
