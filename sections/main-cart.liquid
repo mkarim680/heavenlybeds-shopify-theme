@@ -49,6 +49,7 @@
 {% assign cod_allowed = true %}
 
 {% for item in cart.items %}
+  {{ item.product_id }}
   {{ item.product.metafields.custom.exclude_cash_on_delivery.value }}
  
   {% if item.product.metafields.custom.exclude_cash_on_delivery.value == 'Exclude from cash on delivery' %}
