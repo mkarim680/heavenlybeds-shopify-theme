@@ -51,6 +51,7 @@
 
 {% for item in cart.items %}
   {% assign cod_value = item.product.metafields.custom.exclude_cash_on_delivery.value | strip %}
+  {{ cod_value }}
   {% if cod_value == 'Exclude from cash on delivery' %}
     {% assign cod_allowed = false %}
   {% endif %}
