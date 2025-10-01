@@ -62,7 +62,7 @@
  
         {% if cod_allowed == false %}
           <script>
-            document.getElementsByClassName('cash-discount-code')[0].style.display = 'none';
+           
             jQuery('.discount').hide();
             fetch('/discount/CLEAR').then(() => {
               jQuery.getJSON('/cart.js', function(cart) {
