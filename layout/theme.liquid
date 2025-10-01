@@ -321,7 +321,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <link rel="stylesheet" href="{{ 'animate-on-scroll.css' | asset_url }}">
   {% endif %}
 
-
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"  defer="defer"></script>
   <script src="{{ "custom.js" | asset_url }}" defer="defer"></script>
 
   <script>document.documentElement.className = document.documentElement.className.replace('no-js', 'js');</script>
@@ -343,7 +343,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         compact: false
       });    
   </script>
-
+  
   {%- if settings.custom_html_head -%}
     <!-- CC Custom Head Start -->
     {{- settings.custom_html_head -}}
