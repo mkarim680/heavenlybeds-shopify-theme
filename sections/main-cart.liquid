@@ -60,7 +60,10 @@
           
         {% endfor %}
  
-        {% if cod_allowed == false %}
+       
+      {% render 'cart-items' %}
+
+       {% if cod_allowed == false %}
           <script>
            
             jQuery('.discount').hide();
@@ -71,7 +74,6 @@
             });
         </script>
     {% endif %}
-      {% render 'cart-items' %}
 
       {%- if settings.show_recommendations and cart != empty -%}
         <div class="cart-page-recommendations mt-8">
