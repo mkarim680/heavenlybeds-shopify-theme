@@ -80,6 +80,11 @@
             });
 
         </script>
+        <style>
+          .discount{
+            display:none;
+          }
+        </style>
     {% endif %}
 
       {%- if settings.show_recommendations and cart != empty -%}
@@ -182,17 +187,15 @@
           {%- endif -%}
 
           {%- if cart.cart_level_discount_applications.size > 0 -%}
-            {% if cod_allowed == false %}
-              <ul class="mt-3 mb-2 font-bold" aria-label="{{ 'customer.order.discount' | t }}" role="list">
-                {%- for discount in cart.cart_level_discount_applications -%}
-                  <li class="mt-2">
-                    <div class="discount text-sm inline-flex items-center" dir="auto">
-                      {% render 'icon-tags' %} {{ discount.title | escape_once }} (-{{ discount.total_allocated_amount | money }})
-                    </div>
-                  </li>
-                {%- endfor -%}
-              </ul>
-          {% endif %}
+            <ul class="mt-3 mb-2 font-bold" aria-label="{{ 'customer.order.discount' | t }}" role="list">
+              {%- for discount in cart.cart_level_discount_applications -%}
+                <li class="mt-2">
+                  <div class="discount text-sm inline-flex items-center" dir="auto">
+                    {% render 'icon-tags' %} {{ discount.title | escape_once }} (-{{ discount.total_allocated_amount | money }})
+                  </div>
+                </li>
+              {%- endfor -%}
+            </ul>
           {%- endif -%}
 
           <div class="flex justify-between items-center mt-6">
