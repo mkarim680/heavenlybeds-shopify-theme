@@ -303,7 +303,7 @@
             "icon": "return",
             "custom_icon": "shopify://shop_images/star.png",
             "heading": "Customer Reviews",
-            "text": "<p>100s Of Happy Customers</p>",
+            "text": "<p><a href=\"https://www.trustpilot.com/review/www.heavenlybeds.co.uk\" target=\"_blank\" title=\"https://www.trustpilot.com/review/www.heavenlybeds.co.uk\">100s Of Happy Customers</a></p>",
             "link": ""
           }
         },
