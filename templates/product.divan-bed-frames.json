@@ -263,7 +263,7 @@
             "custom_liquid": "<style>\ntable.GeneratedTable {\n  width: 100%;\n  background-color: #ffffff;\n  border-collapse: collapse;\n  border-width: 1px;\n  border-color: #000000;\n  border-style: solid;\n  color: #000000;\n}\n\ntable.GeneratedTable td, table.GeneratedTable th {\n  border-width: 1px;\n  border-color: #E98C57;\n  border-style: solid;\n  padding: 3px;\n}\n\ntable.GeneratedTable thead {\n  background-color: #E98C57;\n color: #FFFFFF;\n}\n</style>\n{% if product.metafields.custom.show_size_table == true %}\n\n  <h5>Bed Frame Size</h5>\n<table class=\"GeneratedTable\">\n  <thead>\n    <tr>\n      <th>BED SIZE</th>\n      <th>FRAME LENGTH</th>\n      <th>HEADBOARD WIDTH</th>\n      <th>FOOTBOARD HEIGHT</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td>3FT</td>\n      <td>{{product.metafields.custom.single_frame_length}}</td>\n      <td>{{product.metafields.custom.single_headboard_width}}</td>\n      <td>{{product.metafields.custom.footboard_height}}</td>\n    </tr>\n    <tr>\n      <td>4FT</td>\n      <td>{{product.metafields.custom.sdouble_frame_length}}</td>\n      <td>{{product.metafields.custom.sdouble_headboard_width}}</td>\n      <td>{{product.metafields.custom.footboard_height}}</td>\n    </tr>\n    <tr>\n      <td>4FT6</td>\n      <td>{{product.metafields.custom.double_frame_length}}</td>\n      <td>{{product.metafields.custom.double_headboard_width}}</td>\n      <td>{{product.metafields.custom.footboard_height}}</td>\n    </tr>\n    <tr>\n      <td>5FT</td>\n      <td>{{product.metafields.custom.king_frame_length}}</td>\n      <td>{{product.metafields.custom.king_headboard_width}}</td>\n      <td>{{product.metafields.custom.footboard_height}}</td>\n    </tr>\n    <tr>\n      <td>6FT</td>\n      <td>{{product.metafields.custom.super_frame_length}}</td>\n      <td>{{product.metafields.custom.super_headboard_width}}</td>\n      <td>{{product.metafields.custom.footboard_height}}</td>\n    </tr>\n  </tbody>\n</table>\n{% endif %}"
           }
         },
-        "tabs_wkBYpD": {
+        "tabs_TYF8mH": {
           "type": "tabs",
           "settings": {
             "style": "collapsible",
@@ -276,9 +276,9 @@
             "spec_right_align": false,
             "spec_show_empty_metafields": true,
             "spec_empty_field_text": "-",
-            "tab_1_title": "Fabric Video Gallery",
-            "tab_1_text": "<p>Tap on the thumnails to play the video</p>",
-            "tab_1_page": "fabric-video-gallery",
+            "tab_1_title": "",
+            "tab_1_text": "",
+            "tab_1_page": "",
             "tab_2_title": "",
             "tab_2_text": "",
             "tab_2_page": "",
@@ -303,7 +303,7 @@
       "block_order": [
         "custom_liquid_3VdgDh",
         "custom_liquid_fgENnX",
-        "tabs_wkBYpD",
+        "tabs_TYF8mH",
         "payment-methods"
       ],
       "settings": {}
