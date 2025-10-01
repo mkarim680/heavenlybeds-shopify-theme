@@ -121,7 +121,10 @@
               </details>
             </details-disclosure>
              &nbsp;
-           {%- if cod_allowed -%}
+           
+          {%- endif -%}
+
+          {%- if cod_allowed -%}
             <p class="cart-attribute__field">
               <label>How are you Paying?</label><br>
               <select id="cash-on-delivery" onchange="code();" required class="required" id="how-are-you-paying" name="attributes[How are you Paying?]">
@@ -136,8 +139,7 @@
             </div>
 
               {%- endif -%}
-          {%- endif -%}
-
+              
           {%- if section.settings.show_tax_and_shipping -%}
             <div class="mt-6 rte">
               {%- if cart.taxes_included and shop.shipping_policy.body != blank -%}
