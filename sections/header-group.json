@@ -100,6 +100,7 @@
       "blocks": {
         "sidebar_PAatXy": {
           "type": "sidebar",
+          "disabled": true,
           "settings": {
             "title": "Beds",
             "collection_images": "standard",
@@ -123,6 +124,7 @@
         },
         "sidebar_R3TepG": {
           "type": "sidebar",
+          "disabled": true,
           "settings": {
             "title": "Storage Beds",
             "collection_images": "standard",
@@ -146,6 +148,7 @@
         },
         "sidebar_yhAMUz": {
           "type": "sidebar",
+          "disabled": true,
           "settings": {
             "title": "High End Beds",
             "collection_images": "standard",
@@ -169,6 +172,7 @@
         },
         "sidebar_HMEUdn": {
           "type": "sidebar",
+          "disabled": true,
           "settings": {
             "title": "Mattresses",
             "collection_images": "standard",
@@ -192,6 +196,7 @@
         },
         "sidebar_Ncb49n": {
           "type": "sidebar",
+          "disabled": true,
           "settings": {
             "title": "Sofas",
             "collection_images": "standard",
@@ -215,6 +220,7 @@
         },
         "sidebar_zwNYBR": {
           "type": "sidebar",
+          "disabled": true,
           "settings": {
             "title": "Pouffes & Footstools",
             "collection_images": "standard",
@@ -257,7 +263,7 @@
         "enable_search": true,
         "minimise_search_mobile": false,
         "minimise_search_desktop": false,
-        "menu": "shop",
+        "menu": "",
         "menu_center": true,
         "repeat_links": true,
         "menu_featured_link": "Sale",
