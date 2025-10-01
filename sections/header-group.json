@@ -17,11 +17,12 @@
         "announcement-1": {
           "type": "announcement",
           "settings": {
-            "text": "<p>* Spend £499+ and Get 10% off Use Code: <strong>FALL10 </strong>*  Sale Ends<strong> 30th Sep Midnight *</strong></p>"
+            "text": "<p>* Spend £599+ and Get 15% off Use Code: <strong>HEAVEN15 </strong>*  Sale Ends <strong>14th Oct Midnight *</strong></p>"
           }
         },
         "announcement_wAhKcF": {
           "type": "announcement",
+          "disabled": true,
           "settings": {
             "text": "<p>* Spend £1299+ and Get 20% off Use Code:<strong> FALL20 </strong>*  Sale Ends <strong>30th Sep Midnight *</strong></p>"
           }
