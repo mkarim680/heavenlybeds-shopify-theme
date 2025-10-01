@@ -49,7 +49,7 @@
         "enable_language_selector": true,
         "bg_color": "#e98c57",
         "text_color": "#2a2b2a",
-        "text_type_scale": "small",
+        "text_type_scale": "medium",
         "read_time": 7
       }
     },
@@ -283,7 +283,7 @@
             "icon": "truck",
             "custom_icon": "shopify://shop_images/delivery.png",
             "heading": "Delivery Timescales",
-            "text": "<p>Beds 7-10 Working Days<br/>Sofas 4-5 Weeks</p>",
+            "text": "<p>Standard 7-10 Working Days<br/>Express 3-5 Working Days</p>",
             "link": ""
           }
         },
