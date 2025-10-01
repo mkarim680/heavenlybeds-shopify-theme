@@ -46,7 +46,13 @@
       {%- endif -%}
 
       <div class="alert mt-6 mb-6 bg-error-bg text-error-text" id="cart-errors" role="alert" hidden></div>
+        {% assign cod_allowed = true %}
 
+        {% for item in cart.items %}
+          {% if item.product.metafields.custom.exclude_cash_on_delivery != blank %}
+            {% assign cod_allowed = false %}
+          {% endif %}
+        {% endfor %}
       {% render 'cart-items' %}
 
       {%- if settings.show_recommendations and cart != empty -%}
@@ -115,10 +121,8 @@
               </details>
             </details-disclosure>
              &nbsp;
-           
-          {%- endif -%}
-
-           <p class="cart-attribute__field">
+           {%- if cod_allowed -%}
+            <p class="cart-attribute__field">
               <label>How are you Paying?</label><br>
               <select id="cash-on-delivery" onchange="code();" required class="required" id="how-are-you-paying" name="attributes[How are you Paying?]">
                 <option value="" selected>Please Select</option>
@@ -130,6 +134,9 @@
               <label>Discount Code <br />(Any eligible discount code will be taken off remaining cash amount)</label><br>
               <input type="text" class="input w-full" name="attributes[cash-discount-code]">
             </div>
+
+              {%- endif -%}
+          {%- endif -%}
 
           {%- if section.settings.show_tax_and_shipping -%}
             <div class="mt-6 rte">
