@@ -65,13 +65,20 @@
 
        {% if cod_allowed == false %}
           <script>
-           
-            $('.discount').hide();
+
             fetch('/discount/CLEAR').then(() => {
-              jQuery.getJSON('/cart.js', function(cart) {
-                $('.new_price').html(Shopify.formatMoney(cart.original_total_price,window.theme.settings.moneyWithCurrencyFormat));
-              });
+              fetch('/cart.js')
+                .then(res => res.json())
+                .then(cart => {
+                  document.querySelectorAll('.new_price').forEach(el => {
+                    el.innerHTML = Shopify.formatMoney(
+                      cart.original_total_price,
+                      window.theme.settings.moneyWithCurrencyFormat
+                    );
+                  });
+                });
             });
+
         </script>
     {% endif %}
 
@@ -175,15 +182,17 @@
           {%- endif -%}
 
           {%- if cart.cart_level_discount_applications.size > 0 -%}
-            <ul class="mt-3 mb-2 font-bold" aria-label="{{ 'customer.order.discount' | t }}" role="list">
-              {%- for discount in cart.cart_level_discount_applications -%}
-                <li class="mt-2">
-                  <div class="discount text-sm inline-flex items-center" dir="auto">
-                    {% render 'icon-tags' %} {{ discount.title | escape_once }} (-{{ discount.total_allocated_amount | money }})
-                  </div>
-                </li>
-              {%- endfor -%}
-            </ul>
+            {% if cod_allowed == false %}
+              <ul class="mt-3 mb-2 font-bold" aria-label="{{ 'customer.order.discount' | t }}" role="list">
+                {%- for discount in cart.cart_level_discount_applications -%}
+                  <li class="mt-2">
+                    <div class="discount text-sm inline-flex items-center" dir="auto">
+                      {% render 'icon-tags' %} {{ discount.title | escape_once }} (-{{ discount.total_allocated_amount | money }})
+                    </div>
+                  </li>
+                {%- endfor -%}
+              </ul>
+          {% endif %}
           {%- endif -%}
 
           <div class="flex justify-between items-center mt-6">
