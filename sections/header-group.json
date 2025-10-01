@@ -313,7 +313,7 @@
             "icon": "chat_bubble",
             "custom_icon": "shopify://shop_images/swatch.png",
             "heading": "Order Fabric Samples",
-            "text": "<p>Click Here to Order</p>",
+            "text": "<p><a href=\"https://www.heavenlybeds.co.uk/pages/request-fabric-samples\" target=\"_blank\" title=\"https://www.heavenlybeds.co.uk/pages/request-fabric-samples\">Click Here to Order</a></p>",
             "link": "shopify://pages/request-fabric-samples"
           }
         }
