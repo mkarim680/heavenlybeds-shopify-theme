@@ -53,6 +53,15 @@
             {% assign cod_allowed = false %}
           {% endif %}
         {% endfor %}
+        
+         {% assign cod_allowed = true %}
+
+        {% for item in cart.items %}
+          {% if item.product.metafields.custom.exclude_cash_on_delivery != blank %}
+            {% assign cod_allowed = false %}
+          {% endif %}
+        {% endfor %}
+
       {% render 'cart-items' %}
 
       {%- if settings.show_recommendations and cart != empty -%}
@@ -124,7 +133,7 @@
            
           {%- endif -%}
 
-         
+          {%- if cod_allowed -%}
             <p class="cart-attribute__field">
               <label>How are you Paying?</label><br>
               <select id="cash-on-delivery" onchange="code();" required class="required" id="how-are-you-paying" name="attributes[How are you Paying?]">
@@ -138,8 +147,8 @@
               <input type="text" class="input w-full" name="attributes[cash-discount-code]">
             </div>
 
-             
-
+              {%- endif -%}
+              
           {%- if section.settings.show_tax_and_shipping -%}
             <div class="mt-6 rte">
               {%- if cart.taxes_included and shop.shipping_policy.body != blank -%}
