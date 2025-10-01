@@ -49,8 +49,9 @@
         {% assign cod_allowed = true %}
 
         {% for item in cart.items %}
+           {{ cod_allowed }}
           {% if item.product.metafields.custom.exclude_cash_on_delivery == "Exclude from cash on delivery" %}
-            {{ cod_allowed }}
+           
             {% assign cod_allowed = false %}
           {% endif %}
            {% break %}
