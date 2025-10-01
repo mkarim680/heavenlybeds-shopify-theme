@@ -24,15 +24,6 @@
             "show_weight": false
           }
         },
-        "description_dUzqPF": {
-          "type": "description",
-          "disabled": true,
-          "settings": {
-            "show_as_collapsible_content": false,
-            "icon": "none",
-            "open": false
-          }
-        },
         "divider-0": {
           "type": "divider",
           "disabled": true,
@@ -51,6 +42,18 @@
             "enable_size_chart": false,
             "size_chart_variant": "Size",
             "size_chart_page": ""
+          }
+        },
+        "inventory_status_GbbmTY": {
+          "type": "inventory-status",
+          "settings": {
+            "show_indicator_bar": true,
+            "show_urgency_message": true,
+            "text_very_low": "<p>- Almost gone!</p>",
+            "text_low": "<p>- Hurry while stocks last!</p>",
+            "text_normal": "",
+            "text_no_stock": "",
+            "text_no_stock_backordered": "<p>Backordered</p>"
           }
         },
         "divider-1": {
@@ -75,15 +78,25 @@
             "show_tax_and_shipping": false
           }
         },
+        "description_dUzqPF": {
+          "type": "description",
+          "settings": {
+            "show_as_collapsible_content": false,
+            "icon": "none",
+            "open": false
+          }
+        },
         "custom_liquid_9YLLhX": {
           "type": "custom-liquid",
           "name": "Recycle",
+          "disabled": true,
           "settings": {
             "custom_liquid": "<div class=\"outlined-box\">\n                  <img src=\"https://cdn.shopify.com/s/files/1/0381/5735/3098/files/hd-green-recycling-icon.png?v=1754210418\" alt=\"Image\" class=\"image\">\n                  <span class=\"text\">Recycle your old bed.\n</span>\n                  <button id=\"recycle-add-to-cart\" class=\"custom-cart-btn button\">Add + £99.99</button>\n              </div>"
           }
         },
         "custom_liquid_fAbyeW": {
           "type": "custom-liquid",
+          "disabled": true,
           "settings": {
             "custom_liquid": "<div class=\"outlined-box\">\n                  <img src=\"https://cdn.shopify.com/s/files/1/0381/5735/3098/files/war.png?v=1741965087\" alt=\"Image\" class=\"image\">\n                  <span class=\"text\">Extend warranty for 3 years</span>\n                  <button id=\"custom-add-to-cart\" class=\"custom-cart-btn button\">Add + £29.99</button>\n              </div>"
           }
@@ -152,12 +165,13 @@
       "block_order": [
         "product-labels",
         "title",
-        "description_dUzqPF",
         "divider-0",
         "variant-picker",
+        "inventory_status_GbbmTY",
         "divider-1",
         "buy-buttons",
         "price",
+        "description_dUzqPF",
         "custom_liquid_9YLLhX",
         "custom_liquid_fAbyeW",
         "custom_liquid_zNnwrC",
@@ -219,6 +233,7 @@
         },
         "tabs_WbyzdB": {
           "type": "tabs",
+          "disabled": true,
           "settings": {
             "style": "collapsible",
             "open_first": true,
@@ -243,6 +258,7 @@
         },
         "payment-methods": {
           "type": "payment-methods",
+          "disabled": true,
           "settings": {
             "title": "Finance Available",
             "title1": "0% Finance Available",
@@ -285,6 +301,7 @@
         "heading_eNiMxF",
         "text_BRcCqy"
       ],
+      "disabled": true,
       "settings": {
         "image": "shopify://shop_images/honey.webp",
         "video_external": "",
@@ -322,6 +339,7 @@
         "heading_qyGCCw",
         "text_FnhRDX"
       ],
+      "disabled": true,
       "settings": {
         "image": "shopify://shop_images/Blue-Mirror-Bed-Frame.png",
         "video_external": "",
