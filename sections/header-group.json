@@ -263,7 +263,7 @@
         "enable_search": true,
         "minimise_search_mobile": false,
         "minimise_search_desktop": false,
-        "menu": "",
+        "menu": "shop",
         "menu_center": true,
         "repeat_links": true,
         "menu_featured_link": "Sale",
