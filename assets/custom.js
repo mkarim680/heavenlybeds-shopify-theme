@@ -444,48 +444,48 @@ switch (formatString.match(placeholderRegex)[1]) {
 return formatString.replace(placeholderRegex, value);
 };
 
-// jQuery(document).on({
-//     "contextmenu": function (e) {
-//         console.log("ctx menu button:", e.which); 
+jQuery(document).on({
+    "contextmenu": function (e) {
+        console.log("ctx menu button:", e.which); 
 
-//         // Stop the context menu
-//         e.preventDefault();
-//     },
-//     "mousedown": function(e) { 
-//         console.log("normal mouse down:", e.which); 
-//     },
-//     "mouseup": function(e) { 
-//         console.log("normal mouse up:", e.which); 
-//     }
-// });
-// document.onkeydown = function(e) {
-//         if (e.ctrlKey && 
-//             (e.keyCode === 67 || 
-//              e.keyCode === 86 || 
-//              e.keyCode === 85 || 
-//              e.keyCode === 117)) {
-//             //alert('not allowed');
-//             return false;
-//         } else {
-//             return true;
-//         }
-// };
-// document.addEventListener('keydown', (e) => {
-//     if (e.ctrlKey && e.key == 'p') {
-//         alert('This section is not allowed to print or export to PDF');
-//         e.cancelBubble = true;
-//         e.preventDefault();
-//         e.stopImmediatePropagation();
-//     }
-// });
+        // Stop the context menu
+        e.preventDefault();
+    },
+    "mousedown": function(e) { 
+        console.log("normal mouse down:", e.which); 
+    },
+    "mouseup": function(e) { 
+        console.log("normal mouse up:", e.which); 
+    }
+});
+document.onkeydown = function(e) {
+        if (e.ctrlKey && 
+            (e.keyCode === 67 || 
+             e.keyCode === 86 || 
+             e.keyCode === 85 || 
+             e.keyCode === 117)) {
+            //alert('not allowed');
+            return false;
+        } else {
+            return true;
+        }
+};
+document.addEventListener('keydown', (e) => {
+    if (e.ctrlKey && e.key == 'p') {
+        alert('This section is not allowed to print or export to PDF');
+        e.cancelBubble = true;
+        e.preventDefault();
+        e.stopImmediatePropagation();
+    }
+});
 
-// document.addEventListener('keyup', (e) => {
-//     if (e.key == 'PrintScreen') {
-//         navigator.clipboard.writeText('');
-//         alert('Screenshots disabled!');
-//     }
-// });
-// jQuery('body').on('dragstart drop', function(e){
-//     e.preventDefault();
-//     return false;
-// });
+document.addEventListener('keyup', (e) => {
+    if (e.key == 'PrintScreen') {
+        navigator.clipboard.writeText('');
+        alert('Screenshots disabled!');
+    }
+});
+jQuery('body').on('dragstart drop', function(e){
+    e.preventDefault();
+    return false;
+});
