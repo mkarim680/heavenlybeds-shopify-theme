@@ -32,6 +32,15 @@
       });
     }
   }
+
+  document.addEventListener("DOMContentLoaded", function() {
+    jQuery('.discount').hide();
+      fetch('/discount/CLEAR').then(() => {
+        jQuery.getJSON('/cart.js', function(cart) {
+           jQuery('.new_price').html(Shopify.formatMoney(cart.original_total_price,window.theme.settings.moneyWithCurrencyFormat));
+        });
+      });
+  });
 </script> 
 
 <div class="container">
