@@ -19,7 +19,7 @@
           "settings": {
             "icon": "chat_bubble",
             "heading": "WhatsApp",
-            "text": "<p>Live chat for advice & help, drop us a message <strong>Click Here</strong></p>",
+            "text": "<p>Live chat for advice & help, drop us a message <a href=\"https://wa.me/447845098072/\" target=\"_blank\" title=\"https://wa.me/447845098072/\"><strong>Click Here</strong></a></p>",
             "link": ""
           }
         },
