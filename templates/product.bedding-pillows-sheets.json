@@ -135,6 +135,7 @@
         },
         "pop_up_b3qFYk": {
           "type": "pop-up",
+          "disabled": true,
           "settings": {
             "link_text": "Order Samples",
             "link_style": "btn btn--primary",
