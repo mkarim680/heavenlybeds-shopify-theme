@@ -597,6 +597,8 @@
     }
   },
   "platform_customizations": {
-    "custom_css": []
+    "custom_css": [
+      "/* Hide on phones/tablets */@media (max-width: 767.98px) {.quotify-sticky-cart-btn {display: none !important; }}"
+    ]
   }
 }
