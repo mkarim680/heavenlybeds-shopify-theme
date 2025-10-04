@@ -23,7 +23,9 @@
         },
         "product-labels": {
           "type": "product-labels",
-          "settings": {}
+          "settings": {
+            "show_variant_icon": true
+          }
         },
         "title": {
           "type": "title",
@@ -63,6 +65,7 @@
           "settings": {
             "selector_style": "buttons",
             "enable_dynamic_availability": true,
+            "dynamic_availability_downwards": false,
             "show_backorder_text": true,
             "enable_size_chart": false,
             "size_chart_variant": "Size",
@@ -75,6 +78,27 @@
           "settings": {
             "show_line": true,
             "spacing": "mt-8 mb-8"
+          }
+        },
+        "quotify_button_9Ui4LT": {
+          "type": "shopify://apps/quotify/blocks/button/e72a6125-4dd6-4154-a361-ca94e10e6d52",
+          "settings": {
+            "request_button": true,
+            "request_button_text": "Request Quote",
+            "request_product": "{{product}}",
+            "request_button_class": "btn btn--primary button button--primary",
+            "request_button_css": "",
+            "request_button_width": 100,
+            "enable_quote_cart_button": false,
+            "enable_quote_cart_button_count": false,
+            "quote_cart_button_text": "Show Quote Cart",
+            "quote_cart_button_class": "btn btn--secondary button button--secondary",
+            "quote_cart_button_css": "",
+            "quote_cart_button_width": 100,
+            "button_positions": "side-by-side",
+            "button_horizontal_alignment": "center",
+            "button_gap": 15,
+            "block_css": ""
           }
         },
         "buy-buttons": {
@@ -153,7 +177,11 @@
         "share": {
           "type": "share",
           "disabled": true,
-          "settings": {}
+          "settings": {
+            "show_twitter": true,
+            "show_facebook": true,
+            "show_pinterest": true
+          }
         },
         "message-3": {
           "type": "message",
@@ -178,6 +206,7 @@
         "divider-0",
         "variant-picker",
         "divider-1",
+        "quotify_button_9Ui4LT",
         "buy-buttons",
         "dividebuy_spread_the_cost_dividebuyproduct_wEaHbt",
         "message-1",
@@ -193,6 +222,7 @@
       ],
       "settings": {
         "stick_on_scroll": true,
+        "select_first_variant": true,
         "sticky_atc_panel": false,
         "sticky_atc_position": "end",
         "sticky_atc_mobile": true,
@@ -200,15 +230,19 @@
         "media_size": "default",
         "media_ratio": "1",
         "media_crop": "none",
-        "hover_zoom": "large",
         "enable_video_looping": false,
+        "enable_zoom": true,
+        "zoom_mode": "hover",
+        "enable_lightbox_mobile": false,
+        "hover_zoom": "large",
         "stacked_scroll": "always",
         "underline_active": true,
-        "media_thumbs": "desktop",
-        "thumb_ratio": "1",
-        "thumb_crop": "none",
         "media_arrows": "desktop",
         "show_slide_count": true,
+        "media_thumbs": "desktop",
+        "lightbox_thumbnails": true,
+        "thumb_ratio": "1",
+        "thumb_crop": "none",
         "border_color": "#eeeeee",
         "bg_color": "#f4f4f4",
         "enable_media_grouping": false,
