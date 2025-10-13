@@ -136,6 +136,7 @@
         "countdown-countdown-2",
         "subheading_9YfJEC"
       ],
+      "disabled": true,
       "custom_css": [
         ".section--padded,.section--padded-default {padding: 0;}"
       ],
@@ -218,7 +219,7 @@
         "collection": "new-stock",
         "layout": "carousel",
         "card_size_mobile": "small",
-        "card_size": "medium",
+        "card_size": "small",
         "products_to_show": 8,
         "show_highlight_products": true,
         "show_promo_info": false,
@@ -245,7 +246,7 @@
         "collection": "beds-with-storage-new",
         "layout": "carousel",
         "card_size_mobile": "small",
-        "card_size": "medium",
+        "card_size": "small",
         "products_to_show": 8,
         "show_highlight_products": true,
         "show_promo_info": false,
@@ -273,7 +274,7 @@
         "collection": "best-sellers",
         "layout": "grid",
         "card_size_mobile": "small",
-        "card_size": "medium",
+        "card_size": "small",
         "products_to_show": 8,
         "show_highlight_products": false,
         "show_promo_info": false,
@@ -644,6 +645,7 @@
             "testimonial": "<p>I would highly recommend Heavenly Beds, the service was great , delivery prompt and delivery men were nice, polite and helpful.<br/>Great kingsize bed , material velvet, lovely and true to colour. Assembly easy , and the matress , 3000 spring very comfy. I wanted a raised bed and got that. Satisfied customer.</p>",
             "author": "Tina roe",
             "author_info": "3 reviews",
+            "author_image": "shopify://shop_images/autumn-photographer-taking-picture.jpg",
             "show_star_rating": true,
             "star_rating": 5
           }
@@ -654,6 +656,7 @@
             "testimonial": "<p>We are absolutely in love with this new bed! Our bedroom was the storage room of the house and definitely our least favourite as we just haven’t done much with it since moving in. It has now become my favourite room in the house! This bed frame makes our room look so much brighter and cosier and I just can’t stop looking at it! <br/><br/>Not only is it dreamy but it was so easy to put together it was up on minutes. The <br/>quality is absolutely beautiful, so much so that we even went for the matching blanket box.</p>",
             "author": "Megan Warren's music",
             "author_info": "Megan Warren's music 2 reviews",
+            "author_image": "shopify://shop_images/woman-infront-of-tree-with-berries.jpeg",
             "show_star_rating": true,
             "star_rating": 5
           }
@@ -664,6 +667,7 @@
             "testimonial": "<p>Impeccable service. Super King Bed ordered and delivered within 11 days.<br/> Nowadays it is very difficult to be complimentary when it comes to <br/>services provided by any local or online companies but I have nothing <br/>but compliments when it comes to Heavenly Beds. Regularly updated <br/>regarding order status and expected delivery. Delivery driver IFY was <br/>nothing short of a gentleman. A very well rared human being with <br/>incredible manners and ability. Anyone who comes across IFY will be <br/>blown away by his professionalism and kindness. <br/><br/>Absolutely delighted 🌟🌟🌟🌟🌟</p>",
             "author": "Kieran Connor",
             "author_info": "1 review",
+            "author_image": "shopify://shop_images/woman-poses-in-dark-room.jpg",
             "show_star_rating": true,
             "star_rating": 5
           }
