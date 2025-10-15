@@ -22,9 +22,8 @@
         },
         "announcement_McQNVW": {
           "type": "announcement",
-          "disabled": true,
           "settings": {
-            "text": "<p>* Spend £1299+ and Get 20% off Use Code:<strong> FALL20 </strong>*  Sale Ends <strong>30th Sep Midnight *</strong></p>"
+            "text": "<p>* Spend £1299+ and Get 20% off Use Code: <strong>SPOOKY20 </strong>*  Sale Ends <strong>31st Oct Midnight *</strong></p>"
           }
         },
         "announcement-2": {
