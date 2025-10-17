@@ -117,13 +117,34 @@
         "expand_filters": true,
         "max_filter_options": 7,
         "enable_sorting": true,
+        "sort_show_featured": false,
+        "sort_show_best": true,
+        "sort_show_alpha": true,
+        "sort_show_price": true,
+        "sort_show_date": true,
         "sort_first": true
+      }
+    },
+    "1760686405ef326212": {
+      "type": "apps",
+      "blocks": {
+        "avada_seo_suite_avada_after_collection_block_CyirPA": {
+          "type": "shopify://apps/avada-seo-suite/blocks/avada-after-collection-block/15507c6e-1aa3-45d3-b698-7e175e033440",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "avada_seo_suite_avada_after_collection_block_CyirPA"
+      ],
+      "settings": {
+        "full_width": false
       }
     }
   },
   "order": [
     "collection-banner",
     "logo_list_AdqPR4",
-    "collection-products"
+    "collection-products",
+    "1760686405ef326212"
   ]
 }
