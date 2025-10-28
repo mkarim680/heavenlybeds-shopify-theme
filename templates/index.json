@@ -160,8 +160,8 @@
     "image-banner": {
       "type": "image-banner",
       "settings": {
-        "image_desktop": "shopify://shop_images/Halloween_Web_Version_5dc744b8-f795-472a-9236-3fff33ad3def.jpg",
-        "image_mobile": "shopify://shop_images/Halloween_Mob._Ver.jpg",
+        "image_desktop": "shopify://shop_images/NOV_HB_Banner01.jpg",
+        "image_mobile": "shopify://shop_images/HB_Mobile_Ver_Nov_6f23c7e3-8e8d-403e-9f7e-b20b6e59eea3.jpg",
         "url": "",
         "height_mode": "auto",
         "fixed_height_desktop": 400,
