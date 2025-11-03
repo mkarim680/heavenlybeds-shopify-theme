@@ -117,7 +117,7 @@
         "countdown-countdown-2": {
           "type": "countdown",
           "settings": {
-            "end_date": "2025-11-02",
+            "end_date": "2025-11-15",
             "end_time": "23:59",
             "end_text": "",
             "enlarge_end_text": false,
@@ -159,8 +159,8 @@
     "image-banner": {
       "type": "image-banner",
       "settings": {
-        "image_desktop": "shopify://shop_images/Halloween_Web_Version_5dc744b8-f795-472a-9236-3fff33ad3def.jpg",
-        "image_mobile": "shopify://shop_images/Halloween_Mob._Ver.jpg",
+        "image_desktop": "shopify://shop_images/HB_November_Sale_Website.jpg",
+        "image_mobile": "shopify://shop_images/HB_November_Sale_Mob.jpg",
         "url": "",
         "height_mode": "auto",
         "fixed_height_desktop": 400,
