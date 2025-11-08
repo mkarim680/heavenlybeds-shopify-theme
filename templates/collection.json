@@ -67,54 +67,19 @@
         "full_width": false
       }
     },
-    "faq_FwCrcQ": {
-      "type": "faq",
+    "1762579565b00c43b6": {
+      "type": "apps",
       "blocks": {
-        "question_gEEbpM": {
-          "type": "question",
-          "settings": {
-            "icon": "chat_bubble",
-            "heading": "Stylish Bed Frames To Discover",
-            "text": "<p>A luxury bed frame is more than just a support for your mattress. Whether you prefer a traditional sleigh bed, divan bed, bed with storage, <strong>TV bed</strong> or an <strong>upholstered bed</strong>, we got them all. At Heavenlybeds, you will find every option that will make your bedroom interior looks like luxury.<br/><br/></p>"
-          }
-        },
-        "question_YFQ7PL": {
-          "type": "question",
-          "settings": {
-            "icon": "chat_bubble",
-            "heading": "Why Is a Bed Frame Important ?",
-            "text": "<p>A good bed frame not only looks good but offers an extra layer of comfort, durability, and support. If your bed squeaks, sags, or feels unstable, then it might be time for a new one. From <a href=\"https://www.heavenlybeds.co.uk/collections/4ft6-double-beds\" target=\"_blank\"><span style=\"text-decoration:underline\"><strong>small double bed</strong></span></a> to <a href=\"https://www.heavenlybeds.co.uk/collections/6ft-super-king-beds\" target=\"_blank\"><span style=\"text-decoration:underline\"><strong>super king size bed</strong></span></a>, we have sturdy and stylish variants to give your sleep space an upgrade.<br/><br/></p>"
-          }
-        },
-        "question_jQgBrF": {
-          "type": "question",
-          "settings": {
-            "icon": "chat_bubble",
-            "heading": "How to select your perfect Bed Frame ?",
-            "text": "<p>In your choice of bed frames, there are a few major considerations: </p><p><strong>1. Size Matters</strong></p><p>The bed size you select must balance comfort and room dimensions. Consider: </p><p>• Small double bed with storage - Space-saving and practical for guest rooms. </p><p>• King size bed with storage - Perfect for those needing extra sleeping space. </p><p>• Super king size bed - Maximum luxury and room to spread out.</p><p><strong>2. Solutions for Storage</strong></p><p>Maximise your bedroom with:</p><p>• <a href=\"https://www.heavenlybeds.co.uk/collections/ottoman-divan-gas-lift-storage\" target=\"_blank\"><span style=\"text-decoration:underline\"><strong>Ottoman storage beds</strong></span></a> - gas lift-up base for hidden storage</p><p>• Beds with drawers - handy compartments for easy access </p><p>• <a href=\"https://www.heavenlybeds.co.uk/collections/divan-bed-sets\" target=\"_blank\"><span style=\"text-decoration:underline\"><strong>Divan beds</strong></span></a> - neat and compact but with under-bed drawer options</p><p><strong>3. Frame Materials & Style </strong></p><p>How a bed frame looks and lasts is affected by the material: </p><p>• Wooden beds- adaptable to any kind of decor. </p><p>• Metal beds- most durable options, old or modern styles available.</p><p>• <a href=\"https://www.heavenlybeds.co.uk/collections/upholstered-bed-frame\" target=\"_blank\"><span style=\"text-decoration:underline\"><strong>Upholstered beds</strong></span></a>- soft fabric finishes, luxury bed frames in the velvet or leather category.</p><p>• Sleigh beds- classy, curved and sophisticated designs.</p><p><strong>4. Special Features</strong></p><p>Are you looking for something different? Here are a few ideas to consider:</p><p>• Tall headboard beds – A bold statement piece.</p><p>• Beds with storage underneath - Handy and space-efficient solutions.</p><p>• TV beds - Built-in screen</p>"
-          }
-        },
-        "question_pKKDCG": {
-          "type": "question",
-          "settings": {
-            "icon": "chat_bubble",
-            "heading": "Bed Frame Buying FAQs",
-            "text": "<h5><strong>Can I get a bed frame without a mattress?</strong></h5><p>Definitely! The bed frame is sold separately so that you can have your perfect <a href=\"https://www.heavenlybeds.co.uk/collections/mattresses\" target=\"_blank\"><span style=\"text-decoration:underline\"><strong>mattress</strong></span></a> to go along with it.</p><h5><strong>Can all beds be provided with storage?</strong></h5><p>Not all, but we have plenty of drawers, ottoman storage, and even compartments under-bed.</p><h5><strong>Which bed size should I get?</strong></h5><p>If you want to save space, you can go quite well with a small double bed. For a more comfortable option, go with a king size storage bed or super king size bed.</p><h5><strong>Where do I find high quality beds?</strong></h5><p>Here at Heavenlybeds! We are known for our excellent quality luxury beds, upholstered bed frames or practical space-saving beds with storage.</p>"
-          }
+        "avada_seo_suite_avada_after_collection_block_MVkJrL": {
+          "type": "shopify://apps/avada-seo-suite/blocks/avada-after-collection-block/15507c6e-1aa3-45d3-b698-7e175e033440",
+          "settings": {}
         }
       },
       "block_order": [
-        "question_gEEbpM",
-        "question_YFQ7PL",
-        "question_jQgBrF",
-        "question_pKKDCG"
+        "avada_seo_suite_avada_after_collection_block_MVkJrL"
       ],
-      "name": "Collapsible content",
       "settings": {
-        "heading": "",
-        "heading_align": "text-center",
-        "color_scheme": "1",
-        "full_width": true
+        "full_width": false
       }
     }
   },
@@ -122,6 +87,6 @@
     "collection-banner",
     "collection-products",
     "1760013246b95898ae",
-    "faq_FwCrcQ"
+    "1762579565b00c43b6"
   ]
 }
