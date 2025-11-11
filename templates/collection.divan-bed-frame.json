@@ -81,6 +81,7 @@
         "logo_JXhL6m",
         "logo_PFxFmF"
       ],
+      "disabled": true,
       "custom_css": [
         ".section--padded,.section--padded-default {padding: 20px;}",
         ",.pt-4 pb-0 {font-size: 15px;}",
