@@ -26,13 +26,6 @@
   <div class="price__default">
     <span class="price__current">
       <span class="visually-hidden js-label">
-        {% if product.template_suffix == "wall-panels" %}
-        <strong class="price__current">From £2,799</strong>
-        {% break %}
-        {% elsif product.template_suffix == "wall-mirror-panels" %}
-          <strong class="price__current">From £2,799</strong>
-          {% break %}
-        {% endif %}
         {%- if compare_at_price and compare_at_price > price -%}
           {{- 'products.product.price.sale_price' | t -}}
         {%- else -%}
