@@ -117,7 +117,7 @@
         "countdown-countdown-2": {
           "type": "countdown",
           "settings": {
-            "end_date": "2025-11-15",
+            "end_date": "2025-11-17",
             "end_time": "23:59",
             "end_text": "",
             "enlarge_end_text": false,
