@@ -505,6 +505,53 @@
         "only_content_color_scheme": false
       }
     },
+    "multi_column_zKb4AM": {
+      "type": "multi-column",
+      "blocks": {
+        "column_nRjTVy": {
+          "type": "column",
+          "settings": {
+            "enable_media": true,
+            "media_scale": 100,
+            "heading": "Express Delivery",
+            "text": "<p>Need your new bed quickly? Select our Express Delivery option at checkout and receive it within just 3 to 5 working days. It’s fast, dependable, and hassle free so you can start relaxing on your new bed sooner than expected. </p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "column_BTnbYY": {
+          "type": "column",
+          "settings": {
+            "enable_media": true,
+            "image": "shopify://shop_images/2_Years_Warranty.png",
+            "media_scale": 100,
+            "heading": "2 Years Warranty",
+            "text": "<p>We offer a strong 2 years guarantee for our products, demonstrating our dedication to quality and customer satisfaction. Our commitment reflects the confidence we have in the durability and quality of our upholsteredbeds, <a href=\"https://www.heavenlybeds.co.uk/collections/bedframes-full-collection\" target=\"_blank\" title=\"https://www.heavenlybeds.co.uk/collections/bedframes-full-collection\">bedframes</a> and <a href=\"https://www.heavenlybeds.co.uk/collections/mattresses\" target=\"_blank\" title=\"https://www.heavenlybeds.co.uk/collections/mattresses\">mattresses </a>providing you with peace of mind in your purchase. If any issues occur within this period, we will handle them promptly and effectively, without any  extra charges.</p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_nRjTVy",
+        "column_BTnbYY"
+      ],
+      "disabled": true,
+      "name": "Multi-column",
+      "settings": {
+        "title": "",
+        "heading_align": "text-center",
+        "button_label": "",
+        "button_link": "",
+        "layout": "grid",
+        "column_size": "medium",
+        "column_align": "center",
+        "media_align": "text-center",
+        "image_ratio": "1.77",
+        "color_scheme": "1",
+        "button_style": "btn btn--secondary"
+      }
+    },
     "recommendations": {
       "type": "product-recommendations",
       "settings": {
@@ -536,6 +583,7 @@
     "media_with_text_iyim6K",
     "media_with_text_3ggUAP",
     "media_with_text_WJWxa6",
+    "multi_column_zKb4AM",
     "recommendations",
     "custom_liquid_dUE4xd"
   ]
