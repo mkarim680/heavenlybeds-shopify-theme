@@ -117,7 +117,7 @@
         "countdown-countdown-2": {
           "type": "countdown",
           "settings": {
-            "end_date": "2025-11-17",
+            "end_date": "2025-12-01",
             "end_time": "23:59",
             "end_text": "",
             "enlarge_end_text": false,
@@ -159,8 +159,8 @@
     "image-banner": {
       "type": "image-banner",
       "settings": {
-        "image_desktop": "shopify://shop_images/HB_November_Sale_Website.jpg",
-        "image_mobile": "shopify://shop_images/HB_November_Sale_Mob.jpg",
+        "image_desktop": "shopify://shop_images/HB_Discount_Sales_Banner_b178848c-ad88-4386-8c09-534b0f53e160.png",
+        "image_mobile": "shopify://shop_images/HB_Discount_Sales_Banner_Mob_1_6db12238-d155-467c-9f0a-7ac923e1a338.png",
         "url": "",
         "height_mode": "auto",
         "fixed_height_desktop": 400,
