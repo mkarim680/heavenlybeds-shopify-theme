@@ -161,7 +161,7 @@
       "settings": {
         "image_desktop": "shopify://shop_images/HB_Discount_Sales_Banner_b178848c-ad88-4386-8c09-534b0f53e160.png",
         "image_mobile": "shopify://shop_images/HB_Discount_Sales_Banner_Mob_1_6db12238-d155-467c-9f0a-7ac923e1a338.png",
-        "url": "",
+        "url": "shopify://collections/bedframes-full-collection",
         "height_mode": "auto",
         "fixed_height_desktop": 400,
         "fixed_height_mobile": 250,
