@@ -28,9 +28,8 @@
         },
         "announcement-2": {
           "type": "announcement",
-          "disabled": true,
           "settings": {
-            "text": "<p><strong>New collections added!</strong> <a href=\"#\" title=\"#\">Learn more</a></p>"
+            "text": "<p>* Spend £1299+ and Get £250 off Use Code: <strong>COUNTDOWN250 </strong>*  Sale Ends <strong>1st Dec Midnight *</strong></p>"
           }
         }
       },
