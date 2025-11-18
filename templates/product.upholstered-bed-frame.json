@@ -322,9 +322,9 @@
     },
     "image_banner_QXHPyX": {
       "type": "image-banner",
-      "disabled": true,
       "name": "Image banner",
       "settings": {
+        "image_desktop": "shopify://shop_images/HEaven10.png",
         "url": "",
         "height_mode": "auto",
         "fixed_height_desktop": 600,
@@ -337,7 +337,7 @@
         "full_width": true,
         "transparent_content_color": "#ffffff",
         "tint_color": "#000000",
-        "tint_opacity": 40,
+        "tint_opacity": 0,
         "prevent_animation": false
       }
     },
