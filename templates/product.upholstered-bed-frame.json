@@ -320,6 +320,27 @@
       ],
       "settings": {}
     },
+    "image_banner_QXHPyX": {
+      "type": "image-banner",
+      "disabled": true,
+      "name": "Image banner",
+      "settings": {
+        "url": "",
+        "height_mode": "auto",
+        "fixed_height_desktop": 600,
+        "fixed_height_mobile": 350,
+        "overlay_position": "justify-center items-center",
+        "overlay_text_align": "text-center",
+        "mob_center_text": false,
+        "mobile_stacked": false,
+        "color_scheme": "white",
+        "full_width": true,
+        "transparent_content_color": "#ffffff",
+        "tint_color": "#000000",
+        "tint_opacity": 40,
+        "prevent_animation": false
+      }
+    },
     "media_with_text_RQFXXX": {
       "type": "media-with-text",
       "blocks": {
@@ -493,7 +514,7 @@
         "text_FnhRDX"
       ],
       "settings": {
-        "image": "shopify://shop_images/Blue-Mirror-Bed-Frame.png",
+        "image": "shopify://shop_images/HB_Ulholstered_Collection_Content04.jpg",
         "video_external": "",
         "video_description": "",
         "video_autoplay": false,
@@ -579,6 +600,7 @@
   "order": [
     "main",
     "details",
+    "image_banner_QXHPyX",
     "media_with_text_RQFXXX",
     "media_with_text_Y8wFHG",
     "media_with_text_iyim6K",
