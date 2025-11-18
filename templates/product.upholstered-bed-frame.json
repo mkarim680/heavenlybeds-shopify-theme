@@ -454,6 +454,7 @@
         "heading_eNiMxF",
         "text_BRcCqy"
       ],
+      "disabled": true,
       "settings": {
         "image": "shopify://shop_images/honey.webp",
         "video_external": "",
@@ -496,7 +497,7 @@
         "video_external": "",
         "video_description": "",
         "video_autoplay": false,
-        "layout": "left",
+        "layout": "right",
         "image_fit": "contain",
         "media_width": 50,
         "media_scale": 100,
