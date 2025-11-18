@@ -325,6 +325,7 @@
       "name": "Image banner",
       "settings": {
         "image_desktop": "shopify://shop_images/HEaven10.png",
+        "image_mobile": "shopify://shop_images/Untitled_design_2.png",
         "url": "",
         "height_mode": "auto",
         "fixed_height_desktop": 600,
