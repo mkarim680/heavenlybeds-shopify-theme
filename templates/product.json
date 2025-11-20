@@ -305,32 +305,32 @@
         "only_content_color_scheme": false
       }
     },
-    "media_with_text_3ggUAP": {
+    "media_with_text_pPG8Um": {
       "type": "media-with-text",
       "blocks": {
-        "heading_eNiMxF": {
+        "heading_w6MeJF": {
           "type": "heading",
           "settings": {
-            "heading": "2 Years Warranty",
+            "heading": "Various Size Options",
             "heading_size": "h3",
             "heading_h1": false
           }
         },
-        "text_BRcCqy": {
+        "text_eT7Ycb": {
           "type": "text",
           "settings": {
-            "text": "<p>We offer a strong 2 years guarantee for our products, demonstrating our dedication to quality and customer satisfaction This warranty ensures that for a full year from the purchase date, you are protected against any material or work manship defects.</p><p>Our commitment reflects the confidence we have in the durability and quality of our beds, <a href=\"https://www.heavenlybeds.co.uk/collections/bedframes-full-collection\" target=\"_blank\" title=\"https://www.heavenlybeds.co.uk/collections/bedframes-full-collection\">bed frames</a> and <a href=\"https://www.heavenlybeds.co.uk/collections/mattresses\" target=\"_blank\" title=\"https://www.heavenlybeds.co.uk/collections/mattresses\">mattresses </a>providing you with peace of mind in your purchase. If any issues occur within this period, we will handle them promptly and effectively, without any extra charges. </p><p>This 2 years warranty is our commitment to our beds & bed frames and your trust in us, guaranteeing an exceptional experience.</p>",
+            "text": "<p>We offer a wide range of sizes in our ottoman divan storage beds to suit every bedroom layout. Whether you need a compact <strong>3ft single</strong>, a practical <strong>4ft small double</strong>, a comfortable <strong>4'6\" double</strong>, a roomy <strong>5ft king</strong>, or a luxurious <strong>6ft super king</strong>, you’ll find the perfect fit in our collection. Each ottoman divan bed is designed not only to enhance your décor but also to maximise your storage space with its easy-lift mechanism and spacious under-bed compartment.With an ottoman divan storage bed, you can enjoy both elegance and functionality.</p>",
             "enlarge_text": false
           }
         }
       },
       "block_order": [
-        "heading_eNiMxF",
-        "text_BRcCqy"
+        "heading_w6MeJF",
+        "text_eT7Ycb"
       ],
-      "disabled": true,
+      "name": "Media with text",
       "settings": {
-        "image": "shopify://shop_images/honey.webp",
+        "image": "shopify://shop_images/HBottoman_Collection_Sizes.jpg",
         "video_external": "",
         "video_description": "",
         "video_autoplay": false,
@@ -371,7 +371,7 @@
         "video_external": "",
         "video_description": "",
         "video_autoplay": false,
-        "layout": "left",
+        "layout": "right",
         "image_fit": "contain",
         "media_width": 50,
         "media_scale": 100,
@@ -410,7 +410,6 @@
         "column_dc8mYx",
         "column_eTLVDy"
       ],
-      "disabled": true,
       "name": "years Warranty and express delivery",
       "settings": {
         "title": "Multi-column",
@@ -464,7 +463,7 @@
     "main",
     "details",
     "media_with_text_PCURw7",
-    "media_with_text_3ggUAP",
+    "media_with_text_pPG8Um",
     "media_with_text_WJWxa6",
     "multi_column_HYHnDL",
     "recommendations",
