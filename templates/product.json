@@ -267,6 +267,27 @@
       ],
       "settings": {}
     },
+    "image_banner_eTzjQn": {
+      "type": "image-banner",
+      "name": "Image banner",
+      "settings": {
+        "image_desktop": "shopify://shop_images/HEaven10.jpg",
+        "url": "",
+        "height_mode": "auto",
+        "fixed_height_desktop": 600,
+        "fixed_height_mobile": 350,
+        "overlay_position": "justify-center items-center",
+        "overlay_text_align": "text-center",
+        "mob_center_text": false,
+        "mobile_stacked": false,
+        "color_scheme": "white",
+        "full_width": true,
+        "transparent_content_color": "#ffffff",
+        "tint_color": "#000000",
+        "tint_opacity": 0,
+        "prevent_animation": false
+      }
+    },
     "media_with_text_PCURw7": {
       "type": "media-with-text",
       "blocks": {
@@ -501,6 +522,7 @@
   "order": [
     "main",
     "details",
+    "image_banner_eTzjQn",
     "media_with_text_PCURw7",
     "media_with_text_pPG8Um",
     "media_with_text_QCMnFx",
