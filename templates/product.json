@@ -272,6 +272,7 @@
       "name": "Image banner",
       "settings": {
         "image_desktop": "shopify://shop_images/HEaven10.jpg",
+        "image_mobile": "shopify://shop_images/Untitled_design_15.jpg",
         "url": "",
         "height_mode": "auto",
         "fixed_height_desktop": 600,
