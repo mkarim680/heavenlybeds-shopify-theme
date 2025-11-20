@@ -328,6 +328,7 @@
         "heading_eNiMxF",
         "text_BRcCqy"
       ],
+      "disabled": true,
       "settings": {
         "image": "shopify://shop_images/honey.webp",
         "video_external": "",
@@ -356,7 +357,7 @@
         "text_FnhRDX": {
           "type": "text",
           "settings": {
-            "text": "<p><a href=\"https://www.heavenlybeds.co.uk/\" target=\"_blank\" title=\"https://www.heavenlybeds.co.uk/\">Heavenlybeds</a> offers a collection of beds and bed frames that embody classic style and enduring quality. These bed frames are designed to last, featuring clean lines, neutral colours, and high-quality materials that complement any bedroom décor and maintain their appeal over time. The timeless style of these beds transcends passing trends, bringing elegance to any sleeping space. Choosing a Heavenlybeds timeless bed frame with a high headboard means investing in a piece of furniture that embodies the perfect balance between modern craftmanship and classic beauty, becoming a cherished part of your home for years to come.</p>",
+            "text": "<p><a href=\"https://www.heavenlybeds.co.uk/\" target=\"_blank\" title=\"https://www.heavenlybeds.co.uk/\"><strong>Heavenlybeds</strong></a> offers a collection of beds and bed frames that embody classic style and enduring quality. These bed frames are designed to last, featuring clean lines, neutral colours, and high-quality materials that complement any bedroom décor and maintain their appeal over time. The timeless style of these beds transcends passing trends, bringing elegance to any sleeping space. Choosing a Heavenlybeds timeless bed frame with a high headboard means investing in a piece of furniture that embodies the perfect balance between modern craftmanship and classic beauty, becoming a cherished part of your home for years to come.</p>",
             "enlarge_text": false
           }
         }
@@ -366,17 +367,63 @@
         "text_FnhRDX"
       ],
       "settings": {
-        "image": "shopify://shop_images/Blue-Mirror-Bed-Frame.png",
+        "image": "shopify://shop_images/HBottoman_Collection02.jpg",
         "video_external": "",
         "video_description": "",
         "video_autoplay": false,
-        "layout": "right",
+        "layout": "left",
         "image_fit": "contain",
         "media_width": 50,
         "media_scale": 100,
         "text_align": "text-start",
         "color_scheme": "none",
         "only_content_color_scheme": false
+      }
+    },
+    "multi_column_HYHnDL": {
+      "type": "multi-column",
+      "blocks": {
+        "column_dc8mYx": {
+          "type": "column",
+          "settings": {
+            "enable_media": true,
+            "media_scale": 100,
+            "heading": "Column",
+            "text": "<p>Pair text with an image to focus on a product, collection or blog post. Add details on availability, style, or even provide a review.</p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "column_eTLVDy": {
+          "type": "column",
+          "settings": {
+            "enable_media": true,
+            "media_scale": 100,
+            "heading": "2 Years Warranty",
+            "text": "<p>We offer a strong 2 years guarantee for our products, demonstrating our dedication to quality and customer satisfaction Our commitment reflects the confidence wehave in the durability and quality of our beds, <a href=\"https://www.heavenlybeds.co.uk/collections/bedframes-full-collection\" target=\"_blank\" title=\"https://www.heavenlybeds.co.uk/collections/bedframes-full-collection\">bed frames</a> and <a href=\"https://www.heavenlybeds.co.uk/collections/mattresses\" target=\"_blank\" title=\"https://www.heavenlybeds.co.uk/collections/mattresses\">mattresses </a>.</p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_dc8mYx",
+        "column_eTLVDy"
+      ],
+      "disabled": true,
+      "name": "years Warranty and express delivery",
+      "settings": {
+        "title": "Multi-column",
+        "heading_align": "text-start",
+        "button_label": "",
+        "button_link": "",
+        "layout": "grid",
+        "column_size": "medium",
+        "column_align": "center",
+        "media_align": "text-center",
+        "image_ratio": "1.77",
+        "color_scheme": "1",
+        "button_style": "btn btn--secondary"
       }
     },
     "recommendations": {
@@ -419,6 +466,7 @@
     "media_with_text_PCURw7",
     "media_with_text_3ggUAP",
     "media_with_text_WJWxa6",
+    "multi_column_HYHnDL",
     "recommendations",
     "custom_liquid_zbQWPt",
     "custom_liquid_Je8cD4"
