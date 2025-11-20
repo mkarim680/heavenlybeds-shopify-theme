@@ -343,6 +343,44 @@
         "only_content_color_scheme": false
       }
     },
+    "media_with_text_QCMnFx": {
+      "type": "media-with-text",
+      "blocks": {
+        "heading_B4D8J9": {
+          "type": "heading",
+          "settings": {
+            "heading": "Easy Assembly",
+            "heading_size": "h3",
+            "heading_h1": false
+          }
+        },
+        "text_byqa8C": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Our ottoman divan beds are designed for easy assembly, allowing you to set up your new storage bed with minimal effort. Each ottoman divan bed frame includes clear, step-by-step instructions and a straightforward, user-friendly design, ensuring you can assemble your bed quickly and confidently.</p>",
+            "enlarge_text": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_B4D8J9",
+        "text_byqa8C"
+      ],
+      "name": "Media with text",
+      "settings": {
+        "image": "shopify://shop_images/HB_Ulholstered_Collection_Content03.jpg",
+        "video_external": "",
+        "video_description": "",
+        "video_autoplay": false,
+        "layout": "right",
+        "image_fit": "contain",
+        "media_width": 50,
+        "media_scale": 100,
+        "text_align": "text-start",
+        "color_scheme": "none",
+        "only_content_color_scheme": false
+      }
+    },
     "media_with_text_WJWxa6": {
       "type": "media-with-text",
       "blocks": {
@@ -371,7 +409,7 @@
         "video_external": "",
         "video_description": "",
         "video_autoplay": false,
-        "layout": "right",
+        "layout": "left",
         "image_fit": "contain",
         "media_width": 50,
         "media_scale": 100,
@@ -465,6 +503,7 @@
     "details",
     "media_with_text_PCURw7",
     "media_with_text_pPG8Um",
+    "media_with_text_QCMnFx",
     "media_with_text_WJWxa6",
     "multi_column_HYHnDL",
     "recommendations",
