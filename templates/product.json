@@ -14,7 +14,9 @@
       "blocks": {
         "product-labels": {
           "type": "product-labels",
-          "settings": {}
+          "settings": {
+            "show_variant_icon": true
+          }
         },
         "title": {
           "type": "title",
@@ -45,6 +47,7 @@
           "settings": {
             "selector_style": "buttons",
             "enable_dynamic_availability": true,
+            "dynamic_availability_downwards": false,
             "show_backorder_text": true,
             "enable_size_chart": false,
             "size_chart_variant": "Size",
@@ -135,7 +138,11 @@
         "share": {
           "type": "share",
           "disabled": true,
-          "settings": {}
+          "settings": {
+            "show_twitter": true,
+            "show_facebook": true,
+            "show_pinterest": true
+          }
         },
         "klarna_on_site_messaging_app_block_UxfP6F": {
           "type": "shopify://apps/klarna-on-site-messaging/blocks/app-block/b95936a9-74b6-4a95-8103-6a1b6459c25e",
@@ -173,6 +180,7 @@
       ],
       "settings": {
         "stick_on_scroll": false,
+        "select_first_variant": true,
         "sticky_atc_panel": false,
         "sticky_atc_position": "end",
         "sticky_atc_mobile": true,
@@ -180,15 +188,19 @@
         "media_size": "default",
         "media_ratio": "1",
         "media_crop": "none",
-        "hover_zoom": "large",
         "enable_video_looping": false,
+        "enable_zoom": true,
+        "zoom_mode": "hover",
+        "enable_lightbox_mobile": false,
+        "hover_zoom": "large",
         "stacked_scroll": "always",
         "underline_active": true,
-        "media_thumbs": "desktop",
-        "thumb_ratio": "1",
-        "thumb_crop": "none",
         "media_arrows": "desktop",
         "show_slide_count": true,
+        "media_thumbs": "desktop",
+        "lightbox_thumbnails": true,
+        "thumb_ratio": "1",
+        "thumb_crop": "none",
         "border_color": "#eeeeee",
         "bg_color": "#f4f4f4",
         "enable_media_grouping": false,
@@ -254,6 +266,44 @@
         "payment-methods"
       ],
       "settings": {}
+    },
+    "media_with_text_PCURw7": {
+      "type": "media-with-text",
+      "blocks": {
+        "heading_nYhEmP": {
+          "type": "heading",
+          "settings": {
+            "heading": "Storage Options",
+            "heading_size": "h3",
+            "heading_h1": false
+          }
+        },
+        "text_iBDipJ": {
+          "type": "text",
+          "settings": {
+            "text": "<p><br/>The <strong>Ottoman Divan Gas Lift Storage</strong> is a stylish and practical solution for your bedroom. This versatile <strong>divan gas lift storage</strong> bed features a smooth gas lift mechanism, providing easy access to hidden storage space underneath the bed. Available in <strong>king size</strong> and <strong>super king size</strong>, this <a href=\"https://www.heavenlybeds.co.uk/collections/beds-with-storage-new\" target=\"_blank\"><strong>bed with storage</strong></a> offers ample space for all your belongings. Say goodbye to clutter with the ultimate storage solution in a <strong>divan gas lift</strong> bed frame.</p>",
+            "enlarge_text": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_nYhEmP",
+        "text_iBDipJ"
+      ],
+      "name": "Media with text",
+      "settings": {
+        "image": "shopify://shop_images/HBottoman_Collection01.jpg",
+        "video_external": "",
+        "video_description": "",
+        "video_autoplay": false,
+        "layout": "right",
+        "image_fit": "contain",
+        "media_width": 50,
+        "media_scale": 100,
+        "text_align": "text-start",
+        "color_scheme": "none",
+        "only_content_color_scheme": false
+      }
     },
     "media_with_text_3ggUAP": {
       "type": "media-with-text",
@@ -366,6 +416,7 @@
   "order": [
     "main",
     "details",
+    "media_with_text_PCURw7",
     "media_with_text_3ggUAP",
     "media_with_text_WJWxa6",
     "recommendations",
