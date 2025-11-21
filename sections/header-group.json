@@ -16,7 +16,6 @@
       "blocks": {
         "announcement-1": {
           "type": "announcement",
-          "disabled": true,
           "settings": {
             "text": "<p>* Spend £499+ and Get £50 off Use Code: <strong>COUNTDOWN50 </strong>*  Sale Ends <strong>1st Dec Midnight *</strong></p>"
           }
