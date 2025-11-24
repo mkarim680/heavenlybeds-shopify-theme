@@ -94,7 +94,7 @@
           "type": "custom-liquid",
           "name": "Recycle",
           "settings": {
-            "custom_liquid": "<div class=\"outlined-box\">\n                  <img src=\"https://cdn.shopify.com/s/files/1/0381/5735/3098/files/hd-green-recycling-icon.png?v=1754210418\" alt=\"Image\" class=\"image\">\n                  <span class=\"text\">Recycle your old bed.\n</span>\n                  <button id=\"recycle-add-to-cart\" class=\"custom-cart-btn button\">Add + £99.99</button>\n              </div>"
+            "custom_liquid": "<div class=\"outlined-box\">\n                  <img src=\"https://cdn.shopify.com/s/files/1/0381/5735/3098/files/hd-green-recycling-icon.png?v=1754210418\" alt=\"Image\" class=\"image\">\n                  <span class=\"text\">Recycle your old bed.\n</span>\n                  <button id=\"recycle-add-to-cart\" class=\"custom-cart-btn button\">Add + £79.99</button>\n              </div>"
           }
         },
         "custom_liquid_M7T4jM": {
