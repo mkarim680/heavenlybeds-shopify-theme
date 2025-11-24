@@ -23,7 +23,9 @@
         },
         "product-labels": {
           "type": "product-labels",
-          "settings": {}
+          "settings": {
+            "show_variant_icon": true
+          }
         },
         "title": {
           "type": "title",
@@ -54,6 +56,7 @@
           "settings": {
             "selector_style": "buttons",
             "enable_dynamic_availability": true,
+            "dynamic_availability_downwards": false,
             "show_backorder_text": true,
             "enable_size_chart": false,
             "size_chart_variant": "Size",
@@ -91,7 +94,7 @@
           "type": "custom-liquid",
           "name": "Recycle",
           "settings": {
-            "custom_liquid": "<div class=\"outlined-box\">\n                  <img src=\"https://cdn.shopify.com/s/files/1/0381/5735/3098/files/hd-green-recycling-icon.png?v=1754210418\" alt=\"Image\" class=\"image\">\n                  <span class=\"text\">Recycle your old bed.\n</span>\n                  <button id=\"recycle-add-to-cart\" class=\"custom-cart-btn button\">Add + £99.99</button>\n              </div>"
+            "custom_liquid": "<div class=\"outlined-box\">\n                  <img src=\"https://cdn.shopify.com/s/files/1/0381/5735/3098/files/hd-green-recycling-icon.png?v=1754210418\" alt=\"Image\" class=\"image\">\n                  <span class=\"text\">Recycle your old bed.\n</span>\n                  <button id=\"recycle-add-to-cart\" class=\"custom-cart-btn button\">Add + £79.99</button>\n              </div>"
           }
         },
         "custom_liquid_NJwpUR": {
@@ -181,7 +184,11 @@
         "share": {
           "type": "share",
           "disabled": true,
-          "settings": {}
+          "settings": {
+            "show_twitter": true,
+            "show_facebook": true,
+            "show_pinterest": true
+          }
         },
         "message-3": {
           "type": "message",
@@ -226,6 +233,7 @@
       ],
       "settings": {
         "stick_on_scroll": true,
+        "select_first_variant": true,
         "sticky_atc_panel": false,
         "sticky_atc_position": "end",
         "sticky_atc_mobile": true,
@@ -233,15 +241,19 @@
         "media_size": "default",
         "media_ratio": "1",
         "media_crop": "none",
-        "hover_zoom": "large",
         "enable_video_looping": false,
+        "enable_zoom": true,
+        "zoom_mode": "hover",
+        "enable_lightbox_mobile": false,
+        "hover_zoom": "large",
         "stacked_scroll": "always",
         "underline_active": true,
-        "media_thumbs": "desktop",
-        "thumb_ratio": "1",
-        "thumb_crop": "none",
         "media_arrows": "desktop",
         "show_slide_count": true,
+        "media_thumbs": "desktop",
+        "lightbox_thumbnails": true,
+        "thumb_ratio": "1",
+        "thumb_crop": "none",
         "border_color": "#eeeeee",
         "bg_color": "#f4f4f4",
         "enable_media_grouping": false,
