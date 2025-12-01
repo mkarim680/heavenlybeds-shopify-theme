@@ -16,13 +16,13 @@
       "blocks": {
         "announcement-1": {
           "type": "announcement",
-          "disabled": true,
           "settings": {
-            "text": "<p>* Spend £499+ and Get £50 off Use Code: <strong>COUNTDOWN50 </strong>*  Sale Ends <strong>1st Dec Midnight *</strong></p>"
+            "text": "<p>* Spend £599+ and Get 10% off Use Code: <strong>WINTER10 </strong>*  Sale Ends <strong>15th Dec Midnight *</strong></p>"
           }
         },
         "announcement_McQNVW": {
           "type": "announcement",
+          "disabled": true,
           "settings": {
             "text": "<p>* Spend £899+ and Get £100 off Use Code: <strong>COUNTDOWN100 </strong>*  Sale Ends <strong>1st Dec Midnight *</strong></p>"
           }
@@ -30,7 +30,7 @@
         "announcement-2": {
           "type": "announcement",
           "settings": {
-            "text": "<p>* Spend £1299+ and Get £250 off Use Code: <strong>COUNTDOWN250 </strong>*  Sale Ends <strong>1st Dec Midnight *</strong></p>"
+            "text": "<p>* Spend £1299+ and Get 15% off Use Code: <strong>WINTER15 </strong>*  Sale Ends <strong>15th Dec Midnight *</strong></p>"
           }
         }
       },
