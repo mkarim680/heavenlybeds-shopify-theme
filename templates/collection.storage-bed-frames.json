@@ -81,6 +81,7 @@
         "logo_JXhL6m",
         "logo_PFxFmF"
       ],
+      "disabled": true,
       "custom_css": [
         ".section--padded,.section--padded-default {padding: 20px;}",
         ",.pt-4 pb-0 {font-size: 15px;}",
@@ -117,6 +118,11 @@
         "expand_filters": true,
         "max_filter_options": 7,
         "enable_sorting": true,
+        "sort_show_featured": false,
+        "sort_show_best": true,
+        "sort_show_alpha": true,
+        "sort_show_price": true,
+        "sort_show_date": true,
         "sort_first": true
       }
     },
