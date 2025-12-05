@@ -47,7 +47,7 @@
     "heading_scale_start": "4",
     "body_font": "dm_sans_n4",
     "navigation_font": "dm_sans_n5",
-    "max_page_width": 1260,
+    "max_page_width": 1950,
     "section_gap": "32",
     "input_button_border_width": "1",
     "input_button_border_radius": 26,
@@ -135,7 +135,7 @@
     "free_shipping_color_scheme": "none",
     "animations_enabled": "mobile_desktop",
     "favicon": "shopify://shop_images/KS_OL_Heavenly_Beds_FinalFiles_5679dc1f-4409-4559-abc1-f8706dea1f63.png",
-    "image_quality": "1",
+    "image_quality": "1.25",
     "show_blur_messages": true,
     "blur_message_delay": 4,
     "vibrate_on_atc": true,
@@ -205,24 +205,6 @@
         "type": "shopify://apps/xo-gallery/blocks/xo-gallery-seo/e61dfbaa-1a75-4e4e-bffc-324f17325251",
         "disabled": true,
         "settings": {}
-      },
-      "7974659707553285070": {
-        "type": "shopify://apps/quotify/blocks/app-embed/e72a6125-4dd6-4154-a361-ca94e10e6d52",
-        "disabled": false,
-        "settings": {}
-      },
-      "15562191488504292397": {
-        "type": "shopify://apps/quotify/blocks/sticky-cart-button/e72a6125-4dd6-4154-a361-ca94e10e6d52",
-        "disabled": false,
-        "settings": {
-          "floating_quote_cart_button_text": "Show Quote Cart",
-          "floating_quote_cart_button_background_color": "#ffffff",
-          "floating_quote_cart_button_text_color": "#000000",
-          "floating_quote_cart_button_border_color": "#000000",
-          "floating_quote_cart_button_padding": 10,
-          "floating_quote_cart_button_border_radius": 4,
-          "floating_quote_cart_button_css": ""
-        }
       }
     }
   },

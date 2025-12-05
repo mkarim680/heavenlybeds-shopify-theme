@@ -97,10 +97,49 @@
       ],
       "disabled": true,
       "settings": {}
+    },
+    "pop_up_awdjzV": {
+      "type": "pop-up",
+      "blocks": {
+        "newsletter_signup_MbK3cA": {
+          "type": "newsletter-signup",
+          "settings": {}
+        },
+        "image_RKN8dN": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Don_t_MAke_4.jpg",
+            "image_position_desktop": "top",
+            "image_position_mobile": "top"
+          }
+        }
+      },
+      "block_order": [
+        "newsletter_signup_MbK3cA",
+        "image_RKN8dN"
+      ],
+      "name": "Pop-up",
+      "settings": {
+        "trigger": "delay",
+        "delay": 5,
+        "show_to_guests_only": true,
+        "show_on_mobile": true,
+        "dismiss_days": 30,
+        "position": "justify-center items-center",
+        "text_align": "text-center",
+        "padding": "medium",
+        "shrink_width": false,
+        "heading_color": "#f26a52",
+        "text_color": "#f4f4f4",
+        "bg_color": "#f4f4f4",
+        "bg_grad": "radial-gradient(rgba(242, 106, 82, 1), rgba(242, 106, 82, 1) 100%)",
+        "tint_opacity": 0
+      }
     }
   },
   "order": [
     "cart-drawer",
-    "product-compare"
+    "product-compare",
+    "pop_up_awdjzV"
   ]
 }
