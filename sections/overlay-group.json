@@ -118,6 +118,7 @@
         "newsletter_signup_MbK3cA",
         "image_RKN8dN"
       ],
+      "disabled": true,
       "name": "Pop-up",
       "settings": {
         "trigger": "delay",
